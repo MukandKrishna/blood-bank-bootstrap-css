@@ -1,32 +1,40 @@
 const express = require('express');
+const dotenv = require('dotenv');
+const colors = require('colors');
+const morgan = require('morgan');
+const cors = require('cors');
+const connectDB = require("./config/db");
+
+//dot config
+dotenv.config();
+
+//mongodb connection
+connectDB();
 
  // rest object 
 const app = express(); // all funcionalities are added in this app varaible
 
-
-// routes
-// 1 test route 
-// app.get('/', (req, res) => {
-//     res.status(200).json({
-//         message: "Welcome to Blood Bank App",
-//     })
-// })
-//  will take response and send back to the client/user, will handle middleware separately
-
-// e.g: http://localhost:3000/
+// middlewares
+app.use(express.json()); // to parse json data
+app.use(cors()); // to connect react app and nodejs app
+app.use(morgan('dev')); // to log the request in the console
 
 // Define a route for the root URL
 
 app.use('/api/v1/test', require('./routes/testRoutes'));
 
 //PORT
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 // Listen
 // and callback function to handle the response
+//listen
 app.listen(PORT, () => {
-    console.log(`Server is running on PORT ${PORT}`);
-})
+    console.log(
+      `Node Server Running In ${process.env.DEV_MODE} ModeOn Port ${process.env.PORT}`
+        .bgBlue.white
+    );
+  });
 
 
 

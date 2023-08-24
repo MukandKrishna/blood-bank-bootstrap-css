@@ -7,4 +7,8 @@ const testController = (req,res) =>{
     });
 };
 
+//  will take response and send back to the client/user, will handle middleware separately
+
+// e.g: http://localhost:3000/
+
 module.exports = { testController };
