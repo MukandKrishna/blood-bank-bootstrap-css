@@ -22,6 +22,8 @@ app.use(morgan('dev')); // to log the request in the console
 // Define a route for the root URL
 
 app.use('/api/v1/test', require('./routes/testRoutes'));
+app.use('/api/v1/auth', require('./routes/authRoutes'));
+
 
 //PORT
 const PORT = process.env.PORT || 8000;
