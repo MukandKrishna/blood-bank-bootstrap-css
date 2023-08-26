@@ -11,6 +11,7 @@
 // export default Register
 
 import React from "react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 const Registration = () => {
   return (
@@ -24,16 +25,18 @@ const Registration = () => {
     >
       <div className="card p-4">
         <form>
+        <h2 className="text-left mb-4">Register</h2>
+        <hr className="mb-2" /> {/* Add a separating line */}
           <div className="row mb-3">
             <div className="col">
               <label htmlFor="name" className="form-label">
-                Name <span className="text-danger">*</span>:
+                Name<span className="text-danger">*</span>
               </label>
               <input type="text" className="form-control" id="name" required />
             </div>
             <div className="col">
               <label htmlFor="fatherName" className="form-label">
-                Father's Name <span className="text-danger">*</span>:
+                Father's Name<span className="text-danger">*</span>
               </label>
               <input
                 type="text"
@@ -46,13 +49,13 @@ const Registration = () => {
           <div className="row mb-3">
             <div className="col">
               <label htmlFor="nukh" className="form-label">
-                Nukh <span className="text-danger">*</span>:
+                Nukh<span className="text-danger">*</span>
               </label>
               <input type="text" className="form-control" id="nukh" required />
             </div>
             <div className="col">
               <label htmlFor="akkah" className="form-label">
-                Akkah <span className="text-danger">*</span>:
+                Akkah<span className="text-danger">*</span>
               </label>
               <input type="text" className="form-control" id="akkah" required />
             </div>
@@ -60,7 +63,7 @@ const Registration = () => {
           <div className="row mb-3">
             <div className="col">
               <label htmlFor="contact" className="form-label">
-                Contact <span className="text-danger">*</span>:
+                Contact<span className="text-danger">*</span>
               </label>
               <input
                 type="text"
@@ -71,7 +74,7 @@ const Registration = () => {
             </div>
             <div className="col">
               <label htmlFor="bloodGroup" className="form-label">
-                Blood Group <span className="text-danger">*</span>:
+                Blood Group<span className="text-danger">*</span>
               </label>
               <input
                 type="text"
@@ -84,13 +87,13 @@ const Registration = () => {
           <div className="row mb-3">
             <div className="col">
               <label htmlFor="email" className="form-label">
-                Email:
+                Email<span className="text-danger">*</span>
               </label>
-              <input type="email" className="form-control" id="email" />
+              <input type="email" className="form-control" id="email" required />
             </div>
             <div className="col">
               <label htmlFor="password" className="form-label">
-                Password <span className="text-danger">*</span>:
+                Password<span className="text-danger">*</span>
               </label>
               <input
                 type="password"
@@ -103,9 +106,13 @@ const Registration = () => {
           <div className="row justify-content-center">
             <div className="col-auto">
               <button type="submit" className="btn btn-primary">
-                Submit
+                Register
               </button>
             </div>
+          </div>
+          <div className="text-center mt-3">
+            {/* Link to the login  page */}
+            <Link to="/login">Already have an account? Login</Link>
           </div>
         </form>
       </div>

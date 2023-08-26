@@ -43,16 +43,21 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: [true, "password is requied"],
     },
-    website: {
+    nukh: {
       type: String,
+      required: [true, "nukh is requied"],
     },
-    address: {
+    akaah: {
       type: String,
-      required: [true, "address is required"],
+      required: [true, "akkah is requied"],
     },
-    phone: {
+    Bloodgroup: {
       type: String,
-      required: [true, "phone number is required"],
+      required: [true, "Blood Group is required"],
+    },
+    contact: {
+      type: String,
+      required: [true, "contact is required"],
     },
   },
   { timestamps: true }

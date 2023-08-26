@@ -102,6 +102,8 @@ const Login = () => {
     >
       <div className="card p-4">
         <form>
+        <h2 className="text-left">Login</h2>
+        <hr className="mb-2" /> {/* Add a separating line */}
           <div className="mb-3">
             <label htmlFor="email" className="form-label">
               Email:
@@ -123,7 +125,7 @@ const Login = () => {
           </div>
           <div className="text-center mt-3">
             {/* Link to the registration page */}
-            <Link to="/register">Don't have an account? Register here</Link>
+            <Link to="/register">Don't have an account? Register</Link>
           </div>
         </form>
       </div>
