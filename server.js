@@ -23,6 +23,7 @@ app.use(morgan('dev')); // to log the request in the console
 
 app.use('/api/v1/test', require('./routes/testRoutes'));
 app.use('/api/v1/auth', require('./routes/authRoutes'));
+app.use('/api/v1/inventory', require('./routes/inventoryRoutes'));
 
 
 //PORT
