@@ -132,7 +132,7 @@ export default HidingForm;
 
 import React, { useState } from "react";
 
-const HidingForm = () => {
+const App = () => {
   const [isSuccessPopupOpen, setIsSuccessPopupOpen] = useState(false);
 
   const handleSubmit = (e) => {
@@ -143,13 +143,13 @@ const HidingForm = () => {
 
   return (
     <div
-      className="d-flex vh-100 justify-content-center align-items-center"
+      className="d-flex vh-100 justify-content-center align-items-center scrollboy"
       style={{
-        backgroundColor: "pink",
+        backgroundColor: "blue",
         position: "relative",
       }}
     >
-      <div className="card p-4">
+      <div className="card p-4" style={{ maxHeight: "500px", overflow: "auto" }}>
         <form onSubmit={handleSubmit}>
           <h2 className="text-left mb-4">Name Hiding Form</h2>
           <hr className="mb-2" />
@@ -166,30 +166,33 @@ const HidingForm = () => {
                 required
               />
             </div>
-            <div className="mb-3 d-flex ml-3 ml-4 align-items-center">
-              <label htmlFor="fatherName" className="form-label mr-2">
-                <span className="text-danger">*</span>Father's Name:
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="fatherName"
-                placeholder="Enter your father's name"
-                required
-              />
-            </div>
             <div className="mb-3 d-flex align-items-center">
-              <label htmlFor="bloodGroup" className="form-label mr-2">
-                <span className="text-danger">*</span>Blood Group:
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="bloodGroup"
-                placeholder="Enter your blood group"
-                required
-              />
+              <div className="mr-2">
+                <label htmlFor="fatherName" className="form-label">
+                  <span className="text-danger">*</span>Father's Name:
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="fatherName"
+                  placeholder="Enter your father's name"
+                  required
+                />
+              </div>
+              <div className="mr-2">
+                <label htmlFor="bloodGroup" className="form-label">
+                  <span className="text-danger">*</span>Blood Group:
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="bloodGroup"
+                  placeholder="Enter your blood group"
+                  required
+                />
+              </div>
             </div>
+
             <div className="mb-3 d-flex align-items-center">
               <label htmlFor="nukh" className="form-label mr-2">
                 <span className="text-danger">*</span>Nukh:
@@ -274,4 +277,4 @@ const HidingForm = () => {
   );
 };
 
-export default HidingForm;
+export default App;
