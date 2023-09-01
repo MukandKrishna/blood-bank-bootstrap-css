@@ -14,12 +14,10 @@ const Form = ({ formType, submitBtn, formTitle }) => {
   const [bloodgroup, setBloodGroup] = useState("");
   const [akaah, setAkaah] = useState("");
   const [contact, setContact] = useState("");
-
   return (
     <div>
       <form
         onSubmit={(e) => {
-          e.preventDefault();
           if (formType === "login")
             return handleLogin(e, email, password, role);
           else if (formType === "register")
@@ -49,6 +47,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
               id="donarRadio"
               value={"donar"}
               onChange={(e) => setRole(e.target.value)}
+              defaultChecked
             />
             <label htmlFor="adminRadio" className="form-check-label">
               Donar
@@ -94,7 +93,6 @@ const Form = ({ formType, submitBtn, formTitle }) => {
             </label>
           </div>
         </div>
-
         {/* switch statement */}
         {(() => {
           //eslint-disable-next-line
