@@ -23,14 +23,14 @@ const Form = ({ formType, submitBtn, formTitle }) => {
           else if (formType === "register")
             return handleRegister(
               e,
+              name,
               email,
               password,
               role,
-              name,
-              contact,
               organisationName,
               hospitalName,
               nukh,
+              contact,
               bloodgroup,
               akaah
             );

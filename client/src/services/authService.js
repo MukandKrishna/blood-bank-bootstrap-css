@@ -21,10 +21,10 @@ export const handleRegister = (
   email,
   password,
   role,
-  contact,
   organisationName,
   hospitalName,
   nukh,
+  contact,
   bloodgroup,
   akaah
 ) => {
@@ -36,10 +36,10 @@ export const handleRegister = (
         email,
         password,
         role,
-        contact,
         organisationName,
         hospitalName,
         nukh,
+        contact,
         bloodgroup,
         akaah,
       })
