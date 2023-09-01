@@ -29,7 +29,7 @@ const registerController = async (req, res) => {
     res.status(500).send({
       success: false,
       message: "Error in the Register API",
-      error,
+      err,
     });
   }
 };

@@ -1,5 +1,5 @@
 import store from '../redux/store'
-import { userLogin } from '../redux/features/auth/authActions';
+import { userLogin , userRegister} from '../redux/features/auth/authActions';
 
 export const handleLogin = (e, email, password, role) => {
     e.preventDefault();
@@ -18,33 +18,31 @@ export const handleLogin = (e, email, password, role) => {
 
 export const handleRegister = ( 
     e,
+    name,
     email,
     password,
     role,
-    name,
     organisationName,
     hospitalName,
     nukh,
     bloodgroup,
     akaah) => {
         e.preventDefault();
-        try{
-            if (!role || !email || !password) {
-                return alert("Please Privde All Feilds");
-            }
-            console.log("Register =>", 
-            e,
-            email,
-            password,
-            role,
-            name,
-            organisationName,
-            hospitalName,
-            nukh,
-            bloodgroup,
-            akaah);
+        try {
+          store.dispatch(
+            userRegister({
+                name,
+                email,
+                password,
+                role,
+                organisationName,
+                hospitalName,
+                nukh,
+                bloodgroup,
+                akaah
+            })
+          );
+        } catch (error) {
+          console.log(error);
         }
-        catch(err){
-            console.log(err);
-        }
-    };
+      };

@@ -13,11 +13,13 @@ const Form = ({ formType, submitBtn, formTitle }) => {
   const [nukh, setNukh] = useState("");
   const [bloodgroup, setBloodGroup] = useState("");
   const [akaah, setAkaah] = useState("");
+  const [contact, setContact] = useState("");
 
   return (
     <div>
       <form
         onSubmit={(e) => {
+          e.preventDefault();
           if (formType === "login")
             return handleLogin(e, email, password, role);
           else if (formType === "register")
@@ -27,6 +29,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
               password,
               role,
               name,
+              contact,
               organisationName,
               hospitalName,
               nukh,
@@ -100,7 +103,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
               return (
                 <>
                   <InputType
-                    labelText={"email"}
+                    labelText={"Email"}
                     labelFor={"forEmail"}
                     inputType={"email"}
                     name={"email"}
@@ -155,7 +158,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                   )}
 
                   <InputType
-                    labelText={"email"}
+                    labelText={"Email"}
                     labelFor={"forEmail"}
                     inputType={"email"}
                     name={"email"}
@@ -185,6 +188,14 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                     name={"akaah"}
                     value={akaah}
                     onChange={(e) => setAkaah(e.target.value)}
+                  />
+                  <InputType
+                    labelText={"Contact"}
+                    labelFor={"forContact"}
+                    inputType={"text"}
+                    name={"contact"}
+                    value={contact}
+                    onChange={(e) => setContact(e.target.value)}
                   />
                   <InputType
                     labelText={"Blood Group"}
