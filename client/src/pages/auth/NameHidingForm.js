@@ -145,17 +145,25 @@ const App = () => {
     <div
       className="d-flex vh-100 justify-content-center align-items-center scrollboy"
       style={{
-        backgroundColor: "blue",
+        backgroundColor: "pink",
         position: "relative",
       }}
     >
-      <div className="card p-4" style={{ maxHeight: "500px", overflow: "auto" }}>
+      <div
+        className="card p-4"
+        style={{
+          maxWidth: "450px",
+          maxHeight: "300px",
+          width: "100%",
+          overflow: "auto",
+        }}
+      >
         <form onSubmit={handleSubmit}>
           <h2 className="text-left mb-4">Name Hiding Form</h2>
           <hr className="mb-2" />
           <div className="scrollable-form">
             <div className="mb-3 d-flex align-items-center">
-              <label htmlFor="name" className="form-label mr-2">
+              <label htmlFor="name" className="form-label mr-2" style={{ width: "80px" }}>
                 <span className="text-danger">*</span>Name:
               </label>
               <input
@@ -167,34 +175,32 @@ const App = () => {
               />
             </div>
             <div className="mb-3 d-flex align-items-center">
-              <div className="mr-2">
-                <label htmlFor="fatherName" className="form-label">
-                  <span className="text-danger">*</span>Father's Name:
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="fatherName"
-                  placeholder="Enter your father's name"
-                  required
-                />
-              </div>
-              <div className="mr-2">
-                <label htmlFor="bloodGroup" className="form-label">
-                  <span className="text-danger">*</span>Blood Group:
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="bloodGroup"
-                  placeholder="Enter your blood group"
-                  required
-                />
-              </div>
+              <label htmlFor="name" className="form-label mr-2" style={{ width: "180px" }}>
+                <span className="text-danger">*</span>Father's Name:
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="name"
+                placeholder="Enter your father's name"
+                required
+              />
+            </div>
+            <div className="mb-3 d-flex align-items-center">
+              <label htmlFor="name" className="form-label mr-2" style={{ width: "180px" }}>
+                <span className="text-danger">*</span>Blood Group:
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="name"
+                placeholder="Enter your blood group"
+                required
+              />
             </div>
 
             <div className="mb-3 d-flex align-items-center">
-              <label htmlFor="nukh" className="form-label mr-2">
+              <label htmlFor="nukh" className="form-label mr-2" style={{ width: "80px" }}>
                 <span className="text-danger">*</span>Nukh:
               </label>
               <input
@@ -206,7 +212,7 @@ const App = () => {
               />
             </div>
             <div className="mb-3 d-flex align-items-center">
-              <label htmlFor="akkah" className="form-label mr-2">
+              <label htmlFor="akkah" className="form-label mr-2" style={{ width: "80px" }}>
                 <span className="text-danger">*</span>Akkah:
               </label>
               <input
@@ -218,7 +224,7 @@ const App = () => {
               />
             </div>
             <div className="mb-3 d-flex align-items-center">
-              <label htmlFor="contact" className="form-label mr-2">
+              <label htmlFor="contact" className="form-label mr-2" style={{ width: "85px" }}>
                 <span className="text-danger">*</span>Contact:
               </label>
               <input
@@ -230,7 +236,7 @@ const App = () => {
               />
             </div>
             <div className="mb-3 d-flex align-items-center">
-              <label htmlFor="email" className="form-label mr-2">
+              <label htmlFor="email" className="form-label mr-2" style={{ width: "80px" }}>
                 <span className="text-danger">*</span>Email:
               </label>
               <input
@@ -243,11 +249,9 @@ const App = () => {
             </div>
           </div>
           <div className="row justify-content-center">
-            <div className="col-auto">
-              <button type="submit" className="btn btn-primary">
-                Submit
-              </button>
-            </div>
+            <button className="btn btn-primary" type="submit">
+              Submit
+            </button>
           </div>
         </form>
       </div>

@@ -2,18 +2,26 @@ import React, { useState } from "react";
 import InputType from "./InputType";
 import { Link } from "react-router-dom";
 import { handleLogin, handleRegister } from "../../../services/authService";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css"; // Import the default styles
 
 const Form = ({ formType, submitBtn, formTitle }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("donar");
   const [name, setName] = useState("");
-  const [organisationName, setOrganisationName] = useState("");
-  const [hospitalName, setHospitalName] = useState("");
-  const [nukh, setNukh] = useState("");
+  const [fname, setfName] = useState("");
+  const [dob, setDob] = useState("");
   const [bloodgroup, setBloodGroup] = useState("");
+
+  // const [organisationName, setOrganisationName] = useState("");
+  // const [hospitalName, setHospitalName] = useState("");
+  const [nukh, setNukh] = useState("");
   const [akaah, setAkaah] = useState("");
   const [contact, setContact] = useState("");
+  const [currentcity, setCity] = useState("");
+  const [nativetown, setTown] = useState("");
+
   return (
     <div>
       <form
@@ -24,15 +32,19 @@ const Form = ({ formType, submitBtn, formTitle }) => {
             return handleRegister(
               e,
               name,
+              fname,
+              dob,
+              bloodgroup,
               email,
               password,
               role,
-              organisationName,
-              hospitalName,
               nukh,
               contact,
-              bloodgroup,
-              akaah
+              akaah,
+              currentcity,
+              nativetown,
+              // organisationName,
+              // hospitalName,
             );
         }}
       >
@@ -66,7 +78,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
               Admin
             </label>
           </div>
-          <div className="form-check ms-2">
+          {/* <div className="form-check ms-2">
             <input
               type="radio"
               className="form-check-input"
@@ -91,7 +103,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
             <label htmlFor="organisationRadio" className="form-check-label">
               Organisation
             </label>
-          </div>
+          </div> */}
         </div>
         {/* switch statement */}
         {(() => {
@@ -134,7 +146,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                     />
                   )}
 
-                  {role === "organisation" && (
+                  {/* {role === "organisation" && (
                     <InputType
                       labelText={"Organisation Name"}
                       labelFor={"fororganisationName"}
@@ -152,17 +164,9 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                       name={"hospitalName"}
                       value={hospitalName}
                       onChange={(e) => setHospitalName(e.target.value)}
-                    />
-                  )}
+                    /> }
+                  )*/}
 
-                  <InputType
-                    labelText={"Email"}
-                    labelFor={"forEmail"}
-                    inputType={"email"}
-                    name={"email"}
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
                   <InputType
                     labelText={"Password"}
                     labelFor={"forPassword"}
@@ -170,6 +174,51 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                     name={"password"}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                  />
+                  <InputType
+                    labelText={"Father's Name"}
+                    labelFor={"forfname"}
+                    inputType={"text"}
+                    name={"fname"}
+                    value={fname}
+                    onChange={(e) => setfName(e.target.value)}
+                  />
+                  <div className="mb-3 d-flex align-items-center">
+                    <label htmlFor="dob" className="form-label mr-2">
+                      <span className="text-danger">*</span>Date of Birth:
+                    </label>
+                    <DatePicker
+                      selected={dob} // Pass the selected date
+                      onChange={(date) => setDob(date)} // Handle date selection
+                      id="dob"
+                      className="form-control"
+                      placeholderText="Date of birth" // Placeholder text
+                      required
+                    />
+                  </div>
+                    <InputType
+                      labelText={"Blood Group"}
+                      labelFor={"forBloodGroup"}
+                      inputType={"text"}
+                      name={"bloodgroup"}
+                      value={bloodgroup}
+                      onChange={(e) => setBloodGroup(e.target.value)}
+                    />
+                  <InputType
+                    labelText={"Native Town"}
+                    labelFor={"fortown"}
+                    inputType={"text"}
+                    name={"nativetown"}
+                    value={nativetown}
+                    onChange={(e) => setTown(e.target.value)}
+                  />
+                  <InputType
+                    labelText={"Current City"}
+                    labelFor={"forCity"}
+                    inputType={"text"}
+                    name={"currentcity"}
+                    value={currentcity}
+                    onChange={(e) => setCity(e.target.value)}
                   />
                   <InputType
                     labelText={"Nukh"}
@@ -196,13 +245,14 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                     onChange={(e) => setContact(e.target.value)}
                   />
                   <InputType
-                    labelText={"Blood Group"}
-                    labelFor={"forBloodGroup"}
-                    inputType={"text"}
-                    name={"bloodgroup"}
-                    value={bloodgroup}
-                    onChange={(e) => setBloodGroup(e.target.value)}
+                    labelText={"Email"}
+                    labelFor={"forEmail"}
+                    inputType={"email"}
+                    name={"email"}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
+
                 </>
               );
             }
@@ -212,7 +262,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
         <div className="d-flex flex-row justify-content-between">
           {formType === "login" ? (
             <p>
-              Not registerd yet ? Register
+              Not registered yet ? Register
               <Link to="/register"> Here !</Link>
             </p>
           ) : (
@@ -221,6 +271,8 @@ const Form = ({ formType, submitBtn, formTitle }) => {
               <Link to="/login"> Login !</Link>
             </p>
           )}
+        </div>
+        <div className="row justify-content-center">
           <button className="btn btn-primary" type="submit">
             {submitBtn}
           </button>

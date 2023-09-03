@@ -17,18 +17,17 @@ import Form from "../../components/Shared/Form/Form"; // Import Form from Form.j
 const Register = () => {
   return (
     <div
-      className="d-flex vh-100 justify-content-center align-items-center"
+    className="d-flex vh-100 justify-content-center align-items-center scrollboy"
       style={{ backgroundColor: "pink", position: "relative" }}
     >
-      <div className="card p-4">
+      <div className="card p-4" style={{maxWidth: "500px", width: "100%",  maxHeight: "375px", overflow: "auto" }}>
         <Form
           formTitle={"Registration Page"}
-          submitBtn={"Register"}
+          submitBtn={"Submit"}
           formType={"register"}
         />
       </div>
     </div>
   );
 };
-
-export default Register;
+export default Register;   
