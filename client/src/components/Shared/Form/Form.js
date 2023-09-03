@@ -48,7 +48,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
             );
         }}
       >
-        <h1 className="text-left">{formTitle}</h1>
+        <h1 className="text-left" animated>{formTitle}</h1>
         <hr />
         <div className="d-flex mb-3">
           <div className="form-check">
