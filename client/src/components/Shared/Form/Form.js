@@ -42,7 +42,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
               contact,
               akaah,
               currentcity,
-              nativetown,
+              nativetown
               // organisationName,
               // hospitalName,
             );
@@ -196,14 +196,14 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                       required
                     />
                   </div>
-                    <InputType
-                      labelText={"Blood Group"}
-                      labelFor={"forBloodGroup"}
-                      inputType={"text"}
-                      name={"bloodgroup"}
-                      value={bloodgroup}
-                      onChange={(e) => setBloodGroup(e.target.value)}
-                    />
+                  <InputType
+                    labelText={"Blood Group"}
+                    labelFor={"forBloodGroup"}
+                    inputType={"text"}
+                    name={"bloodgroup"}
+                    value={bloodgroup}
+                    onChange={(e) => setBloodGroup(e.target.value)}
+                  />
                   <InputType
                     labelText={"Native Town"}
                     labelFor={"fortown"}
@@ -252,7 +252,6 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
-
                 </>
               );
             }
