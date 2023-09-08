@@ -22,6 +22,9 @@ const Form = ({ formType, submitBtn, formTitle }) => {
   const [currentcity, setCity] = useState("");
   const [nativetown, setTown] = useState("");
 
+  // Inline style for white text color
+const whiteTextStyle = { color: "white" };
+
   return (
     <div>
       <form
@@ -48,7 +51,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
             );
         }}
       >
-        <h1 className="text-left">{formTitle}</h1>
+        <h1 className="text-left" style={whiteTextStyle}>{formTitle}</h1>
         <hr />
         <div className="d-flex mb-3">
           <div className="form-check">
@@ -61,7 +64,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
               onChange={(e) => setRole(e.target.value)}
               defaultChecked
             />
-            <label htmlFor="adminRadio" className="form-check-label">
+            <label htmlFor="adminRadio" className="form-check-label" style={whiteTextStyle}>
               Donar
             </label>
           </div>
@@ -74,7 +77,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
               value={"admin"}
               onChange={(e) => setRole(e.target.value)}
             />
-            <label htmlFor="adminRadio" className="form-check-label">
+            <label htmlFor="adminRadio" className="form-check-label" style={whiteTextStyle}>
               Admin
             </label>
           </div>
@@ -119,6 +122,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                     name={"email"}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    style={whiteTextStyle} 
                   />
                   <InputType
                     labelText={"Password"}
@@ -127,6 +131,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                     name={"password"}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    style={whiteTextStyle}
                   />
                 </>
               );
@@ -260,12 +265,12 @@ const Form = ({ formType, submitBtn, formTitle }) => {
 
         <div className="d-flex flex-row justify-content-between">
           {formType === "login" ? (
-            <p>
+            <p style={whiteTextStyle}>
               Not registered yet ? Register
               <Link to="/register"> Here !</Link>
             </p>
           ) : (
-            <p>
+            <p style={whiteTextStyle}>
               ALready a user? Please
               <Link to="/login"> Login !</Link>
             </p>

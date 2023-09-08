@@ -1,0 +1,79 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap'); */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 150vh;
+    background: white;
+}
+
+.container {
+    position: relative;
+    width: 450px;
+    height: 950px;
+    background: rgba(255, 165, 0, 1);
+    /* Fully opaque orange */
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-inline: 32px;
+    overflow-y: auto;
+    /* Added overflow-y property to enable vertical scrolling */
+    max-height: 150vh;
+    /* Added max-height to limit the container height */
+
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    width: 450px;
+    height: 950px;
+    background: conic-gradient(transparent, transparent, transparent, #d400d4);
+    animation: animate 4s linear infinite;
+    animation-delay: -2s;
+}
+
+.container::after {
+    content: '';
+    position: absolute;
+    width: 450px;
+    height: 950px;
+    background: conic-gradient(transparent, transparent, transparent, #00cfff);
+    animation: animate 4s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+
+}
+
+.image {
+    position: absolute;
+    inset: 5px;
+    background-color: #0c1022;
+    z-index: 1;
+    border-radius: 16px;
+}
+
+.form-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+}

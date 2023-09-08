@@ -11,9 +11,10 @@
 //         backgroundPosition: "center",
 //       }}
 */
-
+/*
 import React from "react";
 import Form from "../../components/Shared/Form/Form"; // Import Form from Form.js
+import './style.css';
 const Register = () => {
   return (
     <div
@@ -31,3 +32,27 @@ const Register = () => {
   );
 };
 export default Register;   
+
+*/
+
+import React from "react";
+import Form from "../../components/Shared/Form/Form"; // Import Form from Form.js
+import "./style.css";
+const Register = () => {
+  return (
+    <div className="d-flex vh-100 justify-content-center align-items-center scrollboy">
+      <div className="container">
+        <div className="image">
+        <div className="form-box">
+          <Form
+          formTitle={"Registration Page"}
+          submitBtn={"Submit"}
+          formType={"register"}
+        />
+        </div>
+      </div>
+      </div>
+    </div>
+  );
+};
+export default Register;
