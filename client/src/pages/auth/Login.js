@@ -12,18 +12,16 @@ import React from "react";
 import Form from "../../components/Shared/Form/Form"; // Import Form from Form.js
 // import { useSelector } from "react-redux"; // Import useSelector from react-redux
 // import Spinner from "../../components/Shared/Spinner";
-import './index.css';
+import "./index.css";
 
 const Login = () => {
   return (
-    <div
-      className="d-flex vh-100 justify-content-center align-items-center"
-    >
-      <div class="box">
-      {/* <div className="card p-4"> */}
-        <Form formTitle={"Login Page"} submitBtn={"Login"} formType={"login"} />
-      {/* </div> */}
-    </div>
+        <div class="box">
+          <Form
+            formTitle={"Login Page"}
+            submitBtn={"Login"}
+            formType={"login"}
+          />
     </div>
   );
 };

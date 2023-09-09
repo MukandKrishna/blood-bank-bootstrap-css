@@ -16,7 +16,7 @@ body {
 .box {
     position: relative;
     width: 380px;
-    height: 420px;
+    height: 410px;
     background: #1c1c1c;
     border-radius: 8px;
     overflow: hidden;
@@ -27,8 +27,8 @@ body {
     position: absolute;
     top: -50%;
     left: -50%;
-    width: 380px;
-    height: 420px;
+    width: 360px;
+    height: 410px;
     background: linear-gradient(0deg, transparent, transparent, #45f3ff, #45f3ff, #45f3ff);
     z-index: 1;
     transform-origin: bottom right;
@@ -40,8 +40,8 @@ body {
     position: absolute;
     top: -50%;
     left: -50%;
-    width: 380px;
-    height: 420px;
+    width: 360px;
+    height: 410px;
     background: linear-gradient(0deg, transparent, transparent, #d400d4, #d400d4, #d400d4);
     z-index: 1;
     transform-origin: bottom right;
@@ -63,10 +63,12 @@ body {
     position: absolute;
     inset: 4px;
     background: #222;
-    padding: 50px 40px;
+    padding: 40px 22px;
+    padding-left:1.5rem;
     border-radius: 8px;
     z-index: 2;
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
 }
 

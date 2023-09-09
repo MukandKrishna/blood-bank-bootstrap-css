@@ -23,8 +23,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
   const [nativetown, setTown] = useState("");
 
   // Inline style for white text color
-const whiteTextStyle = { color: "white" };
-
+  const whiteTextStyle = { color: "white" };
   return (
     <div>
       <form
@@ -51,8 +50,12 @@ const whiteTextStyle = { color: "white" };
             );
         }}
       >
-        <h1 className="text-left" style={whiteTextStyle}>{formTitle}</h1>
-        <hr />
+        <h1 className="text-left" style={whiteTextStyle}>
+          {formTitle}
+        </h1>
+        <hr
+          style={{ backgroundColor: "white", height: "2px", border: "none" }}
+        />
         <div className="d-flex mb-3">
           <div className="form-check">
             <input
@@ -64,7 +67,11 @@ const whiteTextStyle = { color: "white" };
               onChange={(e) => setRole(e.target.value)}
               defaultChecked
             />
-            <label htmlFor="adminRadio" className="form-check-label" style={whiteTextStyle}>
+            <label
+              htmlFor="adminRadio"
+              className="form-check-label"
+              style={whiteTextStyle}
+            >
               Donar
             </label>
           </div>
@@ -77,7 +84,11 @@ const whiteTextStyle = { color: "white" };
               value={"admin"}
               onChange={(e) => setRole(e.target.value)}
             />
-            <label htmlFor="adminRadio" className="form-check-label" style={whiteTextStyle}>
+            <label
+              htmlFor="adminRadio"
+              className="form-check-label"
+              style={whiteTextStyle}
+            >
               Admin
             </label>
           </div>
@@ -115,24 +126,40 @@ const whiteTextStyle = { color: "white" };
             case formType === "login": {
               return (
                 <>
-                  <InputType
-                    labelText={"Email"}
-                    labelFor={"forEmail"}
-                    inputType={"email"}
-                    name={"email"}
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    style={whiteTextStyle} 
-                  />
-                  <InputType
-                    labelText={"Password"}
-                    labelFor={"forPassword"}
-                    inputType={"password"}
-                    name={"password"}
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    style={whiteTextStyle}
-                  />
+                  <div className="d-flex align-items-center">
+                    <label
+                      htmlFor="forEmail"
+                      className="form-label mr-2"
+                      style={{ ...whiteTextStyle, width: "80px" }}
+                    >
+                      Email:
+                    </label>
+                    <InputType
+                      labelText={""}
+                      labelFor={"forEmail"}
+                      inputType={"email"}
+                      name={"email"}
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                  </div>
+                  <div className="d-flex align-items-center mb-3">
+                    <label
+                      htmlFor="forPassword"
+                      className="form-label mr-2"
+                      style={{ ...whiteTextStyle, width: "80px" }}
+                    >
+                      Password:
+                    </label>
+                    <InputType
+                      labelText={""}
+                      labelFor={"forPassword"}
+                      inputType={"password"}
+                      name={"password"}
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                  </div>
                 </>
               );
             }

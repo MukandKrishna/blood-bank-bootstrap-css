@@ -145,7 +145,7 @@ const App = () => {
     <div
       className="d-flex vh-100 justify-content-center align-items-center scrollboy"
       style={{
-        backgroundColor: "pink",
+      //   backgroundColor: "pink",
         position: "relative",
       }}
     >
@@ -187,7 +187,7 @@ const App = () => {
               />
             </div>
             <div className="mb-3 d-flex align-items-center">
-              <label htmlFor="name" className="form-label mr-2" style={{ width: "180px" }}>
+              <label htmlFor="name" className="form-label mr-2" style={{ width: "155px" }}>
                 <span className="text-danger">*</span>Blood Group:
               </label>
               <input
