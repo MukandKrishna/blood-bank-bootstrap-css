@@ -5,6 +5,7 @@ import { handleLogin, handleRegister } from "../../../services/authService";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css"; // Import the default styles
 
+
 const Form = ({ formType, submitBtn, formTitle }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -50,14 +51,14 @@ const Form = ({ formType, submitBtn, formTitle }) => {
             );
         }}
       >
-        <h1 className="text-left" style={whiteTextStyle}>
+        <h1 className="text-center">
           {formTitle}
         </h1>
         <hr
-          style={{ backgroundColor: "white", height: "2px", border: "none" }}
+          // style={{ backgroundColor: "white", height: "2px", border: "none" }}
         />
         <div className="d-flex mb-3">
-          <div className="form-check">
+          {/* <div className="form-check">
             <input
               type="radio"
               className="form-check-input"
@@ -70,11 +71,11 @@ const Form = ({ formType, submitBtn, formTitle }) => {
             <label
               htmlFor="adminRadio"
               className="form-check-label"
-              style={whiteTextStyle}
+              // style={whiteTextStyle}
             >
               Donar
             </label>
-          </div>
+          </div> */}
           <div className="form-check ms-2">
             <input
               type="radio"
@@ -87,7 +88,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
             <label
               htmlFor="adminRadio"
               className="form-check-label"
-              style={whiteTextStyle}
+              // style={whiteTextStyle}
             >
               Admin
             </label>
@@ -123,17 +124,50 @@ const Form = ({ formType, submitBtn, formTitle }) => {
         {(() => {
           //eslint-disable-next-line
           switch (true) {
+            // case formType === "login": {
+            //   return (
+            //     <>
+            //       <div className="d-flex align-items-center">
+            //         <label
+            //           htmlFor="forEmail"
+            //           className="form-label mr-2"
+            //           style={{ ...whiteTextStyle, width: "80px" }}
+            //         >
+            //           Email:
+            //         </label>
+            //         <InputType
+            //           labelText={""}
+            //           labelFor={"forEmail"}
+            //           inputType={"email"}
+            //           name={"email"}
+            //           value={email}
+            //           onChange={(e) => setEmail(e.target.value)}
+            //         />
+            //       </div>
+            //       <div className="d-flex align-items-center mb-3">
+            //         <label
+            //           htmlFor="forPassword"
+            //           className="form-label mr-2"
+            //           style={{ ...whiteTextStyle, width: "80px" }}
+            //         >
+            //           Password:
+            //         </label>
+            //         <InputType
+            //           labelText={""}
+            //           labelFor={"forPassword"}
+            //           inputType={"password"}
+            //           name={"password"}
+            //           value={password}
+            //           onChange={(e) => setPassword(e.target.value)}
+            //         />
+            //       </div>
+            //     </>
+            //   );
+            // }
             case formType === "login": {
               return (
                 <>
-                  <div className="d-flex align-items-center">
-                    <label
-                      htmlFor="forEmail"
-                      className="form-label mr-2"
-                      style={{ ...whiteTextStyle, width: "80px" }}
-                    >
-                      Email:
-                    </label>
+                <label for="" >Email</label>
                     <InputType
                       labelText={""}
                       labelFor={"forEmail"}
@@ -141,16 +175,9 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                       name={"email"}
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
+                      className="custom-input"
                     />
-                  </div>
-                  <div className="d-flex align-items-center mb-3">
-                    <label
-                      htmlFor="forPassword"
-                      className="form-label mr-2"
-                      style={{ ...whiteTextStyle, width: "80px" }}
-                    >
-                      Password:
-                    </label>
+                <label for="" >Email</label>
                     <InputType
                       labelText={""}
                       labelFor={"forPassword"}
@@ -159,11 +186,9 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                     />
-                  </div>
                 </>
               );
             }
-
             case formType === "register": {
               return (
                 <>
@@ -297,7 +322,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
               <Link to="/register"> Here !</Link>
             </p>
           ) : (
-            <p style={whiteTextStyle}>
+            <p>
               ALready a user? Please
               <Link to="/login"> Login !</Link>
             </p>

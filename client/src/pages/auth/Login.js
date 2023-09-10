@@ -17,11 +17,13 @@ import "./index.css";
 const Login = () => {
   return (
         <div class="box">
+        <div class="image">
           <Form
-            formTitle={"Login Page"}
+            formTitle={"Login"}
             submitBtn={"Login"}
             formType={"login"}
           />
+    </div>
     </div>
   );
 };
