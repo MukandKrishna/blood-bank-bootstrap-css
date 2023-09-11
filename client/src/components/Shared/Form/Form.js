@@ -172,7 +172,6 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                     name={"email"}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="custom-input"
                   />
                   <label for="">Email</label>
                   <InputType
@@ -240,7 +239,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                   <InputType
                     labelText={"Date of Birth"}
                     labelFor={"fordob"}
-                    inputType={"text"}
+                    inputType={"date"}
                     name={"dob"}
                     value={dob}
                     onChange={(e) => setDob(e.target.value)}

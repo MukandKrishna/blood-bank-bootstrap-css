@@ -38,7 +38,8 @@ const authSlice = createSlice({
     });
     builder.addCase(userRegister.fulfilled, (state, { payload }) => {
       state.loading = false;
-      state.user = payload.user;
+      state.user = payload.token;
+      // state.user = payload.user;
     });
     builder.addCase(userRegister.rejected, (state, { payload }) => {
       state.loading = false;
@@ -47,6 +48,6 @@ const authSlice = createSlice({
   },
 });
 
-export default authSlice;
+export default authSlice.reducer;
 
 // timestamp 3:53:00
