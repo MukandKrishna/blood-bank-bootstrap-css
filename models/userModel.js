@@ -56,7 +56,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: [true, "akkah is requied"],
     },
-    Bloodgroup: {
+    bloodgroup: {
       type: String,
       required: [true, "Blood Group is required"],
     },
