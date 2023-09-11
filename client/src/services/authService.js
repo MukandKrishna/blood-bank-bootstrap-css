@@ -18,30 +18,38 @@ export const handleLogin = (e, email, password, role) => {
 export const handleRegister = (
   e,
   name,
+  fname,
+  dob,
+  bloodgroup,
   email,
   password,
   role,
-  organisationName,
-  hospitalName,
   nukh,
   contact,
-  bloodgroup,
-  akaah
+  akaah,
+  currentcity,
+  nativetown
+  // organisationName,
+  // hospitalName,
 ) => {
   e.preventDefault();
   try {
     store.dispatch(
       userRegister({
         name,
+        fname,
+        dob,
+        bloodgroup,
         email,
         password,
         role,
-        organisationName,
-        hospitalName,
         nukh,
         contact,
-        bloodgroup,
         akaah,
+        currentcity,
+        nativetown
+        // organisationName,
+        // hospitalName,
       })
     );
   } catch (error) {

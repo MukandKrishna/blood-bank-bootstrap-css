@@ -5,35 +5,40 @@ const userSchema = new mongoose.Schema(
     role: {
       type: String,
       required: [true, "role is required"],
-      enum: ["admin", "donar", "organisation", "hospital"],
+      enum: ["admin"],
     },
     name: {
       type: String,
       required: function () {
-        if (this.role === "donor" || this.role === "admin") {
+        if (this.role === "admin") {
           return true;
         }
         return false;
       },
     },
-    organisationName: {
+    // organisationName: {
+    //   type: String,
+    //   required: function () {
+    //     if (this.role === "organisation") {
+    //       return true;
+    //     }
+    //     return false;
+    //   },
+    // },
+    // hospitalName: {
+    //   type: String,
+    //   required: function () {
+    //     if (this.role === "hospital") {
+    //       return true;
+    //     }
+    //     return false;
+    //   },
+    // },
+    fname: {
       type: String,
-      required: function () {
-        if (this.role === "organisation") {
-          return true;
-        }
-        return false;
-      },
+      required: [true, "father name is required"],
     },
-    hospitalName: {
-      type: String,
-      required: function () {
-        if (this.role === "hospital") {
-          return true;
-        }
-        return false;
-      },
-    },
+
     email: {
       type: String,
       required: [true, "email is required"],
@@ -58,6 +63,18 @@ const userSchema = new mongoose.Schema(
     contact: {
       type: String,
       required: [true, "contact is required"],
+    },
+    dob: {
+      type: Date,
+      required: [true, "date of birth is required"],
+    },
+    currentcity: {
+      type: String,
+      required: [true, "current city is required"],
+    },
+    nativetown: {
+      type: String,
+      required: [true, "native town is required"],
     },
   },
   { timestamps: true }

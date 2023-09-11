@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import InputType from "./InputType";
 import { Link } from "react-router-dom";
 import { handleLogin, handleRegister } from "../../../services/authService";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css"; // Import the default styles
-
+// import DatePicker from "react-datepicker";
+// import "react-datepicker/dist/react-datepicker.css"; // Import the default styles
 
 const Form = ({ formType, submitBtn, formTitle }) => {
   const [email, setEmail] = useState("");
@@ -51,11 +50,9 @@ const Form = ({ formType, submitBtn, formTitle }) => {
             );
         }}
       >
-        <h1 className="text-center">
-          {formTitle}
-        </h1>
+        <h1 className="text-center">{formTitle}</h1>
         <hr
-          // style={{ backgroundColor: "white", height: "2px", border: "none" }}
+        // style={{ backgroundColor: "white", height: "2px", border: "none" }}
         />
         <div className="d-flex mb-3">
           {/* <div className="form-check">
@@ -167,25 +164,25 @@ const Form = ({ formType, submitBtn, formTitle }) => {
             case formType === "login": {
               return (
                 <>
-                <label for="" >Email</label>
-                    <InputType
-                      labelText={""}
-                      labelFor={"forEmail"}
-                      inputType={"email"}
-                      name={"email"}
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="custom-input"
-                    />
-                <label for="" >Email</label>
-                    <InputType
-                      labelText={""}
-                      labelFor={"forPassword"}
-                      inputType={"password"}
-                      name={"password"}
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                    />
+                  <label for="">Email</label>
+                  <InputType
+                    labelText={""}
+                    labelFor={"forEmail"}
+                    inputType={"email"}
+                    name={"email"}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="custom-input"
+                  />
+                  <label for="">Email</label>
+                  <InputType
+                    labelText={""}
+                    labelFor={"forPassword"}
+                    inputType={"password"}
+                    name={"password"}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
                 </>
               );
             }
@@ -240,19 +237,14 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                     value={fname}
                     onChange={(e) => setfName(e.target.value)}
                   />
-                  <div className="mb-3 d-flex align-items-center">
-                    <label htmlFor="dob" className="form-label mr-2">
-                      <span className="text-danger">*</span>Date of Birth:
-                    </label>
-                    <DatePicker
-                      selected={dob} // Pass the selected date
-                      onChange={(date) => setDob(date)} // Handle date selection
-                      id="dob"
-                      className="form-control"
-                      placeholderText="Date of birth" // Placeholder text
-                      required
-                    />
-                  </div>
+                  <InputType
+                    labelText={"Date of Birth"}
+                    labelFor={"fordob"}
+                    inputType={"text"}
+                    name={"dob"}
+                    value={dob}
+                    onChange={(e) => setDob(e.target.value)}
+                  />
                   <InputType
                     labelText={"Blood Group"}
                     labelFor={"forBloodGroup"}
