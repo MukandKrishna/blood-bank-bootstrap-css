@@ -12,7 +12,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: #0c1022;
+    /* background: #0c1022; */
     overflow: hidden;
 }
 
@@ -68,9 +68,3 @@ body {
     border-radius: 16px;
 }
 
-.form-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 60vh;
-}

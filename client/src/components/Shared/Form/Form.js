@@ -50,9 +50,9 @@ const Form = ({ formType, submitBtn, formTitle }) => {
             );
         }}
       >
-        <h1 className="text-center">{formTitle}</h1>
+        <h1 className="text-left" style={whiteTextStyle}>{formTitle}</h1>
         <hr
-        // style={{ backgroundColor: "white", height: "2px", border: "none" }}
+        style={{ backgroundColor: "white", height: "2px", border: "none" }}
         />
         <div className="d-flex mb-3">
           {/* <div className="form-check">
@@ -85,7 +85,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
             <label
               htmlFor="adminRadio"
               className="form-check-label"
-              // style={whiteTextStyle}
+              style={whiteTextStyle}
             >
               Admin
             </label>
@@ -164,18 +164,20 @@ const Form = ({ formType, submitBtn, formTitle }) => {
             case formType === "login": {
               return (
                 <>
-                  <label for="">Email</label>
+                  {/* <label for="" style={whiteTextStyle}>Email</label> */}
                   <InputType
                     labelText={""}
+                    placeHolder={"Enter your Email"}
                     labelFor={"forEmail"}
                     inputType={"email"}
                     name={"email"}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
-                  <label for="">Email</label>
+                  {/* <label for="" style={whiteTextStyle}>Password</label> */}
                   <InputType
                     labelText={""}
+                    placeHolder={"Enter your Password"}
                     labelFor={"forPassword"}
                     inputType={"password"}
                     name={"password"}
@@ -319,11 +321,9 @@ const Form = ({ formType, submitBtn, formTitle }) => {
             </p>
           )}
         </div>
-        <div className="row justify-content-center">
-          <button className="btn btn-primary" type="submit">
-            {submitBtn}
-          </button>
-        </div>
+        {/* <div className="row justify-content-center"> */}
+          <button type="submit">{submitBtn}</button>
+        {/* </div> */}
       </form>
     </div>
   );
