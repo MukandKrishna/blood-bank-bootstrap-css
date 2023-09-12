@@ -22,7 +22,7 @@ const InputType = ({
           name={name}
           value={value}
           onChange={onChange}
-          placeHolder={placeHolder}
+          placeholder={placeHolder}
         />
       </div>
     </>

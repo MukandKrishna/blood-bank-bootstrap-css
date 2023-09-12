@@ -153,7 +153,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
             case formType === "register": {
               return (
                 <>
-                  {(role === "admin" || role === "donar") && (
+                  {(role === "admin") && (
                     <InputType
                       labelText={""}
                       placeHolder={"Enter your Name"}
