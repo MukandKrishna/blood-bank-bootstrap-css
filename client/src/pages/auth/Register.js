@@ -17,10 +17,18 @@ import Form from "../../components/Shared/Form/Form"; // Import Form from Form.j
 const Register = () => {
   return (
     <div
-    className="d-flex vh-100 justify-content-center align-items-center scrollboy"
+      className="d-flex vh-100 justify-content-center align-items-center scrollboy"
       style={{ backgroundColor: "pink", position: "relative" }}
     >
-      <div className="card p-4" style={{maxWidth: "500px", width: "100%",  maxHeight: "375px", overflow: "auto" }}>
+      <div
+        className="card p-4"
+        style={{
+          maxWidth: "500px",
+          width: "100%",
+          maxHeight: "375px",
+          overflow: "auto",
+        }}
+      >
         <Form
           formTitle={"Registration Page"}
           submitBtn={"Submit"}
@@ -31,20 +39,3 @@ const Register = () => {
   );
 };
 export default Register;
-
-
-// import React from "react";
-// import Form from "../../components/Shared/Form/Form"; // Import Form from Form.js
-// // import "./style.css";
-// const Register = () => {
-//   return (
-//     <div className="d-flex vh-100 justify-content-center align-items-center scrollboy">
-//           <Form
-//           formTitle={"Registration Page"}
-//           submitBtn={"Submit"}
-//           formType={"register"}
-//         />
-//         </div>
-//   );
-// };
-// export default Register;
