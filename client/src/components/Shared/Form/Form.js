@@ -50,9 +50,11 @@ const Form = ({ formType, submitBtn, formTitle }) => {
             );
         }}
       >
-        <h1 className="text-left" style={whiteTextStyle}>{formTitle}</h1>
+        <h1 className="text-left" style={whiteTextStyle}>
+          {formTitle}
+        </h1>
         <hr
-        style={{ backgroundColor: "white", height: "2px", border: "none" }}
+          style={{ backgroundColor: "white", height: "2px", border: "none" }}
         />
         <div className="d-flex mb-3">
           {/* <div className="form-check">
@@ -121,46 +123,6 @@ const Form = ({ formType, submitBtn, formTitle }) => {
         {(() => {
           //eslint-disable-next-line
           switch (true) {
-            // case formType === "login": {
-            //   return (
-            //     <>
-            //       <div className="d-flex align-items-center">
-            //         <label
-            //           htmlFor="forEmail"
-            //           className="form-label mr-2"
-            //           style={{ ...whiteTextStyle, width: "80px" }}
-            //         >
-            //           Email:
-            //         </label>
-            //         <InputType
-            //           labelText={""}
-            //           labelFor={"forEmail"}
-            //           inputType={"email"}
-            //           name={"email"}
-            //           value={email}
-            //           onChange={(e) => setEmail(e.target.value)}
-            //         />
-            //       </div>
-            //       <div className="d-flex align-items-center mb-3">
-            //         <label
-            //           htmlFor="forPassword"
-            //           className="form-label mr-2"
-            //           style={{ ...whiteTextStyle, width: "80px" }}
-            //         >
-            //           Password:
-            //         </label>
-            //         <InputType
-            //           labelText={""}
-            //           labelFor={"forPassword"}
-            //           inputType={"password"}
-            //           name={"password"}
-            //           value={password}
-            //           onChange={(e) => setPassword(e.target.value)}
-            //         />
-            //       </div>
-            //     </>
-            //   );
-            // }
             case formType === "login": {
               return (
                 <>
@@ -192,7 +154,8 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                 <>
                   {(role === "admin" || role === "donar") && (
                     <InputType
-                      labelText={"Name"}
+                      labelText={""}
+                      placeHolder={"Enter your Name"}
                       labelFor={"forName"}
                       inputType={"text"}
                       name={"name"}
@@ -223,7 +186,8 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                   )*/}
 
                   <InputType
-                    labelText={"Password"}
+                    labelText={""}
+                    placeHolder={"Enter your Password"}
                     labelFor={"forPassword"}
                     inputType={"password"}
                     name={"password"}
@@ -231,7 +195,8 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                     onChange={(e) => setPassword(e.target.value)}
                   />
                   <InputType
-                    labelText={"Father's Name"}
+                    labelText={""}
+                    placeHolder={"Enter Father's Name"}
                     labelFor={"forfname"}
                     inputType={"text"}
                     name={"fname"}
@@ -239,7 +204,8 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                     onChange={(e) => setfName(e.target.value)}
                   />
                   <InputType
-                    labelText={"Date of Birth"}
+                    labelText={""}
+                    placeHolder={"Enter Date of Birth"}
                     labelFor={"fordob"}
                     inputType={"date"}
                     name={"dob"}
@@ -247,7 +213,8 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                     onChange={(e) => setDob(e.target.value)}
                   />
                   <InputType
-                    labelText={"Blood Group"}
+                    labelText={""}
+                    placeHolder={"Enter Blood group"}
                     labelFor={"forBloodGroup"}
                     inputType={"text"}
                     name={"bloodgroup"}
@@ -255,7 +222,8 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                     onChange={(e) => setBloodGroup(e.target.value)}
                   />
                   <InputType
-                    labelText={"Native Town"}
+                    labelText={""}
+                    placeHolder={"Enter your Native Town"}
                     labelFor={"fortown"}
                     inputType={"text"}
                     name={"nativetown"}
@@ -263,7 +231,8 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                     onChange={(e) => setTown(e.target.value)}
                   />
                   <InputType
-                    labelText={"Current City"}
+                    labelText={""}
+                    placeHolder={"Enter Current City"}
                     labelFor={"forCity"}
                     inputType={"text"}
                     name={"currentcity"}
@@ -271,7 +240,8 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                     onChange={(e) => setCity(e.target.value)}
                   />
                   <InputType
-                    labelText={"Nukh"}
+                    labelText={""}
+                    placeHolder={"Enter your Nukh"}
                     labelFor={"forNukh"}
                     inputType={"text"}
                     name={"nukh"}
@@ -279,7 +249,8 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                     onChange={(e) => setNukh(e.target.value)}
                   />
                   <InputType
-                    labelText={"Akaah"}
+                    labelText={""}
+                    placeHolder={"Enter your Akaah"}
                     labelFor={"forAkaah"}
                     inputType={"text"}
                     name={"akaah"}
@@ -287,7 +258,8 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                     onChange={(e) => setAkaah(e.target.value)}
                   />
                   <InputType
-                    labelText={"Contact"}
+                    labelText={""}
+                    placeHolder={"Enter Contact Number"}
                     labelFor={"forContact"}
                     inputType={"text"}
                     name={"contact"}
@@ -295,7 +267,8 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                     onChange={(e) => setContact(e.target.value)}
                   />
                   <InputType
-                    labelText={"Email"}
+                    labelText={""}
+                    placeHolder={"Enter your Email"}
                     labelFor={"forEmail"}
                     inputType={"email"}
                     name={"email"}
@@ -322,7 +295,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
           )}
         </div>
         {/* <div className="row justify-content-center"> */}
-          <button type="submit">{submitBtn}</button>
+        <button type="submit">{submitBtn}</button>
         {/* </div> */}
       </form>
     </div>

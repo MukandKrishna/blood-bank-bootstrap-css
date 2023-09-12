@@ -16,7 +16,7 @@
     color: #fff;
 }
 
-
+/*not working */
 .inputtype .form-control:focus~.form-label,
 .inputtype .form-control:valid~.form-label {
     top: -15px;

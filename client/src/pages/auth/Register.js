@@ -22,7 +22,7 @@ const Register = () => {
     >
       <div className="card p-4" style={{maxWidth: "500px", width: "100%",  maxHeight: "375px", overflow: "auto" }}>
         <Form
-          formTitle={"Registration Page"}
+          formTitle={"Registration"}
           submitBtn={"Submit"}
           formType={"register"}
         />

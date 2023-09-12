@@ -68,3 +68,8 @@ body {
     border-radius: 16px;
 }
 
+
+.container {
+    height: 80vh; /* Adjust the height as needed */
+    overflow-y: auto; /* Enable vertical scrolling */
+  }
