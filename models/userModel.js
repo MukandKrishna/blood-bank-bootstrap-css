@@ -2,20 +2,20 @@ const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema(
   {
-    role: {
-      type: String,
-      required: [true, "role is required"],
-      enum: ["admin"],
-    },
-    name: {
-      type: String,
-      required: function () {
-        if (this.role === "admin") {
-          return true;
-        }
-        return false;
-      },
-    },
+    // role: {
+    //   type: String,
+    //   required: [true, "role is required"],
+    //   enum: ["admin"],
+    // },
+    // name: {
+    //   type: String,
+    //   required: function () {
+    //     if (this.role === "admin") {
+    //       return true;
+    //     }
+    //     return false;
+    //   },
+    // },
     // organisationName: {
     //   type: String,
     //   required: function () {
@@ -34,6 +34,10 @@ const userSchema = new mongoose.Schema(
     //     return false;
     //   },
     // },
+    name: {
+      type: String,
+      required: [true, "name is required"],
+    },
     fname: {
       type: String,
       required: [true, "father name is required"],

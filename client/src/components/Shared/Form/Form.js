@@ -8,7 +8,7 @@ import { handleLogin, handleRegister } from "../../../services/authService";
 const Form = ({ formType, submitBtn, formTitle }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("donar");
+  // const [role, setRole] = useState("donar");
   const [name, setName] = useState("");
   const [fname, setfName] = useState("");
   const [dob, setDob] = useState("");
@@ -30,7 +30,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
       <form
         onSubmit={(e) => {
           if (formType === "login")
-            return handleLogin(e, email, password, role);
+            return handleLogin(e, email, password);
           else if (formType === "register")
             return handleRegister(
               e,
@@ -40,7 +40,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
               bloodgroup,
               email,
               password,
-              role,
+              // role,
               nukh,
               contact,
               akaah,
@@ -76,7 +76,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
               Donar
             </label>
           </div> */}
-          <div className="form-check ms-2">
+          {/* <div className="form-check ms-2">
             <input
               type="radio"
               className="form-check-input"
@@ -92,7 +92,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
             >
               Admin
             </label>
-          </div>
+          </div> */}
           {/* <div className="form-check ms-2">
             <input
               type="radio"
@@ -153,7 +153,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
             case formType === "register": {
               return (
                 <>
-                  {(role === "admin") && (
+                  {/* {(role === "admin") && ( */}
                     <InputType
                       labelText={""}
                       placeHolder={"Enter your Name"}
@@ -163,7 +163,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                     />
-                  )}
+                  {/* )} */}
 
                   {/* {role === "organisation" && (
                     <InputType

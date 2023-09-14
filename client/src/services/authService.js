@@ -5,7 +5,7 @@ export const handleLogin = (e, email, password, role) => {
   e.preventDefault();
 
   try {
-    if (!role || !email || !password) {
+    if (!email || !password) {
       return alert("Please Privde All Feilds");
     }
     // console.log("login", e, email, password, role);
@@ -23,7 +23,7 @@ export const handleRegister = (
   bloodgroup,
   email,
   password,
-  role,
+  // role,
   nukh,
   contact,
   akaah,
@@ -42,7 +42,7 @@ export const handleRegister = (
         bloodgroup,
         email,
         password,
-        role,
+        // role,
         nukh,
         contact,
         akaah,

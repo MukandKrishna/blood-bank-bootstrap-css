@@ -255,7 +255,7 @@ const App = () => {
           </div>
         </form>
       </div>
-      {isSuccessPopupOpen && (
+      {/* {isSuccessPopupOpen && (
         <div
           className="popup"
           style={{
@@ -276,7 +276,7 @@ const App = () => {
             OK
           </button>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

@@ -60,16 +60,15 @@
 // };
 // export default Register;
 
-
-
 import React from "react";
-import Form from "../../components/Shared/Form/Form"; // Import Form from Form.js
-import styles from './Register.module.css'; // Make sure to link the appropriate stylesheet
+import Form from "../../components/Shared/Form/Form";
+import styles from "./Register.module.css";
 
 const Register = () => {
   return (
-    <div className={`d-flex vh-100 justify-content-center align-items-center ${styles.scrollboy}`}>
-      <div className={`card p-4 ${styles.card}`}>
+    // <div className={`d-flex vh-100 justify-content-center align-items-center ${styles.scrollboy}`}>
+    <div className={`card p-4 ${styles.card}`}>
+      <div className={styles["card-content"]}>
         <Form
           formTitle={"Registration Page"}
           submitBtn={"Submit"}
