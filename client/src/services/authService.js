@@ -9,7 +9,7 @@ export const handleLogin = (e, email, password, role) => {
       return alert("Please Privde All Feilds");
     }
     // console.log("login", e, email, password, role);
-    store.dispatch(userLogin({ role, email, password }));
+    store.dispatch(userLogin({ email, password }));
   } catch (err) {
     console.log(err);
   }

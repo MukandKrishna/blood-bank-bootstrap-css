@@ -67,10 +67,10 @@ import styles from "./Register.module.css";
 const Register = () => {
   return (
     // <div className={`d-flex vh-100 justify-content-center align-items-center ${styles.scrollboy}`}>
-    <div className={`card p-4 ${styles.card}`}>
+    <div className={`card  ${styles.card}`}>
       <div className={styles["card-content"]}>
         <Form
-          formTitle={"Registration Page"}
+          formTitle={"Registration"}
           submitBtn={"Submit"}
           formType={"register"}
         />
