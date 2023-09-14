@@ -103,4 +103,35 @@ const currentUserController = async (req, res) => {
 };
 
 
-module.exports = { registerController, loginController, currentUserController };
+const updatecurrentUserController=async(req,res)=>{
+  const id = req.params.id;
+  const {role,name,fathername,email,password,bloodgroup,contact,nukhu,akkahu}=req.body;
+      let updateData;
+      const salt=await bcrypt.genSalt(10);
+      const hashedPassword=await bcrypt.hash(req.body.password,salt);
+      
+
+  try {
+      updateData=await userModel.findByIdAndUpdate(id,{
+          role,
+          name:name,
+          fathername:fathername,
+          bloodgroup:bloodgroup,
+          contact:contact,
+          nukh:nukhu,
+          akkah:akkahu,
+          email:email,
+          password:hashedPassword
+      });
+      
+      await updateData.save().then(()=>res.status(200).send({
+          success:true,
+          message:"User Upated Data Successfully",
+          updateData
+      }))
+  } catch (error) {
+      console.log(error);
+  }
+}
+
+module.exports = { registerController, loginController, currentUserController, updatecurrentUserController };

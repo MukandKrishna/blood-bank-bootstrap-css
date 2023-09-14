@@ -1,5 +1,9 @@
 const express = require("express");
-const { registerController, loginController, currentUserController } = require("../controllers/authController");
+const {
+  registerController,
+  loginController,
+  currentUserController,
+} = require("../controllers/authController");
 const authMiddleware = require("../middlewares/authMiddleware");
 
 const router = express.Router();
@@ -8,13 +12,14 @@ const router = express.Router();
 //register || post
 router.post("/register", registerController);
 
-
 //login || post
 router.post("/login", loginController);
 //  to secure this use json web token
 
 // get current user
-router.get('/current-user', authMiddleware, currentUserController);
+router.get("/current-user", authMiddleware, currentUserController);
 
+// Update current user ||Post
+router.put("/update_current_user/:id", updatecurrentUserController);
 
 module.exports = router;
