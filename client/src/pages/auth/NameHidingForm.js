@@ -283,11 +283,10 @@ export default HidingForm;
 
 // export default App;
 
-
 import React, { useState } from "react";
-import InputType  from './../../components/Shared/Form/InputType';
+import InputType from "./../../components/Shared/Form/InputType";
 
-const App = () => {
+const NameHide = () => {
   const [isSuccessPopupOpen, setIsSuccessPopupOpen] = useState(false);
   const [name, setName] = useState("");
   const [fatherName, setFatherName] = useState("");
@@ -297,7 +296,7 @@ const App = () => {
   const [contact, setContact] = useState("");
   const [email, setEmail] = useState("");
   const [donatedDate, setDonatedDate] = useState("");
-
+  const whiteTextStyle = { color: "white" };
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSuccessPopupOpen(true);
@@ -384,11 +383,16 @@ const App = () => {
               <InputType
                 labelText="Donated Date"
                 labelFor="donatedDate"
-                inputType="text"
+                inputType="date"
                 name="donatedDate"
                 value={donatedDate}
                 onChange={(e) => setDonatedDate(e.target.value)}
               />
+              <div className="row justify-content-center">
+                <button className="btn btn-primary" type="submit">
+                  Submit
+                </button>
+              </div>
             </form>
           </div>
         </div>
@@ -420,4 +424,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default NameHide;

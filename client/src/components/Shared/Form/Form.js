@@ -27,8 +27,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
     <div>
       <form
         onSubmit={(e) => {
-          if (formType === "login")
-            return handleLogin(e, email, password);
+          if (formType === "login") return handleLogin(e, email, password);
           else if (formType === "register")
             return handleRegister(
               e,
@@ -152,15 +151,15 @@ const Form = ({ formType, submitBtn, formTitle }) => {
               return (
                 <>
                   {/* {(role === "admin") && ( */}
-                    <InputType
-                      labelText={""}
-                      placeHolder={"Enter your Name"}
-                      labelFor={"forName"}
-                      inputType={"text"}
-                      name={"name"}
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                    />
+                  <InputType
+                    labelText={""}
+                    placeHolder={"Enter your Name"}
+                    labelFor={"forName"}
+                    inputType={"text"}
+                    name={"name"}
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  />
                   {/* )} */}
 
                   {/* {role === "organisation" && (
