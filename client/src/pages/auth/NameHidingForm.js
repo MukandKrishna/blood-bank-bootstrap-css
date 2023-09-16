@@ -175,77 +175,77 @@ export default HidingForm;
 //               />
 //             </div>
 //             <div className="mb-3 d-flex align-items-center">
-//               <label htmlFor="name" className="form-label mr-2" style={{ width: "180px" }}>
-//                 <span className="text-danger">*</span>Father's Name:
-//               </label>
-//               <input
-//                 type="text"
-//                 className="form-control"
-//                 id="name"
-//                 placeholder="Enter your father's name"
-//                 required
-//               />
+// <label htmlFor="name" className="form-label mr-2" style={{ width: "180px" }}>
+//   <span className="text-danger">*</span>Father's Name:
+// </label>
+// <input
+//   type="text"
+//   className="form-control"
+//   id="name"
+//   placeholder="Enter your father's name"
+//   required
+// />
 //             </div>
 //             <div className="mb-3 d-flex align-items-center">
-//               <label htmlFor="name" className="form-label mr-2" style={{ width: "155px" }}>
-//                 <span className="text-danger">*</span>Blood Group:
-//               </label>
-//               <input
-//                 type="text"
-//                 className="form-control"
-//                 id="name"
-//                 placeholder="Enter your blood group"
-//                 required
-//               />
-//             </div>
+//   <label htmlFor="name" className="form-label mr-2" style={{ width: "155px" }}>
+//     <span className="text-danger">*</span>Blood Group:
+//   </label>
+//   <input
+//     type="text"
+//     className="form-control"
+//     id="name"
+//     placeholder="Enter your blood group"
+//     required
+//   />
+// </div>
 
 //             <div className="mb-3 d-flex align-items-center">
-//               <label htmlFor="nukh" className="form-label mr-2" style={{ width: "80px" }}>
-//                 <span className="text-danger">*</span>Nukh:
-//               </label>
-//               <input
-//                 type="text"
-//                 className="form-control"
-//                 id="nukh"
-//                 placeholder="Enter your nukh"
-//                 required
-//               />
+// <label htmlFor="nukh" className="form-label mr-2" style={{ width: "80px" }}>
+//   <span className="text-danger">*</span>Nukh:
+// </label>
+// <input
+//   type="text"
+//   className="form-control"
+//   id="nukh"
+//   placeholder="Enter your nukh"
+//   required
+// />
 //             </div>
 //             <div className="mb-3 d-flex align-items-center">
-//               <label htmlFor="akkah" className="form-label mr-2" style={{ width: "80px" }}>
-//                 <span className="text-danger">*</span>Akkah:
-//               </label>
-//               <input
-//                 type="text"
-//                 className="form-control"
-//                 id="akkah"
-//                 placeholder="Enter your akkah"
-//                 required
-//               />
+//   <label htmlFor="akkah" className="form-label mr-2" style={{ width: "80px" }}>
+//     <span className="text-danger">*</span>Akkah:
+//   </label>
+//   <input
+//     type="text"
+//     className="form-control"
+//     id="akkah"
+//     placeholder="Enter your akkah"
+//     required
+//   />
+// </div>
+//             <div className="mb-3 d-flex align-items-center">
+// <label htmlFor="contact" className="form-label mr-2" style={{ width: "85px" }}>
+//   <span className="text-danger">*</span>Contact:
+// </label>
+// <input
+//   type="text"
+//   className="form-control"
+//   id="contact"
+//   placeholder="Enter your contact"
+//   required
+// />
 //             </div>
 //             <div className="mb-3 d-flex align-items-center">
-//               <label htmlFor="contact" className="form-label mr-2" style={{ width: "85px" }}>
-//                 <span className="text-danger">*</span>Contact:
-//               </label>
-//               <input
-//                 type="text"
-//                 className="form-control"
-//                 id="contact"
-//                 placeholder="Enter your contact"
-//                 required
-//               />
-//             </div>
-//             <div className="mb-3 d-flex align-items-center">
-//               <label htmlFor="email" className="form-label mr-2" style={{ width: "80px" }}>
-//                 <span className="text-danger">*</span>Email:
-//               </label>
-//               <input
-//                 type="email"
-//                 className="form-control"
-//                 id="email"
-//                 placeholder="Enter your email"
-//                 required
-//               />
+// <label htmlFor="email" className="form-label mr-2" style={{ width: "80px" }}>
+//   <span className="text-danger">*</span>Email:
+// </label>
+// <input
+//   type="email"
+//   className="form-control"
+//   id="email"
+//   placeholder="Enter your email"
+//   required
+// />
 //             </div>
 //           </div>
 //           <div className="row justify-content-center">
@@ -284,9 +284,11 @@ export default HidingForm;
 // export default App;
 
 import React, { useState } from "react";
-import InputType from "./../../components/Shared/Form/InputType";
+import InputType from "../../components/Shared/Form/InputType";
+import "react-datepicker/dist/react-datepicker.css";
+import styles from "./namehide.module.css";
 
-const NameHide = () => {
+const NameHidingForm = () => {
   const [isSuccessPopupOpen, setIsSuccessPopupOpen] = useState(false);
   const [name, setName] = useState("");
   const [fatherName, setFatherName] = useState("");
@@ -295,8 +297,8 @@ const NameHide = () => {
   const [akkah, setAkkah] = useState("");
   const [contact, setContact] = useState("");
   const [email, setEmail] = useState("");
-  const [donatedDate, setDonatedDate] = useState("");
-  const whiteTextStyle = { color: "white" };
+  const [donatedDate, setDonatedDate] = useState(null); // Initialize with null for DatePicker
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSuccessPopupOpen(true);
@@ -304,98 +306,128 @@ const NameHide = () => {
 
   return (
     <div
-      className="d-flex vh-100 justify-content-center align-items-center"
-      style={{ background: "white" }}
+      className={`${styles.dFlex} container-fluid vh-100 justify-content-center align-items-center`}
+      style={{
+        background: "white",
+        width: "100vw",
+        height: "100vh",
+        padding: -5,
+      }}
     >
-      <div className="row">
-        {/* First Column */}
-        <div className="col-md-6">
-          <div className="card p-4">
-            <form onSubmit={handleSubmit}>
-              <h2 className="text-left mb-4">Column 1</h2>
-              <hr className="mb-2" />
+      <div className="card p-4">
+        <form onSubmit={handleSubmit}>
+          <h2 className={`${styles.textLeft} mb-4`}>Name Hiding Form</h2>
+          <hr className="mb-2" />
+          <div className="row">
+            {/* Column 1 */}
+            <div className="col-md-6">
+              <label for="">
+                <span className={`${styles.textDanger}`}>*</span>
+                Name
+              </label>
               <InputType
-                labelText="Name"
+                labelText="Enter your Name"
                 labelFor="name"
                 inputType="text"
                 name="name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
+              <label for="">
+                <span className={`${styles.textDanger}`}>*</span>Father Name
+              </label>
               <InputType
-                labelText="Father's Name"
+                labelText="Enter your Father's name"
                 labelFor="fatherName"
                 inputType="text"
                 name="fatherName"
                 value={fatherName}
                 onChange={(e) => setFatherName(e.target.value)}
               />
+              <label for="">
+                <span className={`${styles.textDanger}`}>*</span>Blood Group
+              </label>
               <InputType
-                labelText="Blood Group"
+                labelText="Enter your Blood Group"
                 labelFor="bloodGroup"
                 inputType="text"
                 name="bloodGroup"
                 value={bloodGroup}
                 onChange={(e) => setBloodGroup(e.target.value)}
               />
+              <label for="">
+                <span className={`${styles.textDanger}`}>*</span>Nukh
+              </label>
               <InputType
-                labelText="Nukh"
+                labelText="Enter your Nukh"
                 labelFor="nukh"
                 inputType="text"
                 name="nukh"
                 value={nukh}
                 onChange={(e) => setNukh(e.target.value)}
               />
-            </form>
-          </div>
-        </div>
+            </div>
 
-        {/* Second Column */}
-        <div className="col-md-6">
-          <div className="card p-4">
-            <form onSubmit={handleSubmit}>
-              <h2 className="text-left mb-4">Column 2</h2>
-              <hr className="mb-2" />
+            {/* Column 2 */}
+            <div className="col-md-6">
+              <label for="">
+                <span className={`${styles.textDanger}`}>*</span>Akaah
+              </label>
               <InputType
-                labelText="Akkah"
+                labelText="Enter your Akkah"
                 labelFor="akkah"
                 inputType="text"
                 name="akkah"
                 value={akkah}
                 onChange={(e) => setAkkah(e.target.value)}
               />
+              <label for="">
+                <span className={`${styles.textDanger}`}>*</span>Contact Number
+              </label>
               <InputType
-                labelText="Contact No"
+                labelText="Enter your Contact Number"
                 labelFor="contact"
                 inputType="text"
                 name="contact"
                 value={contact}
+                placeHolder={""}
                 onChange={(e) => setContact(e.target.value)}
               />
+              <label for="">
+                <span className={`${styles.textDanger}`}>*</span>Email
+              </label>
               <InputType
-                labelText="Email"
+                labelText="Enter your Email"
                 labelFor="email"
                 inputType="email"
                 name="email"
                 value={email}
+                placeHolder={"Enter your Email"}
                 onChange={(e) => setEmail(e.target.value)}
               />
+              <label for="">
+                <span className={`${styles.textDanger}`}>*</span>Blood Donated
+                Date
+              </label>
               <InputType
-                labelText="Donated Date"
+                labelText=""
                 labelFor="donatedDate"
                 inputType="date"
                 name="donatedDate"
                 value={donatedDate}
                 onChange={(e) => setDonatedDate(e.target.value)}
               />
-              <div className="row justify-content-center">
-                <button className="btn btn-primary" type="submit">
-                  Submit
-                </button>
-              </div>
-            </form>
+            </div>
           </div>
-        </div>
+          {/* Submit Button */}
+          <div className="row justify-content-center">
+            <div className="col-auto">
+              <button type="submit" className="btn btn-primary">
+                Save
+              </button>
+            </div>
+          </div>
+        </form>
       </div>
 
       {isSuccessPopupOpen && (
@@ -424,4 +456,4 @@ const NameHide = () => {
   );
 };
 
-export default NameHide;
+export default NameHidingForm;

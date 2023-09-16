@@ -1,0 +1,35 @@
+/* styles.css */
+
+
+.dFlex {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px; /* Add padding to the container */
+  background-color: lightblue; /* Set background color to light blue */
+  min-height: 100vh; /* Ensure the container covers the full viewport height */
+}
+
+/* Style for each box */
+.mb-3.d-flex.align-items-center {
+  width: calc(33.33% - 20px); /* 3 boxes per row with more spacing */
+  margin-bottom: 20px;
+  padding: 20px; /* Add more padding to each box */
+  background-color: lightcoral !important; /* Set background color to light red with !important to override Bootstrap */
+}
+
+/* Adjust box width for larger screens if needed */
+@media (min-width: 1000px) {
+  .mb-3.d-flex.align-items-center {
+    width: calc(25% - 20px); /* 4 boxes per row for larger screens with more spacing */
+  }
+}
+
+/* Add text color to labels */
+.formLabel {
+  color: red; /* Set text color to red */
+}
+
+/* Add text color to required asterisks */
+.textDanger {
+  color: red; /* Set text color to red */
+}

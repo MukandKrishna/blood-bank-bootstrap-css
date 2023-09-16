@@ -293,7 +293,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
               <Link to="/register"> Here !</Link>
             </p>
           ) : (
-            <p>
+            <p style={whiteTextStyle}>
               ALready a user? Please
               <Link to="/login"> Login !</Link>
             </p>
@@ -301,7 +301,6 @@ const Form = ({ formType, submitBtn, formTitle }) => {
         </div>
         {/* <div className="row justify-content-center"> */}
         <button type="submit">{submitBtn}</button>
-        {/* </div> */}
       </form>
     </div>
   );
