@@ -25,10 +25,10 @@ const App = () => {
         <h2 className="text-left mb-4">Name Hiding Form</h2>
         <hr className="mb-2" />
 
-        <div className="d-flex justify-content-evenly">
-          {/* First Column */}
-          <div className="column">
-            <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
+          <div className="d-flex justify-content-evenly">
+            {/* First Column */}
+            <div className="column">
               <div className="mb-3" style={{ width: "300px" }}>
                 <label htmlFor="name" className="form-label">
                   <span className="text-danger"></span>Name:
@@ -84,12 +84,12 @@ const App = () => {
                   required
                 />
               </div>
-            </form>
-          </div>
+              {/* </form> */}
+            </div>
 
-          {/* Second Column */}
-          <div className="column">
-            <form onSubmit={handleSubmit}>
+            {/* Second Column */}
+            <div className="column">
+              {/* <form onSubmit={handleSubmit}> */}
               <div className="mb-3" style={{ width: "300px" }}>
                 <label htmlFor="akkah" className="form-label">
                   <span className="text-danger"></span>Akkah:
@@ -138,13 +138,13 @@ const App = () => {
                   required
                 />
               </div>
-            </form>
+            </div>
           </div>
-        </div>
 
-        <button className="button" type="submit">
-          Save
-        </button>
+          <button className="button" type="submit">
+            Save
+          </button>
+        </form>
       </div>
     </div>
   );

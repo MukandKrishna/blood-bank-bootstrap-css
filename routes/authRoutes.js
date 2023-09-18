@@ -21,7 +21,7 @@ router.post("/login", loginController);
 router.get("/current-user", authMiddleware, currentUserController);
 
 // Update  namehide ||Post
-router.put("/namehidingform", nameHideController);
+router.post("/namehidingform", nameHideController);
 
 // Update current user ||Post
 // router.put("/update_current_user/:id", updatecurrentUserController);
