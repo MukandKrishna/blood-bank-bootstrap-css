@@ -35,7 +35,7 @@ export const userRegister = createAsyncThunk(
       bloodgroup,
       email,
       password,
-      role,
+      // role,
       nukh,
       contact,
       akaah,
@@ -54,7 +54,7 @@ export const userRegister = createAsyncThunk(
         bloodgroup,
         email,
         password,
-        role,
+        // role,
         nukh,
         contact,
         akaah,
@@ -78,3 +78,47 @@ export const userRegister = createAsyncThunk(
     }
   }
 );
+
+// namehide
+
+export const userUpdate = createAsyncThunk(
+  "auth/namehidingform",
+  async (
+    {
+      name,
+      fname,
+      email,
+      bloodgroup,
+      donatedate,
+      nukh,
+      contact,
+      akaah,
+    },
+    { rejectWithValue }
+  ) => {
+    try {
+      const { data } = await API.post("/auth/namehide", {
+        name,
+        fname,
+        email,
+        bloodgroup,
+        donatedate,
+        nukh,
+        contact,
+        akaah,
+      });
+      if (data?.success) {
+        alert("Form Saved Successfully");
+        window.location.replace("/");
+      }
+    } catch (error) {
+      console.log(error);
+      if (error.response && error.response.data.message) {
+        return rejectWithValue(error.response.data.message);
+      } else {
+        return rejectWithValue(error.message);
+      }
+    }
+  }
+);
+

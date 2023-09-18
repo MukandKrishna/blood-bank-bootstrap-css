@@ -72,6 +72,10 @@ const userSchema = new mongoose.Schema(
       type: Date,
       required: [true, "date of birth is required"],
     },
+    donateddate: {
+      type: Date,
+      required: [true, "donated date is required"],
+    },
     currentcity: {
       type: String,
       required: [true, "current city is required"],

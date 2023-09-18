@@ -38,11 +38,11 @@
   font-weight: 600;
   cursor: pointer;
   border-radius: 5px;
-  color: black;
+  color: blue;
 }
 
 .button:focus {
   color: #fff;
-  background-color: #0c1022;
+  background-color: blue;
   border: 2px solid #fff;
 }

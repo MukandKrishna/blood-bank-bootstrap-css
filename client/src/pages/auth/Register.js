@@ -14,26 +14,6 @@
 
 // import React from "react";
 // import Form from "../../components/Shared/Form/Form"; // Import Form from Form.js
-// import styles from "./Register.module.css";
-// const Register = () => {
-//   return (
-//     <div className="scroll">
-//       <div class={styles.box}>
-//         <div class={styles.image}>
-//           <Form
-//             formTitle={"Register"}
-//             submitBtn={"register"}
-//             formType={"register"}
-//           />
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-// export default Register;
-
-// import React from "react";
-// import Form from "../../components/Shared/Form/Form"; // Import Form from Form.js
 // const Register = () => {
 //   return (
 //     <div

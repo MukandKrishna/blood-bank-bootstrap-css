@@ -1,14 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
+// import { Link } from "react-router-dom";
+import { handleUpdate } from "../../services/authService";
 
 const App = () => {
-  const [isSuccessPopupOpen, setIsSuccessPopupOpen] = useState(false);
+  const bloodGroups = ["A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"];
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Perform form submission logic here
-    setIsSuccessPopupOpen(true);
+    handleUpdate(
+      e,
+      e.target.name.value,
+      e.target.fname.value,
+      e.target.email.value,
+      e.target.bloodgroup.value,
+      e.target.donateddate.value,
+      e.target.nukh.value,
+      e.target.contact.value,
+      e.target.akaah.value
+    );
   };
-
   return (
     <div className="d-flex vh-100 justify-content-center align-items-center">
       <div className="card p-4" style={{ width: "100vw" }}>
@@ -21,7 +31,7 @@ const App = () => {
             <form onSubmit={handleSubmit}>
               <div className="mb-3" style={{ width: "300px" }}>
                 <label htmlFor="name" className="form-label">
-                  <span className="text-danger">*</span>Name:
+                  <span className="text-danger"></span>Name:
                 </label>
                 <input
                   type="text"
@@ -32,32 +42,39 @@ const App = () => {
                 />
               </div>
               <div className="mb-3" style={{ width: "300px" }}>
-                <label htmlFor="fatherName" className="form-label">
-                  <span className="text-danger">*</span>Father's Name:
+                <label htmlFor="fname" className="form-label">
+                  <span className="text-danger"></span>Father's Name:
                 </label>
                 <input
                   type="text"
                   className="form-control"
-                  id="fatherName"
+                  id="fname"
                   placeholder="Enter your father's name"
                   required
                 />
               </div>
               <div className="mb-3" style={{ width: "300px" }}>
-                <label htmlFor="bloodGroup" className="form-label">
-                  <span className="text-danger">*</span>Blood Group:
+                <label htmlFor="bloodgroup" className="form-label">
+                  <span className="text-danger"></span>Blood Group:
                 </label>
-                <input
-                  type="text"
+                <select
                   className="form-control"
-                  id="bloodGroup"
-                  placeholder="Enter your blood group"
+                  id="bloodgroup"
+                  name="bloodgroup"
                   required
-                />
+                >
+                  <option value="">Select Blood Group</option>
+                  {bloodGroups.map((group) => (
+                    <option key={group} value={group}>
+                      {group}
+                    </option>
+                  ))}
+                </select>
               </div>
+
               <div className="mb-3" style={{ width: "300px" }}>
                 <label htmlFor="nukh" className="form-label">
-                  <span className="text-danger">*</span>Nukh:
+                  <span className="text-danger"></span>Nukh:
                 </label>
                 <input
                   type="text"
@@ -75,31 +92,31 @@ const App = () => {
             <form onSubmit={handleSubmit}>
               <div className="mb-3" style={{ width: "300px" }}>
                 <label htmlFor="akkah" className="form-label">
-                  <span className="text-danger">*</span>Akkah:
+                  <span className="text-danger"></span>Akkah:
                 </label>
                 <input
                   type="text"
                   className="form-control"
-                  id="akkah"
+                  id="akaah"
                   placeholder="Enter your akkah"
                   required
                 />
               </div>
               <div className="mb-3" style={{ width: "300px" }}>
                 <label htmlFor="donatedDate" className="form-label">
-                  <span className="text-danger">*</span>Donated Date:
+                  <span className="text-danger"></span>Donated Date:
                 </label>
                 <input
                   type="date"
                   className="form-control"
-                  id="donatedDate"
+                  id="donateddate"
                   placeholder="Enter the donated date"
                   required
                 />
               </div>
               <div className="mb-3" style={{ width: "300px" }}>
                 <label htmlFor="contact" className="form-label">
-                  <span className="text-danger">*</span>Contact:
+                  <span className="text-danger"></span>Contact:
                 </label>
                 <input
                   type="text"
@@ -111,7 +128,7 @@ const App = () => {
               </div>
               <div className="mb-3" style={{ width: "300px" }}>
                 <label htmlFor="email" className="form-label">
-                  <span className="text-danger">*</span>Email:
+                  <span className="text-danger"></span>Email:
                 </label>
                 <input
                   type="email"
@@ -125,35 +142,10 @@ const App = () => {
           </div>
         </div>
 
-        {/* <div className="row justify-content-center"> */}
         <button className="button" type="submit">
           Save
         </button>
-        {/* </div> */}
       </div>
-
-      {isSuccessPopupOpen && (
-        <div
-          className="popup"
-          style={{
-            position: "absolute",
-            top: 0,
-            left: "50%",
-            transform: "translateX(-50%)",
-            background: "white",
-            padding: "20px",
-            boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-          }}
-        >
-          <p>Record added successfully!</p>
-          <button
-            className="btn btn-primary"
-            onClick={() => setIsSuccessPopupOpen(false)}
-          >
-            OK
-          </button>
-        </div>
-      )}
     </div>
   );
 };
@@ -315,7 +307,6 @@ export default App;
 
 // import React, { useState } from "react";
 // import InputType from "../../components/Shared/Form/InputType";
-// import "react-datepicker/dist/react-datepicker.css";
 // import styles from "./namehide.module.css";
 
 // const NameHidingForm = () => {

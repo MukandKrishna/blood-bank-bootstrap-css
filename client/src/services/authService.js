@@ -1,12 +1,16 @@
 import store from "../redux/store";
-import { userLogin, userRegister } from "../redux/features/auth/authActions";
+import {
+  userLogin,
+  userRegister,
+  userUpdate,
+} from "../redux/features/auth/authActions";
 
-export const handleLogin = (e, email, password, role) => {
+export const handleLogin = (e, email, password) => {
   e.preventDefault();
 
   try {
     if (!email || !password) {
-      return alert("Please Privde All Feilds");
+      return alert("Please Provide All Fields");
     }
     // console.log("login", e, email, password, role);
     store.dispatch(userLogin({ email, password }));
@@ -47,9 +51,40 @@ export const handleRegister = (
         contact,
         akaah,
         currentcity,
-        nativetown
+        nativetown,
         // organisationName,
         // hospitalName,
+      })
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// namehide / or update user page
+export const handleUpdate = (
+  e,
+  name,
+  fname,
+  email,
+  bloodgroup,
+  donatedate,
+  nukh,
+  contact,
+  akaah
+) => {
+  e.preventDefault();
+  try {
+    store.dispatch(
+      userUpdate({
+        name,
+        fname,
+        email,
+        bloodgroup,
+        donatedate,
+        nukh,
+        contact,
+        akaah,
       })
     );
   } catch (error) {

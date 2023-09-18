@@ -102,36 +102,99 @@ const currentUserController = async (req, res) => {
   }
 };
 
-
-const updatecurrentUserController=async(req,res)=>{
+const updatecurrentUserController = async (req, res) => {
   const id = req.params.id;
-  const {role,name,fathername,email,password,bloodgroup,contact,nukhu,akkahu}=req.body;
-      let updateData;
-      const salt=await bcrypt.genSalt(10);
-      const hashedPassword=await bcrypt.hash(req.body.password,salt);
-      
+  const {
+    name,
+    fathername,
+    email,
+    password,
+    bloodgroup,
+    contact,
+    nukh,
+    akkah,
+  } = req.body;
+  let updateData;
+  const salt = await bcrypt.genSalt(10);
+  const hashedPassword = await bcrypt.hash(req.body.password, salt);
 
   try {
-      updateData=await userModel.findByIdAndUpdate(id,{
-          role,
-          name:name,
-          fathername:fathername,
-          bloodgroup:bloodgroup,
-          contact:contact,
-          nukh:nukhu,
-          akkah:akkahu,
-          email:email,
-          password:hashedPassword
-      });
-      
-      await updateData.save().then(()=>res.status(200).send({
-          success:true,
-          message:"User Upated Data Successfully",
-          updateData
-      }))
-  } catch (error) {
-      console.log(error);
-  }
-}
+    updateData = await userModel.findByIdAndUpdate(id, {
+      name: name,
+      fathername: fathername,
+      bloodgroup: bloodgroup,
+      contact: contact,
+      nukh: nukh,
+      akkah: akkah,
+      email: email,
+      password: hashedPassword,
+    });
 
-module.exports = { registerController, loginController, currentUserController, updatecurrentUserController };
+    await updateData.save().then(() =>
+      res.status(200).send({
+        success: true,
+        message: "User Updated Data Successfully",
+        updateData,
+      })
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// namehide / or update user page
+const nameHideController = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const {
+      name,
+      fathername,
+      email,
+      bloodgroup,
+      contact,
+      donateddate,
+      nukh,
+      akaah,
+    } = req.body;
+
+    const user = await userModel.findById(id);
+    if (!user) {
+      return res.status(404).send({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    user.name = name || user.name;
+    user.fathername = fathername || user.fathername;
+    user.email = email || user.email;
+    user.bloodgroup = bloodgroup || user.bloodgroup;
+    user.contact = contact || user.contact;
+    user.donateddate = donateddate || user.donateddate;
+    user.nukh = nukh || user.nukh;
+    user.akaah = akaah || user.akaah;
+
+    await user.save();
+
+    res.status(200).send({
+      success: true,
+      message: "User data updated successfully",
+      user,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Error updating user data",
+      error,
+    });
+  }
+};
+
+module.exports = {
+  registerController,
+  loginController,
+  currentUserController,
+  updatecurrentUserController,
+  nameHideController,
+};
