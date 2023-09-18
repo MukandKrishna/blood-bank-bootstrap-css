@@ -54,8 +54,8 @@ const Form = ({ formType, submitBtn, formTitle }) => {
         <hr
           style={{ backgroundColor: "white", height: "2px", border: "none" }}
         />
-        <div className="d-flex mb-3">
-          {/* <div className="form-check">
+        {/* <div className="d-flex mb-3"> */}
+        {/* <div className="form-check">
             <input
               type="radio"
               className="form-check-input"
@@ -73,7 +73,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
               Donar
             </label>
           </div> */}
-          {/* <div className="form-check ms-2">
+        {/* <div className="form-check ms-2">
             <input
               type="radio"
               className="form-check-input"
@@ -90,7 +90,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
               Admin
             </label>
           </div> */}
-          {/* <div className="form-check ms-2">
+        {/* <div className="form-check ms-2">
             <input
               type="radio"
               className="form-check-input"
@@ -116,7 +116,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
               Organisation
             </label>
           </div> */}
-        </div>
+        {/* </div> */}
         {/* switch statement */}
         {(() => {
           //eslint-disable-next-line
