@@ -102,45 +102,45 @@ const currentUserController = async (req, res) => {
   }
 };
 
-const updatecurrentUserController = async (req, res) => {
-  const id = req.params.id;
-  const {
-    name,
-    fathername,
-    email,
-    password,
-    bloodgroup,
-    contact,
-    nukh,
-    akkah,
-  } = req.body;
-  let updateData;
-  const salt = await bcrypt.genSalt(10);
-  const hashedPassword = await bcrypt.hash(req.body.password, salt);
+// const nameHideController = async (req, res) => {
+//   const id = req.params.id;
+//   const {
+//     name,
+//     fathername,
+//     email,
+//     bloodgroup,
+//     donatedate,
+//     nukh,
+//     contact,
+//     akaah,
+//   } = req.body;
+//   let updateData;
+//   // const salt = await bcrypt.genSalt(10);
+//   // const hashedPassword = await bcrypt.hash(req.body.password, salt);
 
-  try {
-    updateData = await userModel.findByIdAndUpdate(id, {
-      name: name,
-      fathername: fathername,
-      bloodgroup: bloodgroup,
-      contact: contact,
-      nukh: nukh,
-      akkah: akkah,
-      email: email,
-      password: hashedPassword,
-    });
+//   try {
+//     updateData = await userModel.findByIdAndUpdate(id, {
+//       name: name,
+//       fathername: fathername,
+//       bloodgroup: bloodgroup,
+//       contact: contact,
+//       nukh: nukh,
+//       akaah: akaah,
+//       email: email,
+//       donatedate:donatedate
+//     });
 
-    await updateData.save().then(() =>
-      res.status(200).send({
-        success: true,
-        message: "User Updated Data Successfully",
-        updateData,
-      })
-    );
-  } catch (error) {
-    console.log(error);
-  }
-};
+//     await updateData.save().then(() =>
+//       res.status(200).send({
+//         success: true,
+//         message: "User Updated Data Successfully",
+//         updateData,
+//       })
+//     );
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 
 // namehide / or update user page
 const nameHideController = async (req, res) => {
@@ -195,6 +195,6 @@ module.exports = {
   registerController,
   loginController,
   currentUserController,
-  updatecurrentUserController,
+  // updatecurrentUserController,
   nameHideController,
 };

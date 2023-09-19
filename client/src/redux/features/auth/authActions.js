@@ -84,11 +84,21 @@ export const userRegister = createAsyncThunk(
 export const userUpdate = createAsyncThunk(
   "auth/namehidingform",
   async (
-    { name, fname, email, bloodgroup, donatedate, nukh, contact, akaah },
+    {
+      userId,
+      name,
+      fname,
+      email,
+      bloodgroup,
+      donatedate,
+      nukh,
+      contact,
+      akaah,
+    },
     { rejectWithValue }
   ) => {
     try {
-      const { data } = await API.post("/auth/namehidingform", {
+      const { data } = await API.put(`/auth/namehidingform/${userId}`, {
         name,
         fname,
         email,
