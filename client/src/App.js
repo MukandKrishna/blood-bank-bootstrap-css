@@ -4,6 +4,8 @@ import HomePage from "./pages/HomePage";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import NameHidingForm from "./pages/auth/NameHidingForm";
+import Profile from "./pages/auth/Profile";
+
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 
@@ -17,6 +19,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/Register" element={<Register />} />
+        <Route path="/Profile" element={<Profile />} />
         <Route path="/NameHidingForm" element={<NameHidingForm />} />
       </Routes>
     </>

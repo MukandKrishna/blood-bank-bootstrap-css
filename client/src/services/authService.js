@@ -74,9 +74,11 @@ export const handleUpdate = (
   akaah
 ) => {
   e.preventDefault();
+  const userId =  localStorage.getItem("user_id")
   try {
     store.dispatch(
       userUpdate({
+        userId,
         name,
         fname,
         email,

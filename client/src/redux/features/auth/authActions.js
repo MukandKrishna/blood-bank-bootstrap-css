@@ -11,6 +11,7 @@ export const userLogin = createAsyncThunk(
       if (data.success) {
         alert(data.message);
         localStorage.setItem("token", data.token);
+        localStorage.setItem("user_id", data.user._id);
         window.location.replace("/namehidingform");
       }
       return data;
@@ -98,7 +99,7 @@ export const userUpdate = createAsyncThunk(
     { rejectWithValue }
   ) => {
     try {
-      const { data } = await API.put(`/auth/namehidingform/${userId}`, {
+      const { data } = await API.post(`/auth/namehidingform/${userId}`, {
         name,
         fname,
         email,
@@ -119,6 +120,33 @@ export const userUpdate = createAsyncThunk(
       } else {
         return rejectWithValue(error.message);
       }
+    }
+  }
+);
+
+
+
+//// profile page : 
+export const getUser = createAsyncThunk(
+  "auth/getUser",
+  async (_, { rejectWithValue }) => {
+    try {
+      const { data } = await API.get("/auth/get-user");
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.response.data.message);
+    }
+  }
+);
+
+export const updateUser = createAsyncThunk(
+  "auth/updateUser",
+  async (userData, { rejectWithValue }) => {
+    try {
+      const { data } = await API.put("/auth/update-user", userData);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.response.data.message);
     }
   }
 );

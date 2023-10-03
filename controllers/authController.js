@@ -102,6 +102,43 @@ const currentUserController = async (req, res) => {
   }
 };
 
+// authController.js
+
+const updateUserController = async (req, res) => {
+  try {
+    const updatedUser = await userModel.findByIdAndUpdate(
+      req.user._id, // assuming you have user id in req.user._id
+      {
+        name: req.body.name,
+        fname: req.body.fname,
+        email: req.body.email,
+        bloodgroup: req.body.bloodgroup,
+        donateddate: req.body.donateddate,
+        nukh: req.body.nukh,
+        contact: req.body.contact,
+        akaah: req.body.akaah,
+      },
+      { new: true } // option to return the modified document
+    );
+    res.status(200).send({ success: true, user: updatedUser });
+  } catch (err) {
+    console.log(err);
+    res.status(500).send({ success: false, message: "Error in updating user" });
+  }
+};
+
+const getUserController = async (req, res) => {
+  try {
+    const user = await userModel.findById(req.user._id);
+    res.status(200).send({ success: true, user });
+  } catch (err) {
+    console.log(err);
+    res
+      .status(500)
+      .send({ success: false, message: "Error in getting user", err });
+  }
+};
+
 // const nameHideController = async (req, res) => {
 //   const id = req.params.id;
 //   const {
@@ -196,5 +233,7 @@ module.exports = {
   loginController,
   currentUserController,
   // updatecurrentUserController,
+  updateUserController,
+  getUserController,
   nameHideController,
 };
