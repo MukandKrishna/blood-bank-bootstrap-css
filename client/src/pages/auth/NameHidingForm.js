@@ -82,12 +82,14 @@ const App = () => {
       e,
       e.target.name.value,
       e.target.fname.value,
+      e.target.password.value,
       e.target.email.value,
       e.target.bloodgroup.value,
-      e.target.donateddate.value,
+      e.target.donatedate.value,
       e.target.nukh.value,
       e.target.contact.value,
-      e.target.akaah.value
+      e.target.akaah.value,
+      e.target.hideName.value
     );
   };
   return (
@@ -121,6 +123,18 @@ const App = () => {
                   className="form-control"
                   id="fname"
                   placeholder="Enter your father's name"
+                  required
+                />
+              </div>
+              <div className="mb-3" style={{ width: "300px" }}>
+                <label htmlFor="password" className="form-label">
+                  <span className="text-danger"></span>Password:
+                </label>
+                <input
+                  type="password"
+                  className="form-control"
+                  id="password"
+                  placeholder="Want to enter new password?"
                   required
                 />
               </div>
@@ -174,13 +188,13 @@ const App = () => {
                 />
               </div>
               <div className="mb-3" style={{ width: "300px" }}>
-                <label htmlFor="donatedDate" className="form-label">
-                  <span className="text-danger"></span>Donated Date:
+                <label htmlFor="donateDate" className="form-label">
+                  <span className="text-danger"></span>Blood Donated Date:
                 </label>
                 <input
                   type="date"
                   className="form-control"
-                  id="donateddate"
+                  id="donatedate"
                   placeholder="Enter the donated date"
                   required
                 />
@@ -209,12 +223,30 @@ const App = () => {
                   required
                 />
               </div>
+
+              <div className="mb-3" style={{ width: "300px" }}>
+                <div className="d-flex align-items-center mb-2">
+                  <label className="mr-3">Name hide request:</label>
+                  <input
+                    type="radio"
+                    id="hideYes"
+                    name="hideName"
+                    value="yes"
+                  />
+                  <label className="mr-2 ml-2" htmlFor="hideYes">
+                    Yes
+                  </label>
+                  <input type="radio" id="hideNo" name="hideName" value="no" />
+                  <label className="ml-2" htmlFor="hideNo">
+                    No
+                  </label>
+                </div>
+                <button className="button" type="submit">
+                  Save
+                </button>
+              </div>
             </div>
           </div>
-
-          <button className="button" type="submit">
-            Save
-          </button>
         </form>
       </div>
     </div>

@@ -66,12 +66,14 @@ export const handleUpdate = (
   e,
   name,
   fname,
+  password,
   email,
   bloodgroup,
   donatedate,
   nukh,
   contact,
-  akaah
+  akaah,
+  hideName
 ) => {
   e.preventDefault();
   const userId =  localStorage.getItem("user_id")
@@ -81,12 +83,14 @@ export const handleUpdate = (
         userId,
         name,
         fname,
+        password,
         email,
         bloodgroup,
         donatedate,
         nukh,
         contact,
         akaah,
+        hideName
       })
     );
   } catch (error) {

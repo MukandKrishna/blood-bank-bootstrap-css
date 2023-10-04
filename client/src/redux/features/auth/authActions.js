@@ -89,12 +89,14 @@ export const userUpdate = createAsyncThunk(
       userId,
       name,
       fname,
+      password,
       email,
       bloodgroup,
       donatedate,
       nukh,
       contact,
       akaah,
+      hideName
     },
     { rejectWithValue }
   ) => {
@@ -102,16 +104,18 @@ export const userUpdate = createAsyncThunk(
       const { data } = await API.post(`/auth/namehidingform/${userId}`, {
         name,
         fname,
+        password,
         email,
         bloodgroup,
         donatedate,
         nukh,
         contact,
         akaah,
+        hideName
       });
       if (data?.success) {
         alert("Form Saved Successfully");
-        window.location.replace("/");
+        window.location.replace("/namehidingform");
       }
     } catch (error) {
       console.log(error);

@@ -107,7 +107,7 @@ const currentUserController = async (req, res) => {
 const updateUserController = async (req, res) => {
   try {
     const updatedUser = await userModel.findByIdAndUpdate(
-      req.user._id, // assuming you have user id in req.user._id
+      req.user._id,
       {
         name: req.body.name,
         fname: req.body.fname,
@@ -186,12 +186,14 @@ const nameHideController = async (req, res) => {
     const {
       name,
       fathername,
+      password,
       email,
       bloodgroup,
       contact,
       donateddate,
       nukh,
       akaah,
+      hideName,
     } = req.body;
 
     const user = await userModel.findById(id);
@@ -204,12 +206,14 @@ const nameHideController = async (req, res) => {
 
     user.name = name || user.name;
     user.fathername = fathername || user.fathername;
+    user.password = password || user.password;
     user.email = email || user.email;
     user.bloodgroup = bloodgroup || user.bloodgroup;
     user.contact = contact || user.contact;
-    user.donateddate = donateddate || user.donateddate;
+    user.donatedate = donateddate || user.donatedate;
     user.nukh = nukh || user.nukh;
     user.akaah = akaah || user.akaah;
+    user.hideName = hideName || user.hideName;
 
     await user.save();
 

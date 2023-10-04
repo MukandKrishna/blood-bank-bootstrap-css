@@ -72,7 +72,7 @@ const userSchema = new mongoose.Schema(
       type: Date,
       required: [true, "date of birth is required"],
     },
-    donateddate: {
+    donatedate: {
       type: Date,
       required: [false, "donated date is required"],
     },
@@ -83,6 +83,11 @@ const userSchema = new mongoose.Schema(
     nativetown: {
       type: String,
       required: [true, "native town is required"],
+    },
+    hideName: {
+      type: String,
+      enum: ['yes', 'no'],
+      default: 'no'
     },
   },
   { timestamps: true }
