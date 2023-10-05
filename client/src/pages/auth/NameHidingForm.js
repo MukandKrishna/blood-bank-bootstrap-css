@@ -1,74 +1,3 @@
-// import React, { useEffect, useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { getUser, updateUser } from "../../redux/features/auth/authActions"; // Adjust the import path accordingly
-
-// const App = () => {
-//   const dispatch = useDispatch();
-//   const user = useSelector((state) => state.auth.user); // Adjust the state shape if needed
-//   const [userData, setUserData] = useState({ ...user });
-//   const bloodGroups = ["A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"];
-
-//   useEffect(() => {
-//     dispatch(getUser());
-//   }, [dispatch]);
-
-//   useEffect(() => {
-//     setUserData({ ...user });
-//   }, [user]);
-
-//   const handleChange = (e) => {
-//     const { name, value } = e.target;
-//     setUserData((prevData) => ({ ...prevData, [name]: value }));
-//   };
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     dispatch(updateUser(userData));
-//   };
-
-//   return (
-//     <div className="d-flex vh-100 justify-content-center align-items-center">
-//       <div className="card p-4" style={{ width: "100vw" }}>
-//         <h2 className="text-left mb-4">Name Hiding Form</h2>
-//         <hr className="mb-2" />
-//         <form onSubmit={handleSubmit}>
-//           <div className="d-flex justify-content-evenly">
-//             <div className="column">
-//               {/* ... other fields ... */}
-//               <div className="mb-3" style={{ width: "300px" }}>
-//                 <label htmlFor="bloodgroup" className="form-label">
-//                   <span className="text-danger"></span>Blood Group:
-//                 </label>
-//                 <select
-//                   className="form-control"
-//                   id="bloodgroup"
-//                   name="bloodgroup"
-//                   value={userData.bloodgroup || ""}
-//                   onChange={handleChange}
-//                   required
-//                 >
-//                   <option value="">Select Blood Group</option>
-//                   {bloodGroups.map((group) => (
-//                     <option key={group} value={group}>
-//                       {group}
-//                     </option>
-//                   ))}
-//                 </select>
-//               </div>
-//               {/* ... other fields ... */}
-//             </div>
-//             {/* ... Second Column ... */}
-//           </div>
-//           <button className="button" type="submit">
-//             Save
-//           </button>
-//         </form>
-//       </div>
-//     </div>
-//   );
-// };
-// export default App;
-
 // import React from "react";
 // // import { Link } from "react-router-dom";
 // import { handleUpdate } from "../../services/authService";
@@ -257,7 +186,7 @@
 
 import React from "react";
 import { handleUpdate } from "../../services/authService";
-import styles from "./name.module.css";
+import styles from "./namehide.module.css";
 
 const App = () => {
   const bloodGroups = ["A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"];

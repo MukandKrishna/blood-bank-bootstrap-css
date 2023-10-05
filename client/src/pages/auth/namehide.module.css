@@ -1,50 +1,56 @@
-
-.d-flex {
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  padding: 20px;
-  /* Add padding to the container */
-  background-color: lightblue;
-  /* Set background color to light blue */
+/* Container styles */
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
-  /* Ensure the container covers the full viewport height */
+  width: 100vw;
+  margin: 0;
+  padding: 0;
 }
 
 /* Style for each box */
 .mb-3.d-flex.align-items-center {
-  width: calc(33.33% - 20px);
-  /* 3 boxes per row with more spacing */
+  width: 100%;
   margin-bottom: 20px;
   padding: 20px;
-  /* Add more padding to each box */
   background-color: lightcoral !important;
-  /* Set background color to light red with !important to override Bootstrap */
 }
 
 /* Adjust box width for larger screens if needed */
 @media (min-width: 1000px) {
   .mb-3.d-flex.align-items-center {
-    width: calc(25% - 20px);
-    /* 4 boxes per row for larger screens with more spacing */
+    width: calc(50% - 20px);
   }
 }
 
+/* Button styles */
 .button {
-  justify-content: center;
-  align-items: center;
-  font: white;
-  height: 40px;
-  width: 18%;
-  font-size: 15px;
-  font-weight: 600;
+  display: flex;
+  height: auto;
+  width: 70%;
+  font-size: 18px;
+  font-weight: 700;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 25px;
+  background-color: red;
+  border: none;
+  padding: 10px 10px;
+  margin-left: 30px;
+  justify-content: space-around;
 }
 
 .button:focus {
   color: #fff;
-  background-color: blue;
   border: 2px solid #fff;
 }
 
-
+/* Mobile specific styling for scrollable form */
+@media (max-width: 768px) {
+  .formMobile {
+    max-height: 80vh; /* 80% of the viewport height */
+    overflow-y: auto; /* Allow vertical scrolling */
+    padding-right: 10px; /* Add some padding to prevent scroll bar from overlaying content */
+  }
+}
