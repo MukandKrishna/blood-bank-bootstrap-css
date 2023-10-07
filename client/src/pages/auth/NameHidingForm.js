@@ -211,7 +211,7 @@ const App = () => {
   return (
     <div className={styles.formContainer}>
       <div className={styles.card}>
-        <h2 className="text-left mb-4">Name Hiding Form</h2>
+        <h2 className="text-left mb-4">Profile Page</h2>
         <hr className="mb-2" />
 
         <form onSubmit={handleSubmit} className={styles.formMobile}>

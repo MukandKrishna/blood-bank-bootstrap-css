@@ -113,7 +113,7 @@ const updateUserController = async (req, res) => {
         fname: req.body.fname,
         email: req.body.email,
         bloodgroup: req.body.bloodgroup,
-        donateddate: req.body.donateddate,
+        donatedate: req.body.donateddate,
         nukh: req.body.nukh,
         contact: req.body.contact,
         akaah: req.body.akaah,
