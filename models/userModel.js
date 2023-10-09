@@ -89,8 +89,12 @@ const userSchema = new mongoose.Schema(
       enum: ['yes', 'no'],
       default: 'no'
     },
+    verified: { type: Boolean, default: false },
   },
   { timestamps: true }
 );
 
+const User = mongoose.model("user", userSchema);
+
+module.exports  = User;
 module.exports = mongoose.model("users", userSchema);
