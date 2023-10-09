@@ -5,7 +5,6 @@ import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import NameHidingForm from "./pages/auth/NameHidingForm";
 import Profile from "./pages/auth/Profile";
-
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 

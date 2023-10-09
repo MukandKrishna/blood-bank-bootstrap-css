@@ -244,14 +244,13 @@ const App = () => {
               </div>
               <div className="mb-3">
                 <label htmlFor="password" className="form-label">
-                  <span className="text-danger">*</span>Password:
+                  <span className="text-danger">*</span>Password(Optional):
                 </label>
                 <input
                   type="password"
                   className="form-control"
                   id="password"
                   placeholder="Want to update password?"
-                  required
                 />
               </div>
               <div className="mb-3">

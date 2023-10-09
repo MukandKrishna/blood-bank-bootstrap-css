@@ -86,15 +86,14 @@ const userSchema = new mongoose.Schema(
     },
     hideName: {
       type: String,
-      enum: ['yes', 'no'],
-      default: 'no'
+      enum: ["yes", "no"],
+      default: "no",
     },
-    verified: { type: Boolean, default: false },
   },
   { timestamps: true }
 );
 
-const User = mongoose.model("user", userSchema);
+// const User = mongoose.model("user", userSchema);
 
-module.exports  = User;
+// module.exports  = User;
 module.exports = mongoose.model("users", userSchema);

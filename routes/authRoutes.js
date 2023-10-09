@@ -17,14 +17,12 @@ router.post("/register", registerController);
 
 //login || post
 router.post("/login", loginController);
-//  to secure this use json web token
 
 // get current user
 router.get("/current-user", authMiddleware, currentUserController);
 
 router.put("/update-user", authMiddleware, updateUserController);
 router.get("/get-user", authMiddleware, getUserController);
-
 
 // Update  namehide ||Post
 router.post("/namehidingform/:id", nameHideController);
@@ -33,6 +31,3 @@ router.post("/namehidingform/:id", nameHideController);
 // router.put("/update_current_user/:id", updatecurrentUserController);
 
 module.exports = router;
-
-// authRoutes.js
-
