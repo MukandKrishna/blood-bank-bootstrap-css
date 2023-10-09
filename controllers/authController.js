@@ -190,7 +190,7 @@ const nameHideController = async (req, res) => {
       email,
       bloodgroup,
       contact,
-      donateddate,
+      donatedate,
       nukh,
       akaah,
       hideName,
@@ -210,7 +210,7 @@ const nameHideController = async (req, res) => {
     user.email = email || user.email;
     user.bloodgroup = bloodgroup || user.bloodgroup;
     user.contact = contact || user.contact;
-    user.donatedate = donateddate || user.donatedate;
+    user.donatedate = donatedate || user.donatedate;
     user.nukh = nukh || user.nukh;
     user.akaah = akaah || user.akaah;
     user.hideName = hideName || user.hideName;
