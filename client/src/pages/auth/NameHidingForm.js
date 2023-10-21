@@ -236,7 +236,7 @@ const App = () => {
             <div className="column">
               <div className="mb-3">
                 <label htmlFor="name" className="form-label">
-                  <span className="text-danger">*</span>Name:
+                  Name:
                 </label>
                 <input
                   type="text"
@@ -251,7 +251,7 @@ const App = () => {
               </div>
               <div className="mb-3">
                 <label htmlFor="fname" className="form-label">
-                  <span className="text-danger">*</span>Father's Name:
+                  Father's Name:
                 </label>
                 <input
                   type="text"
@@ -266,7 +266,7 @@ const App = () => {
               </div>
               <div className="mb-3">
                 <label htmlFor="password" className="form-label">
-                  <span className="text-danger">*</span>Password(Optional):
+                  Password(Optional):
                 </label>
                 <input
                   type="password"
@@ -280,7 +280,8 @@ const App = () => {
               </div>
               <div className="mb-3">
                 <label htmlFor="bloodgroup" className="form-label">
-                  <span className="text-danger">*</span>Blood Group:
+                {/* <span className="text-danger">*</span> */}
+                  Blood Group:
                 </label>
                 <select
                   className="form-control"
@@ -300,7 +301,7 @@ const App = () => {
               </div>
               <div className="mb-3">
                 <label htmlFor="nukh" className="form-label">
-                  <span className="text-danger">*</span>Nukh:
+                  Nukh:
                 </label>
                 <input
                   type="text"
@@ -319,7 +320,7 @@ const App = () => {
             <div className="column">
               <div className="mb-3">
                 <label htmlFor="akkah" className="form-label">
-                  <span className="text-danger">*</span>Akkah:
+                  Akaah:
                 </label>
                 <input
                   type="text"
@@ -334,7 +335,7 @@ const App = () => {
               </div>
               <div className="mb-3">
                 <label htmlFor="donatedate" className="form-label">
-                  <span className="text-danger">*</span>Blood Donated Date:
+                  Blood Donated Date:
                 </label>
                 <input
                   type="date"
@@ -351,7 +352,7 @@ const App = () => {
               </div>
               <div className="mb-3">
                 <label htmlFor="contact" className="form-label">
-                  <span className="text-danger">*</span>Contact:
+                  Contact:
                 </label>
                 <input
                   type="text"
@@ -366,7 +367,7 @@ const App = () => {
               </div>
               <div className="mb-3">
                 <label htmlFor="email" className="form-label">
-                  <span className="text-danger">*</span>Email:
+                  Email:
                 </label>
                 <input
                   type="email"

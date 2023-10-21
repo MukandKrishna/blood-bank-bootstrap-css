@@ -106,14 +106,13 @@ const currentUserController = async (req, res) => {
 
 const updateUserController = async (req, res) => {
   try {
-    if (req.body.password)
-    {
+    if (req.body.password) {
       // bcrypt: hashing the password
       const salt = await bcrypt.genSalt(10); // 10 is the number of rounds
       const hashedPassword = await bcrypt.hash(req.body.password, salt); //hashing the password
       req.body.password = hashedPassword; //assigning the hashed password to the password field
     }
-    console.log(req.body.password)
+    console.log(req.body.password);
     const updatedUser = await userModel.findByIdAndUpdate(
       req.user._id,
       {
@@ -149,46 +148,6 @@ const getUserController = async (req, res) => {
   }
 };
 
-// const nameHideController = async (req, res) => {
-//   const id = req.params.id;
-//   const {
-//     name,
-//     fathername,
-//     email,
-//     bloodgroup,
-//     donatedate,
-//     nukh,
-//     contact,
-//     akaah,
-//   } = req.body;
-//   let updateData;
-//   // const salt = await bcrypt.genSalt(10);
-//   // const hashedPassword = await bcrypt.hash(req.body.password, salt);
-
-//   try {
-//     updateData = await userModel.findByIdAndUpdate(id, {
-//       name: name,
-//       fathername: fathername,
-//       bloodgroup: bloodgroup,
-//       contact: contact,
-//       nukh: nukh,
-//       akaah: akaah,
-//       email: email,
-//       donatedate:donatedate
-//     });
-
-//     await updateData.save().then(() =>
-//       res.status(200).send({
-//         success: true,
-//         message: "User Updated Data Successfully",
-//         updateData,
-//       })
-//     );
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
 // namehide / or update user page
 const nameHideController = async (req, res) => {
   try {
@@ -213,8 +172,7 @@ const nameHideController = async (req, res) => {
         message: "User not found",
       });
     }
-    if (req.body.password)
-    {
+    if (req.body.password) {
       // bcrypt: hashing the password
       const salt = await bcrypt.genSalt(10); // 10 is the number of rounds
       const hashedPassword = await bcrypt.hash(req.body.password, salt); //hashing the password
