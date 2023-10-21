@@ -184,13 +184,29 @@
 
 // export default App;
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { handleUpdate } from "../../services/authService";
 import styles from "./namehide.module.css";
 
+// import { useDispatch, useSelector } from "react-redux";
+import { getUser } from "../../redux/features/auth/authActions"; // Adjust the import path accordingly
 const App = () => {
   const bloodGroups = ["A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"];
+  const [userData, setUserData] = useState({});
 
+  useEffect(() => {
+    // setUserData(getUser)
+    (async function func() {
+      const user = await getUser();
+      console.log(user.user);
+      setUserData(user.user);
+    })();
+  }, []);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUserData((prevData) => ({ ...prevData, [name]: value }));
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     handleUpdate(
@@ -226,8 +242,11 @@ const App = () => {
                   type="text"
                   className="form-control"
                   id="name"
+                  name = 'name'
                   placeholder="Enter your name"
-                  required
+                  onChange={handleChange}
+                  value={userData.name}
+                  // required
                 />
               </div>
               <div className="mb-3">
@@ -238,8 +257,11 @@ const App = () => {
                   type="text"
                   className="form-control"
                   id="fname"
+                  name = 'fname'
                   placeholder="Enter your father's name"
-                  required
+                  onChange={handleChange}
+                  value={userData.fname}
+                  // required
                 />
               </div>
               <div className="mb-3">
@@ -250,7 +272,10 @@ const App = () => {
                   type="password"
                   className="form-control"
                   id="password"
+                  name = 'password'
                   placeholder="Want to update password?"
+                  onChange={handleChange}
+                  value={""}
                 />
               </div>
               <div className="mb-3">
@@ -261,7 +286,9 @@ const App = () => {
                   className="form-control"
                   id="bloodgroup"
                   name="bloodgroup"
-                  required
+                  onChange={handleChange}
+                  value={userData.bloodgroup}
+                  // required
                 >
                   <option value="">Select Blood Group</option>
                   {bloodGroups.map((group) => (
@@ -279,8 +306,11 @@ const App = () => {
                   type="text"
                   className="form-control"
                   id="nukh"
+                  name = 'nukh'
                   placeholder="Enter your nukh"
-                  required
+                  onChange={handleChange}
+                  value={userData.nukh}
+                  // required
                 />
               </div>
             </div>
@@ -295,8 +325,11 @@ const App = () => {
                   type="text"
                   className="form-control"
                   id="akaah"
-                  placeholder="Enter your akkah"
-                  required
+                  name = 'akaah'
+                  placeholder="Enter your akaah"
+                  onChange={handleChange}
+                  value={userData.akaah}
+                  // required
                 />
               </div>
               <div className="mb-3">
@@ -307,8 +340,13 @@ const App = () => {
                   type="date"
                   className="form-control"
                   id="donatedate"
+                  name = 'donatedate'
                   placeholder="Enter the donated date"
-                  required
+                  onChange={handleChange}
+                  // value={new Date(userData.donatedate)}
+                  value={userData.donatedate ? new Date(userData.donatedate).toISOString().split('T')[0] : ''}
+
+                  // required
                 />
               </div>
               <div className="mb-3">
@@ -319,8 +357,11 @@ const App = () => {
                   type="text"
                   className="form-control"
                   id="contact"
+                  name = 'contact'
                   placeholder="Enter your contact"
-                  required
+                  onChange={handleChange}
+                  value={userData.contact}
+                  // required
                 />
               </div>
               <div className="mb-3">
@@ -331,8 +372,11 @@ const App = () => {
                   type="email"
                   className="form-control"
                   id="email"
+                  name = 'email'
                   placeholder="Enter your email"
-                  required
+                  onChange={handleChange}
+                  value={userData.email}
+                  // required
                 />
               </div>
 
@@ -344,6 +388,8 @@ const App = () => {
                     id="hideYes"
                     name="hideName"
                     value="yes"
+                    // onChange={handleChange}
+                    // checked={userData.hideName === "yes"}
                   />
                   <label className="mr-2 ml-2" htmlFor="hideYes">
                     Yes

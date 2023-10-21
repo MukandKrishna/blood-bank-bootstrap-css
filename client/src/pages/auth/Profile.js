@@ -8,12 +8,13 @@ const Profile = () => {
   const [userData, setUserData] = useState({ ...user });
 
   useEffect(() => {
+    setUserData(getUser)
     console.log("Dispatching getUser");
-    dispatch(getUser());
-}, [dispatch]);
+    // dispatch(getUser());
+  }, [dispatch]);
 
-console.log("User from Redux store: ", user);
-console.log("Local UserData state: ", userData);
+  console.log("User from Redux store: ", user);
+  console.log("Local UserData state: ", userData);
 
   const handleChange = (e) => {
     const { name, value } = e.target;

@@ -96,7 +96,7 @@ export const userUpdate = createAsyncThunk(
       nukh,
       contact,
       akaah,
-      hideName
+      hideName,
     },
     { rejectWithValue }
   ) => {
@@ -111,7 +111,7 @@ export const userUpdate = createAsyncThunk(
         nukh,
         contact,
         akaah,
-        hideName
+        hideName,
       });
       if (data?.success) {
         alert("Form Saved Successfully");
@@ -128,20 +128,33 @@ export const userUpdate = createAsyncThunk(
   }
 );
 
-
-
-//// profile page : 
-export const getUser = createAsyncThunk(
-  "auth/getUser",
-  async (_, { rejectWithValue }) => {
-    try {
-      const { data } = await API.get("/auth/get-user");
-      return data;
-    } catch (error) {
-      return rejectWithValue(error.response.data.message);
-    }
+//// profile page :
+export const getUser = async () => {
+  const token = localStorage.getItem("token");
+  const reqOptions = {
+    headers: {
+      Authorization: `bearer ${token}`,
+    },
+  };
+  let data;
+  try {
+    data = await API.get("/auth/get-user", reqOptions);
+  } catch (err) {
+    console.log(err);
   }
-);
+  return data.data;
+};
+// export const getUser = createAsyncThunk(
+//   "auth/getUser",
+//   async (_, { rejectWithValue }) => {
+//     try {
+//       const { data } = await API.get("/auth/get-user");
+//       return data;
+//     } catch (error) {
+//       return rejectWithValue(error.response.data.message);
+//     }
+//   }
+// );
 
 export const updateUser = createAsyncThunk(
   "auth/updateUser",

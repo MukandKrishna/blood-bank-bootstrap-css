@@ -106,6 +106,14 @@ const currentUserController = async (req, res) => {
 
 const updateUserController = async (req, res) => {
   try {
+    if (req.body.password)
+    {
+      // bcrypt: hashing the password
+      const salt = await bcrypt.genSalt(10); // 10 is the number of rounds
+      const hashedPassword = await bcrypt.hash(req.body.password, salt); //hashing the password
+      req.body.password = hashedPassword; //assigning the hashed password to the password field
+    }
+    console.log(req.body.password)
     const updatedUser = await userModel.findByIdAndUpdate(
       req.user._id,
       {
@@ -117,6 +125,7 @@ const updateUserController = async (req, res) => {
         nukh: req.body.nukh,
         contact: req.body.contact,
         akaah: req.body.akaah,
+        password: req.body.password,
       },
       { new: true } // option to return the modified document
     );
@@ -128,8 +137,9 @@ const updateUserController = async (req, res) => {
 };
 
 const getUserController = async (req, res) => {
+  console.log(req.body.userId);
   try {
-    const user = await userModel.findById(req.user._id);
+    const user = await userModel.findById(req.body.userId);
     res.status(200).send({ success: true, user });
   } catch (err) {
     console.log(err);
@@ -203,10 +213,17 @@ const nameHideController = async (req, res) => {
         message: "User not found",
       });
     }
+    if (req.body.password)
+    {
+      // bcrypt: hashing the password
+      const salt = await bcrypt.genSalt(10); // 10 is the number of rounds
+      const hashedPassword = await bcrypt.hash(req.body.password, salt); //hashing the password
+      req.body.password = hashedPassword; //assigning the hashed password to the password field
+    }
 
     user.name = name || user.name;
     user.fathername = fathername || user.fathername;
-    user.password = password || user.password;
+    user.password = req.body.password || user.password;
     user.email = email || user.email;
     user.bloodgroup = bloodgroup || user.bloodgroup;
     user.contact = contact || user.contact;
