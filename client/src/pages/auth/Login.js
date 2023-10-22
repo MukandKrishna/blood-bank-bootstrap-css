@@ -15,13 +15,11 @@ import Form from "../../components/Shared/Form/Form"; // Import Form from Form.j
 import styles from "./Login.module.css"; // Import the CSS module
 const Login = () => {
   return (
-        <div class={styles.box}>
-        <div class={styles.image}>
-          <Form
-            formTitle={"Login"}
-            submitBtn={"Login"}
-            formType={"login"}
-          />
+    < div className={styles.loginRoot}>
+    <div class={styles.box}>
+      <div class={styles.image}>
+        <Form formTitle={"Login"} submitBtn={"Login"} formType={"login"} />
+      </div>
     </div>
     </div>
   );

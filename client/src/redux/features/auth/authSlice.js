@@ -1,5 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { userLogin, userRegister, userUpdate ,getUser, updateUser} from "./authActions";
+import {
+  userLogin,
+  userRegister,
+  userUpdate,
+  getUser,
+  updateUser,
+} from "./authActions";
 
 const token = localStorage.getItem("token")
   ? localStorage.getItem("token")
@@ -38,8 +44,8 @@ const authSlice = createSlice({
     });
     builder.addCase(userRegister.fulfilled, (state, { payload }) => {
       state.loading = false;
-      state.user = payload.token;
-      // state.user = payload.user;
+      // state.user = payload.token;
+      state.user = payload.user;
     });
     builder.addCase(userRegister.rejected, (state, { payload }) => {
       state.loading = false;
@@ -49,21 +55,20 @@ const authSlice = createSlice({
     // update user
     builder.addCase(userUpdate.fulfilled, (state, { payload }) => {
       state.loading = false;
-      state.user = payload.token;
-      // state.user = payload.user;
+      // state.user = payload.token;
+      state.user = payload.user;
     });
 
-// authSlice.js
+    // authSlice.js
 
     builder.addCase(getUser.fulfilled, (state, { payload }) => {
-      state.user = payload.user;
+      state.user = payload;
+      // state.user = payload.user;
     });
 
     builder.addCase(updateUser.fulfilled, (state, { payload }) => {
       state.user = payload.user;
     });
-
-
   },
 });
 

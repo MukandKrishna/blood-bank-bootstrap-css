@@ -12,6 +12,7 @@ export const userLogin = createAsyncThunk(
         alert(data.message);
         localStorage.setItem("token", data.token);
         localStorage.setItem("user_id", data.user._id);
+        // toast.success(data.message);
         window.location.replace("/namehidingform");
       }
       return data;
