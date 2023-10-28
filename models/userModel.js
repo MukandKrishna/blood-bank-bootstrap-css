@@ -2,38 +2,41 @@ const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema(
   {
-    // role: {
-    //   type: String,
-    //   required: [true, "role is required"],
-    //   enum: ["admin"],
-    // },
-    // name: {
-    //   type: String,
-    //   required: function () {
-    //     if (this.role === "admin") {
-    //       return true;
-    //     }
-    //     return false;
-    //   },
-    // },
-    // organisationName: {
-    //   type: String,
-    //   required: function () {
-    //     if (this.role === "organisation") {
-    //       return true;
-    //     }
-    //     return false;
-    //   },
-    // },
-    // hospitalName: {
-    //   type: String,
-    //   required: function () {
-    //     if (this.role === "hospital") {
-    //       return true;
-    //     }
-    //     return false;
-    //   },
-    // },
+    role: {
+      type: String,
+      required: [true, "role is required"],
+      enum: ["admin", "organisation", "hospital", "user"],
+    },
+    secretkey: {
+      type: String,
+      required: function () {
+        return this.role === "admin";
+      },
+    },
+    name: {
+      type: String,
+      required: function () {
+        return this.role === "admin" || this.role === "user";
+      },
+    },
+    organisationName: {
+      type: String,
+      required: function () {
+        if (this.role === "organisation") {
+          return true;
+        }
+        return false;
+      },
+    },
+    hospitalName: {
+      type: String,
+      required: function () {
+        if (this.role === "hospital") {
+          return true;
+        }
+        return false;
+      },
+    },
     name: {
       type: String,
       required: [true, "name is required"],

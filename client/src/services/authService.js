@@ -27,12 +27,13 @@ export const handleRegister = (
   bloodgroup,
   email,
   password,
-  // role,
+  role,
   nukh,
   contact,
   akaah,
   currentcity,
-  nativetown
+  nativetown,
+  secretkey
   // organisationName,
   // hospitalName,
 ) => {
@@ -46,12 +47,13 @@ export const handleRegister = (
         bloodgroup,
         email,
         password,
-        // role,
+        role,
         nukh,
         contact,
         akaah,
         currentcity,
         nativetown,
+        secretkey,
         // organisationName,
         // hospitalName,
       })

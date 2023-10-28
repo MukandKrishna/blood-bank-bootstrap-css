@@ -6,11 +6,12 @@ import { handleLogin, handleRegister } from "../../../services/authService";
 const Form = ({ formType, submitBtn, formTitle }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [role, setRole] = useState("donar");
+  const [role, setRole] = useState("donar");
   const [name, setName] = useState("");
   const [fname, setfName] = useState("");
   const [dob, setDob] = useState("");
   const [bloodgroup, setBloodGroup] = useState("");
+  const [secretkey, setSecretKey] = useState("");
 
   // const [organisationName, setOrganisationName] = useState("");
   // const [hospitalName, setHospitalName] = useState("");
@@ -27,25 +28,35 @@ const Form = ({ formType, submitBtn, formTitle }) => {
     <div>
       <form
         onSubmit={(e) => {
-          if (formType === "login") return handleLogin(e, email, password);
-          else if (formType === "register")
-            return handleRegister(
-              e,
-              name,
-              fname,
-              dob,
-              bloodgroup,
-              email,
-              password,
-              // role,
-              nukh,
-              contact,
-              akaah,
-              currentcity,
-              nativetown
-              // organisationName,
-              // hospitalName,
-            );
+          if (role === "admin" && secretkey !== "DMYF") {
+            e.preventDefault();
+            alert("Invalid Admin");
+          } else {
+            if (formType === "login") {
+              e.preventDefault();
+              return handleLogin(e, email, password);
+            } else if (formType === "register") {
+              e.preventDefault();
+              return handleRegister(
+                e,
+                name,
+                fname,
+                dob,
+                bloodgroup,
+                email,
+                password,
+                role,
+                nukh,
+                contact,
+                akaah,
+                currentcity,
+                nativetown,
+                secretkey
+                // hospitalName,
+                // organisationName
+              );
+            }
+          }
         }}
       >
         <h1 className="text-left" style={whiteTextStyle}>
@@ -54,43 +65,48 @@ const Form = ({ formType, submitBtn, formTitle }) => {
         <hr
           style={{ backgroundColor: "white", height: "2px", border: "none" }}
         />
-        {/* <div className="d-flex mb-3"> */}
-        {/* <div className="form-check">
-            <input
-              type="radio"
-              className="form-check-input"
-              name="role"
-              id="donarRadio"
-              value={"donar"}
-              onChange={(e) => setRole(e.target.value)}
-              defaultChecked
-            />
-            <label
-              htmlFor="adminRadio"
-              className="form-check-label"
-              // style={whiteTextStyle}
-            >
-              Donar
-            </label>
-          </div> */}
-        {/* <div className="form-check ms-2">
-            <input
-              type="radio"
-              className="form-check-input"
-              name="role"
-              id="adminRadio"
-              value={"admin"}
-              onChange={(e) => setRole(e.target.value)}
-            />
-            <label
-              htmlFor="adminRadio"
-              className="form-check-label"
-              style={whiteTextStyle}
-            >
-              Admin
-            </label>
-          </div> */}
-        {/* <div className="form-check ms-2">
+        {formType === "register" && (
+        <div className="d-flex mb-3">
+          {
+            <div className="form-check">
+              <input
+                type="radio"
+                className="form-check-input"
+                name="role"
+                id="userRadio"
+                value={"user"}
+                onChange={(e) => setRole(e.target.value)}
+                defaultChecked
+              />
+              <label
+                htmlFor="userRadio"
+                className="form-check-label"
+                // style={whiteTextStyle}
+              >
+                Donar
+              </label>
+            </div>
+          }
+          {
+            <div className="form-check ms-2">
+              <input
+                type="radio"
+                className="form-check-input"
+                name="role"
+                id="adminRadio"
+                value={"admin"}
+                onChange={(e) => setRole(e.target.value)}
+              />
+              <label
+                htmlFor="adminRadio"
+                className="form-check-label"
+                style={whiteTextStyle}
+              >
+                Admin
+              </label>
+            </div>
+          }
+          {/* <div className="form-check ms-2">
             <input
               type="radio"
               className="form-check-input"
@@ -116,7 +132,8 @@ const Form = ({ formType, submitBtn, formTitle }) => {
               Organisation
             </label>
           </div> */}
-        {/* </div> */}
+        </div>
+        )}
         {/* switch statement */}
         {(() => {
           //eslint-disable-next-line
@@ -151,16 +168,17 @@ const Form = ({ formType, submitBtn, formTitle }) => {
               return (
                 <>
                   {/* {(role === "admin") && ( */}
-                  <InputType
-                    labelText={""}
-                    placeHolder={"Enter your Name"}
-                    labelFor={"forName"}
-                    inputType={"text"}
-                    name={"name"}
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                  />
-                  {/* )} */}
+                  {role === "admin" && (
+                    <InputType
+                      labelText={""}
+                      placeHolder={"Enter Secret Key"}
+                      labelFor={"forkey"}
+                      inputType={"text"}
+                      name={"name"}
+                      value={secretkey}
+                      onChange={(e) => setSecretKey(e.target.value)}
+                    />
+                  )}
 
                   {/* {role === "organisation" && (
                     <InputType
@@ -182,7 +200,15 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                       onChange={(e) => setHospitalName(e.target.value)}
                     /> }
                   )*/}
-
+                  <InputType
+                    labelText={""}
+                    placeHolder={"Enter your Name"}
+                    labelFor={"forName"}
+                    inputType={"text"}
+                    name={"name"}
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  />
                   <InputType
                     labelText={""}
                     placeHolder={"Enter your Password"}

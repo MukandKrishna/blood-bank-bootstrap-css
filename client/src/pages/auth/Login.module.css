@@ -66,4 +66,10 @@
     background-color: #0c1022;
     z-index: 1;
     border-radius: 16px;
+    display: flex;
+    /* Added this line */
+    justify-content: center;
+    /* Added this line */
+    align-items: center;
+    /* Added this line */
 }
