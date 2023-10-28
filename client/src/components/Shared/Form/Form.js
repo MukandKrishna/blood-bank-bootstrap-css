@@ -6,7 +6,7 @@ import { handleLogin, handleRegister } from "../../../services/authService";
 const Form = ({ formType, submitBtn, formTitle }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("donar");
+  const [role, setRole] = useState("");
   const [name, setName] = useState("");
   const [fname, setfName] = useState("");
   const [dob, setDob] = useState("");
@@ -178,6 +178,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                       value={secretkey}
                       onChange={(e) => setSecretKey(e.target.value)}
                     />
+                    
                   )}
 
                   {/* {role === "organisation" && (
@@ -211,21 +212,21 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                   />
                   <InputType
                     labelText={""}
-                    placeHolder={"Enter your Password"}
-                    labelFor={"forPassword"}
-                    inputType={"password"}
-                    name={"password"}
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                  <InputType
-                    labelText={""}
                     placeHolder={"Enter your Father's Name"}
                     labelFor={"forfname"}
                     inputType={"text"}
                     name={"fname"}
                     value={fname}
                     onChange={(e) => setfName(e.target.value)}
+                  />
+                  <InputType
+                    labelText={""}
+                    placeHolder={"Enter your Password"}
+                    labelFor={"forPassword"}
+                    inputType={"password"}
+                    name={"password"}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                   />
                   <InputType
                     labelText={""}

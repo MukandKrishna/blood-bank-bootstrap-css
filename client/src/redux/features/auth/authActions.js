@@ -4,9 +4,9 @@ import API from "../../../services/API";
 
 export const userLogin = createAsyncThunk(
   "auth/login",
-  async ({ role, email, password }, { rejectWithValue }) => {
+  async ({ email, password }, { rejectWithValue }) => {
     try {
-      const { data } = await API.post("/auth/login", { role, email, password });
+      const { data } = await API.post("/auth/login", { email, password });
       //store token
       if (data.success) {
         alert(data.message);
