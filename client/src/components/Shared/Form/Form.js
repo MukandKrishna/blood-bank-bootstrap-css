@@ -83,7 +83,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                 className="form-check-label"
                 // style={whiteTextStyle}
               >
-                Donar
+                User
               </label>
             </div>
           }
