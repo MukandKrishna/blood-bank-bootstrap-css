@@ -1,11 +1,113 @@
 /* HomePage.css */
 .homepage {
-    text-align: left;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin: 20px;
-    font-size: 24px;
-    color: #333;
-  }
-  
+  text-align: left;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+
+/************* sections  ***************/
+/* Existing styles... */
+
+.donation-type-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #f2f2f2; /* Adjust background color as needed */
+}
+
+.donation-type-content {
+  display: flex;
+  align-items: center;
+}
+
+.donation-type-image img {
+  width: auto; /* Adjust as necessary */
+  height: 200px; /* Adjust as necessary */
+  margin-right: 20px; /* Add spacing between image and text */
+}
+
+.donation-type-info h2 {
+  color: red; /* Adjust color as in the screenshot */
+  margin-bottom: 10px;
+}
+
+.donation-type-info p {
+  color: #333; /* Dark grey text as shown */
+  margin-bottom: 20px;
+}
+
+.donate-button {
+  background-color: red; /* Adjust button color as in the screenshot */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  /* Add further styling for the button */
+}
+
+.blood-type-table {
+  flex-grow: 1;
+  margin-left: 20px; /* Add spacing between image and table */
+}
+
+.blood-type-table h2 {
+  color: red; /* Adjust color as in the screenshot */
+  margin-bottom: 10px;
+}
+
+.blood-type-table table {
+  width: 100%; /* Full width of the container */
+  border-collapse: collapse;
+  /* Add table styling here */
+}
+
+
+
+/************* footer ***************/
+
+/* Existing styles... */
+
+.homepage-footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+.homepage-footer .footer-column {
+  width: 20%; /* Adjust width as needed */
+}
+
+.homepage-footer h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.homepage-footer ul {
+  list-style: none;
+  padding: 0;
+  font-size: 16px;
+}
+
+.homepage-footer ul li {
+  margin-bottom: 5px;
+  cursor: pointer; /* If they are clickable */
+}
+
+.homepage-footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Add more styling as needed */
+
+
+/* Add more styling for social media icons, hover effects, etc. */

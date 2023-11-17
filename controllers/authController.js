@@ -206,6 +206,8 @@ const nameHideController = async (req, res) => {
     });
   }
 };
+// namehide / or update user page
+
 
 module.exports = {
   registerController,
