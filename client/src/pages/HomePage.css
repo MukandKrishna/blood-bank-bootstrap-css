@@ -16,7 +16,8 @@
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: rgb(244, 244, 244); /* Set the background color to white */
+  background-color: rgb(244, 244, 244);
+  /* Set the background color to white */
   z-index: 10;
   display: flex;
   justify-content: flex-end;
@@ -44,7 +45,8 @@
   .nav-links {
     flex-direction: column;
     padding: 20px;
-    background-color: white; /* Set the background color to white */
+    background-color: white;
+    /* Set the background color to white */
     position: absolute;
     width: 100%;
     display: none;
@@ -58,12 +60,15 @@
 
   .nav-links li {
     margin: 10px 0;
-    list-style: none; /* Remove bullet points */
+    list-style: none;
+    /* Remove bullet points */
   }
 
   .nav-links li a {
-    text-decoration: none; /* Remove underline from links */
-    color: #333; /* Set the link color */
+    text-decoration: none;
+    /* Remove underline from links */
+    color: #333;
+    /* Set the link color */
   }
 }
 
@@ -76,17 +81,21 @@
 
   .nav-links li {
     margin: 0 15px;
-    list-style: none; /* Remove bullet points */
+    list-style: none;
+    /* Remove bullet points */
   }
 
   .nav-links li a {
-    text-decoration: none; /* Remove underline from links */
-    color: #333; /* Set the link color */
+    text-decoration: none;
+    /* Remove underline from links */
+    color: #333;
+    /* Set the link color */
   }
 
   /* Change color on hover for desktop view */
   .nav-links li:hover {
-    background-color: #f8f8f8; /* Light background color on hover */
+    background-color: #f8f8f8;
+    /* Light background color on hover */
   }
 }
 
