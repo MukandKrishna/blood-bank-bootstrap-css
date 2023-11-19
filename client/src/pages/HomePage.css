@@ -11,19 +11,18 @@
 /************** Navbar  ***************/
 
 /* Navbar styles */
+/* Navbar styles */
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgb(244, 244, 244); /* Set the background color to white */
   z-index: 10;
   display: flex;
-  /* Add this line to make the navbar a flex container */
   justify-content: flex-end;
-  /* Align toggle button and nav links */
   align-items: center;
-  padding: 10px 20px;
-  /* Adjust padding as needed */
+  padding: 5px 5px;
+  /* border: #000 1px solid; */
 }
 
 /* Navbar Toggle Button */
@@ -45,22 +44,26 @@
   .nav-links {
     flex-direction: column;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: white; /* Set the background color to white */
     position: absolute;
     width: 100%;
     display: none;
     top: 60px;
-    /* Adjust the top position based on your design */
   }
 
   .nav-links.active {
     display: flex;
     flex-direction: column;
-    /* Change to column in mobile view */
   }
 
   .nav-links li {
     margin: 10px 0;
+    list-style: none; /* Remove bullet points */
+  }
+
+  .nav-links li a {
+    text-decoration: none; /* Remove underline from links */
+    color: #333; /* Set the link color */
   }
 }
 
@@ -68,16 +71,24 @@
 @media (min-width: 769px) {
   .nav-links {
     display: flex;
-    /* Add this line to make the nav-links a flex container in desktop view */
     align-items: center;
   }
 
   .nav-links li {
     margin: 0 15px;
-    /* Add some horizontal spacing between navbar items */
+    list-style: none; /* Remove bullet points */
+  }
+
+  .nav-links li a {
+    text-decoration: none; /* Remove underline from links */
+    color: #333; /* Set the link color */
+  }
+
+  /* Change color on hover for desktop view */
+  .nav-links li:hover {
+    background-color: #f8f8f8; /* Light background color on hover */
   }
 }
-
 
 /***********   First Section with image  **************/
 
@@ -103,7 +114,8 @@
 }
 
 .donate_1 {
-  background-color: #ff0000; /* Adjust the color to match your design */
+  background-color: #ff0000;
+  /* Adjust the color to match your design */
   color: white;
   padding: 0px 0px;
   text-decoration: none;
@@ -111,7 +123,7 @@
   height: 45px;
   border-radius: 15px;
   display: inline-block;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 /* Responsive design for smaller screens */
@@ -119,9 +131,12 @@
   .donate-section {
     flex-direction: column;
   }
-  .donate-text, .donate-image {
+
+  .donate-text,
+  .donate-image {
     flex-basis: 100%;
   }
+
   .donate-image {
     margin-top: 20px;
   }
@@ -130,7 +145,8 @@
 /* Adjust the font size for desktop view */
 @media (min-width: 769px) {
   .donate_1 {
-    font-size: 16px; /* Adjust the font size as needed */
+    font-size: 16px;
+    /* Adjust the font size as needed */
   }
 }
 
@@ -160,6 +176,8 @@
   color: #000;
   font: 700 36px "Roboto-Bold", Helvetica;
   margin-bottom: 10px;
+  margin-top: 20px;
+
 }
 
 .lorem-ipsum-is {

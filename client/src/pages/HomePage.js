@@ -41,7 +41,10 @@ const HomePage = () => {
         </ul>
       </div>
 
-      <h1 className="homepage">HomePage</h1>
+      {/* <div>
+        <h1 className="homepage">HomePage</h1>
+      </div> */}
+
       <div>
         <section>
           <div className="mission">
