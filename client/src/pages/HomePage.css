@@ -1,113 +1,363 @@
 /* HomePage.css */
+
 .homepage {
-  text-align: left;
-  position: absolute;
-  top: 0;
-  left: 0;
   margin: 20px;
   font-size: 24px;
   color: #333;
 }
 
-
 /************* sections  ***************/
-/* Existing styles... */
+
+/************** Navbar  ***************/
+
+/* Navbar styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 10;
+  display: flex;
+  /* Add this line to make the navbar a flex container */
+  justify-content: flex-end;
+  /* Align toggle button and nav links */
+  align-items: center;
+  padding: 10px 20px;
+  /* Adjust padding as needed */
+}
+
+/* Navbar Toggle Button */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Show toggle button in mobile view */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: absolute;
+    width: 100%;
+    display: none;
+    top: 60px;
+    /* Adjust the top position based on your design */
+  }
+
+  .nav-links.active {
+    display: flex;
+    flex-direction: column;
+    /* Change to column in mobile view */
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+}
+
+/* Desktop view */
+@media (min-width: 769px) {
+  .nav-links {
+    display: flex;
+    /* Add this line to make the nav-links a flex container in desktop view */
+    align-items: center;
+  }
+
+  .nav-links li {
+    margin: 0 15px;
+    /* Add some horizontal spacing between navbar items */
+  }
+}
+
+
+/***********   First Section with image  **************/
+
+
+.donate-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.donate-text {
+  flex-basis: 50%;
+}
+
+.donate-image {
+  flex-basis: 50%;
+}
+
+.donate-image img {
+  width: 85%;
+  height: auto;
+}
+
+.donate_1 {
+  background-color: #ff0000; /* Adjust the color to match your design */
+  color: white;
+  padding: 0px 0px;
+  text-decoration: none;
+  width: 135px;
+  height: 45px;
+  border-radius: 15px;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .donate-section {
+    flex-direction: column;
+  }
+  .donate-text, .donate-image {
+    flex-basis: 100%;
+  }
+  .donate-image {
+    margin-top: 20px;
+  }
+}
+
+/* Adjust the font size for desktop view */
+@media (min-width: 769px) {
+  .donate_1 {
+    font-size: 16px; /* Adjust the font size as needed */
+  }
+}
+
+
+/***********   MISSION  **************/
+
+.mission {
+  margin-top: 20px;
+}
+
+.our-mission {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 4px 100px 3px #dbdbdb40;
+  height: auto;
+  width: 100%;
+  max-width: 1345px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.our-mission-2 {
+  padding: 20px;
+}
+
+.text-wrapper-8 {
+  color: #000;
+  font: 700 36px "Roboto-Bold", Helvetica;
+  margin-bottom: 10px;
+}
+
+.lorem-ipsum-is {
+  color: #3b3b3b;
+  font: 300 18px/1.5 "Roboto-Light", Helvetica;
+  width: 100%;
+}
 
 .donation-type-section {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: #f2f2f2; /* Adjust background color as needed */
+  background-color: #f2f2f2;
 }
 
-.donation-type-content {
-  display: flex;
-  align-items: center;
-}
-
-.donation-type-image img {
-  width: auto; /* Adjust as necessary */
-  height: 200px; /* Adjust as necessary */
-  margin-right: 20px; /* Add spacing between image and text */
+.donation-type-content img {
+  width: 100%;
+  height: auto;
+  max-width: 400px;
+  /* Adjust max-width as needed */
+  margin-bottom: 20px;
 }
 
 .donation-type-info h2 {
-  color: red; /* Adjust color as in the screenshot */
+  color: red;
   margin-bottom: 10px;
 }
 
 .donation-type-info p {
-  color: #333; /* Dark grey text as shown */
+  color: #333;
   margin-bottom: 20px;
 }
 
 .donate-button {
-  background-color: red; /* Adjust button color as in the screenshot */
+  background-color: red;
   color: white;
   border: none;
   padding: 10px 20px;
   cursor: pointer;
-  /* Add further styling for the button */
 }
 
 .blood-type-table {
-  flex-grow: 1;
-  margin-left: 20px; /* Add spacing between image and table */
+  flex-basis: 100%;
+  margin-top: 20px;
 }
 
 .blood-type-table h2 {
-  color: red; /* Adjust color as in the screenshot */
+  color: red;
   margin-bottom: 10px;
 }
 
 .blood-type-table table {
-  width: 100%; /* Full width of the container */
+  width: 100%;
   border-collapse: collapse;
-  /* Add table styling here */
 }
 
+/************* Footer styles ****************/
 
+/* Responsive footer styles */
+.footer {
+  background-color: #222;
+  color: #fff;
+  padding: 20px 20px;
+  display: flex;
+  flex-direction: column;
+}
 
-/************* footer ***************/
+.footer-logo {
+  font-size: 50px;
+  /* Size of the blood type icon */
+  margin-bottom: 20px;
+}
 
-/* Existing styles... */
+.footer-top,
+.footer-middle,
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
 
-.homepage-footer {
+.footer-newsletter,
+.footer-links,
+.footer-bottom-links,
+.footer-social {
+  display: flex;
+  align-items: center;
+}
+
+.footer-newsletter h4,
+.footer-column h4 {
+  margin-right: 10px;
+}
+
+.footer-newsletter {
+  flex-grow: 1;
+}
+
+.newsletter-input-group input[type="email"],
+.newsletter-submit-button {
+  padding: 10px;
+  margin: 5px;
+}
+
+.newsletter-input-group input[type="email"] {
+  flex-grow: 1;
+  border: 1px solid #ccc;
+}
+
+.newsletter-submit-button {
   background-color: #333;
   color: #fff;
-  padding: 20px;
-  text-align: center;
-  display: flex;
-  justify-content: space-around;
+  border: none;
+  cursor: pointer;
 }
 
-.homepage-footer .footer-column {
-  width: 20%; /* Adjust width as needed */
+.footer-links {
+  flex-grow: 2;
+  justify-content: center;
 }
 
-.homepage-footer h4 {
-  font-size: 18px;
-  margin-bottom: 10px;
+.footer-column {
+  margin: 0 15px;
 }
 
-.homepage-footer ul {
+.footer-column ul {
   list-style: none;
   padding: 0;
-  font-size: 16px;
 }
 
-.homepage-footer ul li {
+.footer-column li {
+  cursor: pointer;
   margin-bottom: 5px;
-  cursor: pointer; /* If they are clickable */
 }
 
-.homepage-footer a {
-  color: #fff;
-  text-decoration: none;
+.footer-cta {
+  display: flex;
+  align-items: center;
 }
 
-/* Add more styling as needed */
+.footer-bottom {
+  margin-top: 20px;
+  justify-content: space-evenly;
+}
 
+.footer-bottom-links span,
+.footer-social a {
+  margin-right: 20px;
+}
 
-/* Add more styling for social media icons, hover effects, etc. */
+/* Social icons */
+.footer-social svg {
+  font-size: 24px;
+  /* Size of social icons */
+  cursor: pointer;
+}
+
+/* Terms and Privacy Policy */
+.footer-bottom-links {
+  display: flex;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+
+  .footer-top,
+  .footer-middle,
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-newsletter,
+  .footer-links,
+  .footer-bottom-links,
+  .footer-social {
+    width: 100%;
+  }
+
+  .footer-column {
+    margin-bottom: 20px;
+  }
+
+  .footer-social {
+    margin-top: 20px;
+  }
+
+  .footer-bottom-links {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-bottom-links span,
+  .footer-social a {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
