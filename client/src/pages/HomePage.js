@@ -65,7 +65,7 @@ const HomePage = () => {
         >
           <div className="donate-text">
             <h1>Be a hero in someone's story - donate blood today. </h1>
-            <p>
+            <p style={{ textAlign: "justify" }}>
               Did you know that every two seconds, someone needs blood?
               Surprisingly, only 3% of eligible people donate. Your donation
               helps in emergencies, surgeries, and treatments for illnesses like
