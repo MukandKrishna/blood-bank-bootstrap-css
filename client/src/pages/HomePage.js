@@ -19,7 +19,7 @@ const HomePage = () => {
 
   const toggleNightMode = () => {
     setIsNightMode(!isNightMode);
-    document.body.classList.toggle('night-mode');
+    document.body.classList.toggle("night-mode");
   };
   return (
     <>
