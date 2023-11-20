@@ -11,26 +11,50 @@
 /************** Navbar  ***************/
 
 /* Navbar styles */
-/* Navbar Container Styles */
 .navbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 255);
   border-radius: 25px;
   /* Adjust the circular radius */
   width: 80%;
-  /* Adjust the width as needed */
-  margin: auto;
+  /* Make the navbar full width */
+  margin: 0 auto;
   /* Center the navbar */
-  position: fixed;
+  z-index: 1000;
+  /* Set a higher z-index to ensure it appears above other elements */
 }
+
+
+/* Night mode styles */
+body.night-mode {
+  background-color: #1a1a1a; /* Set the background color for night mode */
+  color: #fff; /* Set the text color for night mode */
+}
+
+body.night-mode .navbar-container {
+  background-color: #ffffff; /* Set the background color for night mode */
+  color: #fff; /* Set the text color for night mode */
+}
+
 
 /* Logo Styles */
 .logo {
   display: flex;
   align-items: center;
+}
+
+/* Logo Styles */
+.logo-text {
+  font-weight: bold;
+  color: #333;
+  /* You can adjust the color as needed */
 }
 
 .logo img {
@@ -54,7 +78,7 @@
   margin-right: 10px;
 }
 
-.nav-close{
+.nav-close {
   background: none;
   cursor: pointer;
 }

@@ -7,14 +7,20 @@ import Donate1 from "./Donate_1.png";
 import logo from "./icon.jpg";
 import { FaFacebook, FaTwitter, FaInstagram, FaBars } from "react-icons/fa"; // Importing React Icons
 import { MdOutlineBloodtype, MdClose } from "react-icons/md";
+import { FaMoon, FaSun } from "react-icons/fa";
 
 const HomePage = () => {
   const [isNavVisible, setIsNavVisible] = useState(false);
+  const [isNightMode, setIsNightMode] = useState(false);
 
   const toggleNav = () => {
     setIsNavVisible(!isNavVisible);
   };
 
+  const toggleNightMode = () => {
+    setIsNightMode(!isNightMode);
+    document.body.classList.toggle('night-mode');
+  };
   return (
     <>
       {/* Navbar */}
@@ -22,7 +28,7 @@ const HomePage = () => {
       <div className="navbar-container">
         <div className="logo">
           <img src={logo} alt="Logo" />
-          <span>DHAT Blood Bank</span>
+          <span className="logo-text">DHAT Blood Bank</span>
         </div>
 
         {/* Circular Navbar */}
@@ -31,13 +37,18 @@ const HomePage = () => {
             {isNavVisible ? <MdClose /> : <FaBars />}
           </button>
 
+          {/* Toggle Button for Night Mode with Icon */}
+          <button className="night-mode-toggle" onClick={toggleNightMode}>
+            {isNightMode ? <FaSun /> : <FaMoon />}
+          </button>
+
           {/* Toggle Button */}
           <ul className={`nav-links ${isNavVisible ? "active" : ""}`}>
-            <li className="nav-close-container">
+            <div className="nav-close-container">
               <button className="nav-close" onClick={toggleNav}>
                 <MdClose />
               </button>
-            </li>
+            </div>
             <li>
               <Link to="/">Home</Link>
             </li>
