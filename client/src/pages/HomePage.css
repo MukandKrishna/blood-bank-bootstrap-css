@@ -11,35 +11,60 @@
 /************** Navbar  ***************/
 
 /* Navbar styles */
-/* Navbar styles */
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: rgb(244, 244, 244);
-  /* Set the background color to white */
-  z-index: 10;
+/* Navbar Container Styles */
+.navbar-container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
-  padding: 5px 5px;
-  /* border: #000 1px solid; */
+  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 25px;
+  /* Adjust the circular radius */
+  width: 80%;
+  /* Adjust the width as needed */
+  margin: auto;
+  /* Center the navbar */
+  position: fixed;
 }
 
-/* Navbar Toggle Button */
+/* Logo Styles */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 40px;
+  /* Adjust the logo size as needed */
+  margin-right: 10px;
+}
+
+/* Circular Navbar Styles */
+.circular-navbar {
+  display: flex;
+  align-items: center;
+}
+
 .nav-toggle {
-  display: none;
   background: none;
   border: none;
   font-size: 24px;
   cursor: pointer;
   color: #333;
+  margin-right: 10px;
+}
+
+.nav-close{
+  background: none;
+  cursor: pointer;
 }
 
 /* Show toggle button in mobile view */
 @media (max-width: 768px) {
   .nav-toggle {
     display: block;
+    font-size: 20px;
+    /* Increase the font size for mobile view */
   }
 
   .nav-links {
@@ -50,7 +75,7 @@
     position: absolute;
     width: 100%;
     display: none;
-    top: 60px;
+    top: 10px;
   }
 
   .nav-links.active {
@@ -74,6 +99,14 @@
 
 /* Desktop view */
 @media (min-width: 769px) {
+  .nav-close {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
   .nav-links {
     display: flex;
     align-items: center;

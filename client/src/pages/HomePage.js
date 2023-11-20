@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 import "./HomePage.css";
 import bloodDonationImage from "./img.png";
 import Donate1 from "./Donate_1.png";
+import logo from "./icon.jpg";
 import { FaFacebook, FaTwitter, FaInstagram, FaBars } from "react-icons/fa"; // Importing React Icons
-import { MdOutlineBloodtype } from "react-icons/md";
+import { MdOutlineBloodtype, MdClose } from "react-icons/md";
 
 const HomePage = () => {
   const [isNavVisible, setIsNavVisible] = useState(false);
@@ -17,28 +18,43 @@ const HomePage = () => {
   return (
     <>
       {/* Navbar */}
-      <div className="navbar">
-        <button className="nav-toggle" onClick={toggleNav}>
-          <FaBars />
-        </button>
-        {/* Toggle Button */}
-        <ul className={`nav-links ${isNavVisible ? "active" : ""}`}>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/donate">Donate Blood</Link>
-          </li>
-          <li>
-            <Link to="/register">Register Now</Link>
-          </li>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-        </ul>
+
+      <div className="navbar-container">
+        <div className="logo">
+          <img src={logo} alt="Logo" />
+          <span>DHAT Blood Bank</span>
+        </div>
+
+        {/* Circular Navbar */}
+        <div className="circular-navbar">
+          <button className="nav-toggle" onClick={toggleNav}>
+            {isNavVisible ? <MdClose /> : <FaBars />}
+          </button>
+
+          {/* Toggle Button */}
+          <ul className={`nav-links ${isNavVisible ? "active" : ""}`}>
+            <li className="nav-close-container">
+              <button className="nav-close" onClick={toggleNav}>
+                <MdClose />
+              </button>
+            </li>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/donate">Donate Blood</Link>
+            </li>
+            <li>
+              <Link to="/register">Register Now</Link>
+            </li>
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
+          </ul>
+        </div>
       </div>
 
       {/* <div>
