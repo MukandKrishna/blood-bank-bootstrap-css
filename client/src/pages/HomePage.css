@@ -34,13 +34,17 @@
 
 /* Night mode styles */
 body.night-mode {
-  background-color: #1a1a1a; /* Set the background color for night mode */
-  color: #fff; /* Set the text color for night mode */
+  background-color: #1a1a1a;
+  /* Set the background color for night mode */
+  color: #fff;
+  /* Set the text color for night mode */
 }
 
 body.night-mode .navbar-container {
-  background-color: #ffffff; /* Set the background color for night mode */
-  color: #fff; /* Set the text color for night mode */
+  background-color: #ffffff;
+  /* Set the background color for night mode */
+  color: #fff;
+  /* Set the text color for night mode */
 }
 
 
@@ -85,6 +89,7 @@ body.night-mode .navbar-container {
 
 /* Show toggle button in mobile view */
 @media (max-width: 768px) {
+
   .nav-toggle {
     display: block;
     font-size: 20px;
@@ -96,15 +101,51 @@ body.night-mode .navbar-container {
     padding: 20px;
     background-color: white;
     /* Set the background color to white */
-    position: absolute;
+    position: fixed;
+    /* Changed from absolute to fixed */
     width: 100%;
+    /* Full width */
+    height: 55%;
+    /* Full screen height */
+    top: 0;
+    left: 0;
+    /* Align to the left */
+    overflow-y: auto;
+    /* Enable scroll if content is larger than the screen */
     display: none;
-    top: 10px;
+    z-index: 1001;
+    /* Ensure it's above other content */
+    transition: transform 0.3s ease-in-out;
+    /* Smooth transition for opening and closing the menu */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    /* Add shadow for depth */
+    border-radius: 20px 20px 0 0;
+    /* Round the top corners */
   }
+
 
   .nav-links.active {
     display: flex;
-    flex-direction: column;
+    transform: translateY(0);
+    /* Align to the top */
+    padding: 5px 10px;
+    /* Decreased padding */
+
+  }
+
+  .nav-close-container {
+    display: flex;
+    justify-content: flex-end;
+    /* Position close button to the right */
+  }
+
+  .nav-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+    margin-right: 10px;
   }
 
   .nav-links li {
@@ -118,6 +159,8 @@ body.night-mode .navbar-container {
     /* Remove underline from links */
     color: #333;
     /* Set the link color */
+    font-size: 1rem;
+    /* Increase the font size for better readability */
   }
 }
 
@@ -163,7 +206,7 @@ body.night-mode .navbar-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
+  padding: 80px;
 }
 
 .donate-text {
@@ -196,6 +239,8 @@ body.night-mode .navbar-container {
 @media (max-width: 768px) {
   .donate-section {
     flex-direction: column;
+    padding: 20px;
+    padding-top: 100px;
   }
 
   .donate-text,
@@ -219,37 +264,17 @@ body.night-mode .navbar-container {
 
 /***********   MISSION  **************/
 
+
 .mission {
-  margin-top: 20px;
-}
-
-.our-mission {
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 4px 100px 3px #dbdbdb40;
-  height: auto;
-  width: 100%;
-  max-width: 1345px;
-  margin: 0 auto;
-  position: relative;
-}
-
-.our-mission-2 {
-  padding: 20px;
-}
-
-.text-wrapper-8 {
-  color: #000;
-  font: 700 36px "Roboto-Bold", Helvetica;
-  margin-bottom: 10px;
-  margin-top: 20px;
+  display: flex;
+  padding-top: 20px;
+  align-items: center;
+  justify-content: center;
 
 }
 
-.lorem-ipsum-is {
-  color: #3b3b3b;
-  font: 300 18px/1.5 "Roboto-Light", Helvetica;
-  width: 100%;
+.mission-text {
+    flex-basis: 50%;
 }
 
 .donation-type-section {
@@ -288,8 +313,8 @@ body.night-mode .navbar-container {
 }
 
 .blood-type-table {
-  flex-basis: 100%;
-  margin-top: 20px;
+  flex-basis: 50%;
+  margin-top: 10px;
 }
 
 .blood-type-table h2 {

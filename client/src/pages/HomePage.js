@@ -73,22 +73,6 @@ const HomePage = () => {
       </div> */}
 
       <div>
-        <section>
-          <div className="mission">
-            <div className="our-mission-2">
-              <div className="text-wrapper-8">Our Mission</div>
-              <p className="lorem-ipsum-is">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry standard dummy text
-                ever since the 1500s, when an unknown printer took a galley of
-                type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged.
-              </p>
-            </div>
-          </div>
-        </section>
-
         <div
           className="donate-section"
           style={{ textAlign: "center", margin: "auto" }}
@@ -111,6 +95,23 @@ const HomePage = () => {
           </div>
           <div className="donate-image">
             <img src={Donate1} alt="Donate Blood, Save Lives" />
+          </div>
+        </div>
+
+        <div
+          className="mission"
+          style={{ textAlign: "center", margin: "auto" }}
+        >
+          <div className="mission-text">
+            <h1>Our Mission </h1>
+            <p style={{ textAlign: "justify" }}>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book. It has
+              survived not only five centuries, but also the leap into
+              electronic typesetting, remaining essentially unchanged.
+            </p>
           </div>
         </div>
 
