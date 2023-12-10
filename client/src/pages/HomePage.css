@@ -20,7 +20,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: rgba(255, 255, 255, 255);
+  background-color: #ec6e6e;
   border-radius: 25px;
   /* Adjust the circular radius */
   width: 80%;
@@ -41,7 +41,7 @@ body.night-mode {
 }
 
 body.night-mode .navbar-container {
-  background-color: #ffffff;
+  background-color: #fff;
   /* Set the background color for night mode */
   color: #fff;
   /* Set the text color for night mode */
@@ -274,7 +274,7 @@ body.night-mode .navbar-container {
 }
 
 .mission-text {
-    flex-basis: 50%;
+  flex-basis: 85%;
 }
 
 .donation-type-section {
@@ -283,24 +283,14 @@ body.night-mode .navbar-container {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: #f2f2f2;
+  background-color: #fff;
 }
 
-.donation-type-content img {
+.donation-type-image img {
   width: 100%;
   height: auto;
   max-width: 400px;
   /* Adjust max-width as needed */
-  margin-bottom: 20px;
-}
-
-.donation-type-info h2 {
-  color: red;
-  margin-bottom: 10px;
-}
-
-.donation-type-info p {
-  color: #333;
   margin-bottom: 20px;
 }
 
@@ -313,7 +303,7 @@ body.night-mode .navbar-container {
 }
 
 .blood-type-table {
-  flex-basis: 50%;
+  flex-basis: 70%;
   margin-top: 10px;
 }
 
@@ -338,11 +328,10 @@ body.night-mode .navbar-container {
   flex-direction: column;
 }
 
-.footer-logo {
-  font-size: 50px;
-  /* Size of the blood type icon */
-  margin-bottom: 20px;
+.footer-logo img {
+  width: 70px;
 }
+
 
 .footer-top,
 .footer-middle,

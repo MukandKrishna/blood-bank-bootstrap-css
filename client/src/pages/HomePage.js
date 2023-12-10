@@ -2,11 +2,12 @@ import React, { useState } from "react";
 // import Layout from "../components/Shared/Layout/Layout";
 import { Link } from "react-router-dom";
 import "./HomePage.css";
-import bloodDonationImage from "./img.png";
+import bloodDonationImage from "./why.png";
 import Donate1 from "./Donate_1.png";
-import logo from "./icon.jpg";
+import logo from "./logo.png";
 import { FaFacebook, FaTwitter, FaInstagram, FaBars } from "react-icons/fa"; // Importing React Icons
-import { MdOutlineBloodtype, MdClose } from "react-icons/md";
+import { MdClose } from "react-icons/md";
+// MdOutlineBloodtype,
 import { FaMoon, FaSun } from "react-icons/fa";
 
 const HomePage = () => {
@@ -105,33 +106,27 @@ const HomePage = () => {
           <div className="mission-text">
             <h1>Our Mission </h1>
             <p style={{ textAlign: "justify" }}>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged.
+              Saving Lives, Building Hope: Maheshwari Blood Bank is a heartbeat
+              of compassion, where every drop of donated blood is a lifeline.
+              Join us in this journey of giving, uniting our community in the
+              warmth of shared humanity. Together, we are the heartbeat of hope.
             </p>
           </div>
         </div>
 
-        <section className="donation-info">
-          <h2>Learn About Donation</h2>
-          <p>
-            One Donation Can save up to three lives. After donating blood, the
-            body works to replenish the blood loss...
-          </p>
-        </section>
+        {/* <section className="donation-info"> */}
+          <h2 style = {{textAlign: "center"}}>Learn About Donation</h2>
+        {/* </section> */}
 
         {/* Blood Types  */}
 
         <section>
           <div className="donation-type-section">
-            <div className="donation-type-content">
+            {/* <div className="donation-type-content"> */}
               <div className="donation-type-image">
                 <img src={bloodDonationImage} alt="Blood Donation" />
               </div>
-            </div>
+            {/* </div> */}
             <div className="blood-type-table">
               <h2>Compatible Blood Type Donors</h2>
               {/* Table structure */}
@@ -151,16 +146,19 @@ const HomePage = () => {
                     <td>A+ AB+</td>
                     <td>A+ A- O+ O-</td>
                   </tr>
-                  <tr>
-                    <td>O+</td>
-                    <td>B+ AB+</td>
-                    <td>A+ A- O+ O-</td>
-                  </tr>
+
                   <tr>
                     <td>B+</td>
                     <td>AB+</td>
                     <td>B+ B- O+ O-</td>
                   </tr>
+
+                  <tr>
+                    <td>O+</td>
+                    <td>B+ AB+</td>
+                    <td>A+ A- O+ O-</td>
+                  </tr>
+
                   <tr>
                     <td>AB+</td>
                     <td>AB+</td>
@@ -176,10 +174,17 @@ const HomePage = () => {
                     <td>B+ B- AB+ AB-</td>
                     <td>B- O-</td>
                   </tr>
+
                   <tr>
-                    <td>AB-</td>
-                    <td>A+ AB+</td>
-                    <td>AB- A- B- O-</td>
+                    <td>O+</td>
+                    <td>B+ AB+</td>
+                    <td>A+ A- O+ O-</td>
+                  </tr>
+
+                  <tr>
+                    <td>O-</td>
+                    <td>O-</td>
+                    <td>O-</td>
                   </tr>
                 </tbody>
               </table>
@@ -191,7 +196,10 @@ const HomePage = () => {
 
         <footer className="footer">
           <div className="footer-top">
-            <MdOutlineBloodtype className="footer-logo" />
+            {/* <MdOutlineBloodtype className="footer-logo" /> */}
+            <div className="footer-logo">
+              <img src={logo} alt="Logo" />
+            </div>
             <div className="footer-cta">
               <span>Ready to get started?</span>
               <button className="donate-button">Donate</button>
@@ -252,6 +260,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
-//  want to use loading and error feature in this, but showing error here
-//  same in login and register page

@@ -1,13 +1,63 @@
+/* Sidebar styles */
+.sidebar {
+  width: 150px;
+  background-color: #500732;
+  /* #46052D, #46052D, #500732, #5E0933, #610834, #6A0B37, #991747, #B32346, #BB2549 */
+  color: #fff;
+  padding: 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+/* Add space between sidebar links and background color */
+.sidebar a {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  margin-bottom: 10px;
+  font-size: 16px;
+  padding: 5px 10px;
+  /* Add padding to create space and background color */
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.icon span {
+  margin-left: 10px;
+}
+
+
+
+.pageContainer {
+  display: flex;
+  min-height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
 /* Container styles */
 .formContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* align-items: center; */
   min-height: 100vh;
   width: 100vw;
   margin: 0;
   padding: 0;
+}
+
+h2 {
+  text-align: left;
+  margin-left: 160px;
 }
 
 /* Style for each box */
@@ -15,7 +65,7 @@
   width: 100%;
   margin-bottom: 20px;
   padding: 20px;
-  background-color: lightcoral !important;
+  background-color: #B32346 !important;
 }
 
 /* Adjust box width for larger screens if needed */
@@ -30,11 +80,12 @@
   display: flex;
   height: auto;
   width: 70%;
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 20px;
+  font-weight: 500;
   cursor: pointer;
   border-radius: 25px;
-  background-color: red;
+  background-color: #BB2549;
+  color: #fff;
   border: none;
   padding: 10px 10px;
   margin-left: 30px;
@@ -46,11 +97,56 @@
   border: 2px solid #fff;
 }
 
+
 /* Mobile specific styling for scrollable form */
 @media (max-width: 768px) {
   .formMobile {
-    max-height: 80vh; /* 80% of the viewport height */
-    overflow-y: auto; /* Allow vertical scrolling */
-    padding-right: 10px; /* Add some padding to prevent scroll bar from overlaying content */
+    max-height: 80vh;
+    overflow-y: auto;
+    padding-right: 10px;
+  }
+
+  /* Add mobile-specific styling for the sidebar */
+  .sidebar {
+    display: none;
+    /* Hide sidebar by default on small screens */
+    width: 100%;
+    /* Full-width sidebar on mobile */
+    position: static;
+    /* Remove fixed positioning */
+    background-color: #46052D;
+    padding: 10px 0;
+    /* Add padding to top and bottom */
+  }
+
+  /* Style for mobile sidebar links */
+  .sidebar a {
+    margin: 5px 0;
+    /* Add margin to separate links */
+    display: block;
+    /* Display links as block elements (one below the other) */
+  }
+
+  h2 {
+    text-align: center;
+    margin: 0px;
+  }
+
+  /* Style for the menu button that toggles the sidebar */
+  #menu-toggle {
+    display: block;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+  }
+
+  /* Show the sidebar when the menu button is clicked */
+  #menu-toggle:checked+.sidebar {
+    display: block;
+    /* Change 'flex' to 'block' to show the sidebar */
   }
 }
