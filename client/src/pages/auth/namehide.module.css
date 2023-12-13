@@ -5,7 +5,7 @@
   background-color: #500732;
   /* #46052D, #46052D, #500732, #5E0933, #610834, #6A0B37, #991747, #B32346, #BB2549 */
   color: #fff;
-  padding: 15px;
+  padding: 10px;
   position: fixed;
   left: 0;
   height: 100vh;
@@ -32,6 +32,20 @@
 .icon span {
   margin-left: 10px;
 }
+
+
+.icon {
+  display: flex;
+  flex-direction: column; /* Change flex direction to column */
+  align-items: center;
+  margin-bottom: 20px; /* Add some space below each icon-text group */
+  font-size: 18px;
+}
+
+.icon span {
+  margin-top: 5px; /* Add a small space between the icon and the text */
+}
+
 
 .pageContainer {
   display: flex;
