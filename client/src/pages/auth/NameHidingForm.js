@@ -1,8 +1,7 @@
-
 // npm install --save @fortawesome/fontawesome-svg-core
 // npm install --save @fortawesome/free-solid-svg-icons
 // npm install --save @fortawesome/react-fontawesome
-
+// now logout part
 import React, { useEffect, useState } from "react";
 import { handleUpdate } from "../../services/authService";
 import styles from "./namehide.module.css";
@@ -55,7 +54,7 @@ const App = () => {
 
   return (
     <Layout>
-    {/* <div className={styles.pageContainer}> */}
+      {/* <div className={styles.pageContainer}> */}
 
       <div className={styles.sidebar}>
         <Link to="/home">
@@ -134,7 +133,7 @@ const App = () => {
                     placeholder="Want to update password?"
                     onChange={handleChange}
                     value={""}
-                    />
+                  />
                 </div>
                 <div className="mb-3">
                   <label htmlFor="bloodgroup" className="form-label">
@@ -189,7 +188,7 @@ const App = () => {
                     onChange={handleChange}
                     value={userData.akaah}
                     // required
-                    />
+                  />
                 </div>
                 <div className="mb-3">
                   <label htmlFor="donatedate" className="form-label">
@@ -212,7 +211,7 @@ const App = () => {
                     }
 
                     // required
-                    />
+                  />
                 </div>
                 <div className="mb-3">
                   <label htmlFor="contact" className="form-label">
@@ -227,7 +226,7 @@ const App = () => {
                     onChange={handleChange}
                     value={userData.contact}
                     // required
-                    />
+                  />
                 </div>
                 <div className="mb-3">
                   <label htmlFor="email" className="form-label">
@@ -278,7 +277,7 @@ const App = () => {
           </form>
         </div>
       </div>
-    {/* </div> */}
+      {/* </div> */}
     </Layout>
     // </div>
   );
