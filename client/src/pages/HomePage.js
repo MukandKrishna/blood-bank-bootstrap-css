@@ -115,7 +115,7 @@ const HomePage = () => {
         </div>
 
         {/* <section className="donation-info"> */}
-          <h2 style = {{textAlign: "center"}}>Learn About Donation</h2>
+        <h2 style={{ textAlign: "center" }}>Learn About Donation</h2>
         {/* </section> */}
 
         {/* Blood Types  */}
@@ -123,9 +123,9 @@ const HomePage = () => {
         <section>
           <div className="donation-type-section">
             {/* <div className="donation-type-content"> */}
-              <div className="donation-type-image">
-                <img src={bloodDonationImage} alt="Blood Donation" />
-              </div>
+            <div className="donation-type-image">
+              <img src={bloodDonationImage} alt="Blood Donation" />
+            </div>
             {/* </div> */}
             <div className="blood-type-table">
               <h2>Compatible Blood Type Donors</h2>
@@ -196,7 +196,6 @@ const HomePage = () => {
 
         <footer className="footer">
           <div className="footer-top">
-            {/* <MdOutlineBloodtype className="footer-logo" /> */}
             <div className="footer-logo">
               <img src={logo} alt="Logo" />
             </div>
@@ -218,21 +217,7 @@ const HomePage = () => {
             </div>
             <div className="footer-links">
               <div className="footer-column">
-                <h4>Services</h4>
-                <ul>
-                  <li>Branding</li>
-                  <li>Offline</li>
-                </ul>
-              </div>
-              <div className="footer-column">
-                <h4>About</h4>
-                <ul>
-                  <li>Our Story</li>
-                  <li>Benefits</li>
-                </ul>
-              </div>
-              <div className="footer-column">
-                <h4>Help</h4>
+                <h4>About Us</h4>
                 <ul>
                   <li>FAQs</li>
                   <li>Contact Us</li>

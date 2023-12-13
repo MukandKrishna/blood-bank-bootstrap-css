@@ -143,15 +143,15 @@ export const DonorForm = () => {
           <div className="edit-profile-section-2">
             <div className="overlap-group-3">
               <div className="text-wrapper-20">Hello Mr, Mukand</div>
-              <img className="vector-2" alt="Vector" src="vector.png" />
+              <img className="vector-2" alt="Vector" src="" />
             </div>
             <div className="overlap-9">
-              <img className="line" alt="Line" src="line-1.png" />
+              <img className="line" alt="Line" src="" />
               <div className="text-wrapper-21">Profile</div>
             </div>
           </div>
         </div>
-      </div>
+     </div>
     </div>
   );
 };

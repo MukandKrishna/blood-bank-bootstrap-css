@@ -1,22 +1,46 @@
 import React from "react";
-
+import { useEffect, useState } from "react";
+import { Navigate } from "react-router-dom";
+import { getUser } from "../../../redux/features/auth/authActions";
+// import { useSelector } from "react-redux";
+// import { BiDonateBlood, BiUserCircle } from "react-icons/bi";
+import {BiUserCircle } from "react-icons/bi";
+import "./Header.css";
+import logo from "../../../../src/pages/logo.png";
 const Header = () => {
-    return(
-        <>
-        <nav className="navbar">
-            <div className="container-fluid">
-                <div className="navbar-brand h1">Blood Bank App</div>
-                <ul className="navbar-nav">
-                    <li className="nav-item">
-                        <p className="nav-link"> Welcome</p>
-                    </li>
-                    <li className="nav-item">
-                        <button className="btn btn-danger"> Logout</button>
-                    </li>
-                </ul>
-                </div>
-        </nav>
-        </>
-    );
+  const [userData, setUserData] = useState({});
+
+  useEffect(() => {
+    (async function fetchUserData() {
+      const userResponse = await getUser();
+      if (userResponse && userResponse.user) {
+        setUserData(userResponse.user);
+      }
+    })();
+  }, []);
+
+  const handlelogout = () => {
+    localStorage.clear();
+    alert("Login Successfully");
+    Navigate("/login");
+  };
+
+  return (
+
+    <div class="navbar">
+      <div class="navbar-logo">
+      <img src={logo} alt="Logo" />
+        {/* <BiDonateBlood color="red" /> DMYF BLOOD BANK{" "} */}
+        DMYF BLOOD BANK{" "}
+      </div>
+      <div class="navbar-links">
+        <BiUserCircle /> Welcome {userData.name}
+        <button className="nav-btn" onClick={handlelogout}>
+          Logout
+        </button>
+      </div>
+    </div>
+  );
 };
+
 export default Header;

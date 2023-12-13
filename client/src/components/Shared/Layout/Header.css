@@ -1,0 +1,53 @@
+.navbar {
+    background-color: #5E0933;
+}
+
+.navbar-logo {
+    color: #fff;
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.navbar-links {
+    color: #fff;
+    margin-right: 20px;
+    text-decoration: none;
+    padding: 10px 15px;
+    /* Adjust padding to align with your design */
+    display: inline-block;
+}
+
+
+.nav-btn {
+    background-color: #BB2549;
+    /* Green background */
+    color: #fff;
+    /* Text color */
+    font-weight: normal;
+    border: none;
+    /* No border */
+    padding: 5px 20px;
+    /* Padding inside the button */
+    margin-left: 10px;
+    /* Spacing between the links */
+    cursor: pointer;
+    /* Indicates the link is clickable */
+    text-decoration: none;
+    /* Removes underline from the text */
+    transition: background-color 0.3s;
+    /* Smooth background color transition for hover */
+}
+
+.navbar-logo img {
+    width: 45px;
+    /* Adjust the logo size as needed */
+    margin-right: 10px;
+}
+
+/* Hover effect for buttons */
+.nav-btn:hover {
+    background-color: #610834;
+    /* Lighter green on hover */
+}
