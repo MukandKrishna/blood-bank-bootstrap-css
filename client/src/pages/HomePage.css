@@ -399,6 +399,7 @@ body.night-mode .navbar-container {
 .footer-cta {
   display: flex;
   align-items: center;
+  padding-right: 62px;
 }
 
 .footer-bottom {
@@ -453,8 +454,7 @@ body.night-mode .navbar-container {
     align-items: flex-start;
   }
 
-  .footer-bottom-links span,
-  .footer-social a {
+  .footer-bottom-links span{
     margin-right: 0;
     margin-bottom: 10px;
   }

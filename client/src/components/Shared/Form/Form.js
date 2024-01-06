@@ -28,9 +28,49 @@ const Form = ({ formType, submitBtn, formTitle }) => {
     <div>
       <form
         onSubmit={(e) => {
+          // Check for empty fields
+          e.preventDefault();
+          let emptyFields = [];
+
+          if (formType === "login") {
+            // For login form, check only email and password
+            emptyFields = [
+              { label: "Email", value: email.trim() },
+              { label: "Password", value: password.trim() },
+            ];
+          } else if (formType === "register") {
+            // For register form, check all fields
+            emptyFields = [
+              { label: "Name", value: name.trim() },
+              { label: "Father's Name", value: fname.trim() },
+              { label: "Date of Birth", value: dob.trim() },
+              { label: "Blood Group", value: bloodgroup.trim() },
+              { label: "Email", value: email.trim() },
+              { label: "Password", value: password.trim() },
+              { label: "Role", value: role.trim() },
+              { label: "Nukh", value: nukh.trim() },
+              { label: "Contact", value: contact.trim() },
+              { label: "Akaah", value: akaah.trim() },
+              { label: "Current City", value: currentcity.trim() },
+              { label: "Native Town", value: nativetown.trim() },
+              // { label: "Secret Key", value: secretkey.trim() },
+            ];
+          }
+
+          // Filter empty fields
+          emptyFields = emptyFields.filter((field) => field.value === "");
+
+          if (emptyFields.length > 0) {
+            // Show alert for empty fields
+            const fieldsList = emptyFields
+              .map((field) => field.label)
+              .join(", ");
+            alert(`Please fill in the following fields: ${fieldsList}`);
+            return;
+          }
+
           if (role === "admin" && secretkey !== "DMYF") {
-            e.preventDefault();
-            alert("Invalid Admin");
+            alert("Invalid Admin! Enter the right key.");
           } else {
             if (formType === "login") {
               e.preventDefault();
@@ -66,47 +106,47 @@ const Form = ({ formType, submitBtn, formTitle }) => {
           style={{ backgroundColor: "white", height: "2px", border: "none" }}
         />
         {formType === "register" && (
-        <div className="d-flex mb-3">
-          {
-            <div className="form-check">
-              <input
-                type="radio"
-                className="form-check-input"
-                name="role"
-                id="userRadio"
-                value={"user"}
-                onChange={(e) => setRole(e.target.value)}
-                defaultChecked
-              />
-              <label
-                htmlFor="userRadio"
-                className="form-check-label"
-                // style={whiteTextStyle}
-              >
-                User
-              </label>
-            </div>
-          }
-          {
-            <div className="form-check ms-2">
-              <input
-                type="radio"
-                className="form-check-input"
-                name="role"
-                id="adminRadio"
-                value={"admin"}
-                onChange={(e) => setRole(e.target.value)}
-              />
-              <label
-                htmlFor="adminRadio"
-                className="form-check-label"
-                style={whiteTextStyle}
-              >
-                Admin
-              </label>
-            </div>
-          }
-          {/* <div className="form-check ms-2">
+          <div className="d-flex mb-3">
+            {
+              <div className="form-check">
+                <input
+                  type="radio"
+                  className="form-check-input"
+                  name="role"
+                  id="userRadio"
+                  value={"user"}
+                  onChange={(e) => setRole(e.target.value)}
+                  defaultChecked
+                />
+                <label
+                  htmlFor="userRadio"
+                  className="form-check-label"
+                  style={whiteTextStyle}
+                >
+                  User
+                </label>
+              </div>
+            }
+            {
+              <div className="form-check ms-2">
+                <input
+                  type="radio"
+                  className="form-check-input"
+                  name="role"
+                  id="adminRadio"
+                  value={"admin"}
+                  onChange={(e) => setRole(e.target.value)}
+                />
+                <label
+                  htmlFor="adminRadio"
+                  className="form-check-label"
+                  style={whiteTextStyle}
+                >
+                  Admin
+                </label>
+              </div>
+            }
+            {/* <div className="form-check ms-2">
             <input
               type="radio"
               className="form-check-input"
@@ -132,7 +172,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
               Organisation
             </label>
           </div> */}
-        </div>
+          </div>
         )}
         {/* switch statement */}
         {(() => {
@@ -178,7 +218,6 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                       value={secretkey}
                       onChange={(e) => setSecretKey(e.target.value)}
                     />
-                    
                   )}
 
                   {/* {role === "organisation" && (

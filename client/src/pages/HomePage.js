@@ -200,7 +200,9 @@ const HomePage = () => {
               <img src={logo} alt="Logo" />
             </div>
             <div className="footer-cta">
-              <span>Ready to get started?</span>
+              <span style={{ marginRight: "10px" }}>
+                Ready to get started?
+              </span>
               <button className="donate-button">Donate</button>
             </div>
           </div>
@@ -215,7 +217,7 @@ const HomePage = () => {
                 </button>
               </div>
             </div>
-            <div className="footer-links">
+            {/* <div className="footer-links">
               <div className="footer-column">
                 <h4>About Us</h4>
                 <ul>
@@ -223,17 +225,17 @@ const HomePage = () => {
                   <li>Contact Us</li>
                 </ul>
               </div>
-            </div>
+            </div> */}
           </div>
 
           <div className="footer-bottom">
             <div className="footer-bottom-links">
-              <span>Terms & Conditions</span>
-              <span>Privacy Policy</span>
+              <span>Aboout Us</span>
+              <span>Contact Us</span>
             </div>
             <div className="footer-social">
-              <FaFacebook />
-              <FaTwitter />
+              <FaFacebook style={{ marginRight: "15px" }} />
+              <FaTwitter style={{ marginRight: "15px" }} />
               <FaInstagram />
             </div>
           </div>
