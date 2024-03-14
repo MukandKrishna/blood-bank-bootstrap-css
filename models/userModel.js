@@ -92,6 +92,9 @@ const userSchema = new mongoose.Schema(
       enum: ["yes", "no"],
       default: "no",
     },
+    otp: {
+      type: String,
+    },
   },
   { timestamps: true }
 );

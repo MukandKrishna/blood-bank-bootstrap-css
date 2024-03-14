@@ -6,6 +6,7 @@ const {
   nameHideController,
   updateUserController,
   getUserController,
+  verifyOTPController,
 } = require("../controllers/authController");
 const authMiddleware = require("../middlewares/authMiddleware");
 
@@ -27,6 +28,8 @@ router.get("/get-user", authMiddleware, getUserController);
 // Update  namehide ||Post
 router.post("/namehidingform/:id", nameHideController);
 
+// Add a new route for OTP verification
+router.post("/verify-otp", verifyOTPController);
 // Update current user ||Post
 // router.put("/update_current_user/:id", updatecurrentUserController);
 // router.post("/DonorForm/:id", DonorController);

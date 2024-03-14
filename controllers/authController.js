@@ -1,6 +1,8 @@
 const userModel = require("../models/userModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const { sendEmail } = require("../services/sendemail");
+const generateOTP = require("../services/generateOTP");
 
 const registerController = async (req, res) => {
   try {
@@ -16,12 +18,23 @@ const registerController = async (req, res) => {
     const salt = await bcrypt.genSalt(10); // 10 is the number of rounds
     const hashedPassword = await bcrypt.hash(req.body.password, salt); //hashing the password
     req.body.password = hashedPassword; //assigning the hashed password to the password field
+
+    // this one thing i added here 7:06 pm, 30/01/2024 , indicated by #*
+    const otp = generateOTP();
+    // #* Save OTP to user's document in the database
+    req.body.otp = otp;
+
     //rest data
     const user = userModel(req.body);
     await user.save();
+
+    // #* Send OTP via email
+    await sendEmail(req.body.email, otp);
+    // await sendEmail({ email: user.email, otp });
+
     res.status(201).send({
       success: true,
-      message: "User registered successfully",
+      message: "User registered successfully.OTP sent to your email.",
       user,
     });
   } catch (err) {
@@ -30,6 +43,41 @@ const registerController = async (req, res) => {
       success: false,
       message: "Error in the Register API",
       err,
+    });
+  }
+};
+
+// #*
+// Add a new route to handle OTP verification
+const verifyOTPController = async (req, res) => {
+  try {
+    const { email, otp } = req.body;
+
+    // Find the user by email
+    const user = await userModel.findOne({ email });
+
+    // Check if the provided OTP matches the saved OTP
+    if (user && user.otp === otp) {
+      // Clear the OTP field in the user's document
+      user.otp = undefined;
+      await user.save();
+
+      res.status(200).send({
+        success: true,
+        message: "OTP verified successfully. You can now login.",
+      });
+    } else {
+      res.status(400).send({
+        success: false,
+        message: "Invalid OTP",
+      });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Error in OTP verification",
+      error,
     });
   }
 };
@@ -208,7 +256,6 @@ const nameHideController = async (req, res) => {
 };
 // namehide / or update user page
 
-
 module.exports = {
   registerController,
   loginController,
@@ -217,4 +264,5 @@ module.exports = {
   updateUserController,
   getUserController,
   nameHideController,
+  verifyOTPController,
 };

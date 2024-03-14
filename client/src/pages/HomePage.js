@@ -5,6 +5,9 @@ import "./HomePage.css";
 import bloodDonationImage from "./why.png";
 import Donate1 from "./Donate_1.png";
 import logo from "./logo.png";
+import community from "./community.png";
+import help from "./help.png";
+import support from "./support.gif";
 import { FaFacebook, FaTwitter, FaInstagram, FaBars } from "react-icons/fa"; // Importing React Icons
 import { MdClose } from "react-icons/md";
 // MdOutlineBloodtype,
@@ -57,9 +60,6 @@ const HomePage = () => {
               <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to="/donate">Donate Blood</Link>
-            </li>
-            <li>
               <Link to="/register">Register Now</Link>
             </li>
             <li>
@@ -79,6 +79,7 @@ const HomePage = () => {
           style={{ textAlign: "center", margin: "auto" }}
         >
           <div className="donate-text">
+            <h3>Welcome to DHAT Blood Bank </h3>
             <h1>Be a hero in someone's story - donate blood today. </h1>
             <p style={{ textAlign: "justify" }}>
               Did you know that every two seconds, someone needs blood?
@@ -90,7 +91,9 @@ const HomePage = () => {
               someone in need. Give the gift of life – be a blood donor and make
               a difference!
             </p>
-            <button className="donate_1">Donate Blood →</button>
+            <a href="/register">
+              <button className="donate_1">Donate Blood →</button>
+            </a>
 
             {/* <button className="newsletter-submit-button">&gt;</button> */}
           </div>
@@ -104,13 +107,29 @@ const HomePage = () => {
           style={{ textAlign: "center", margin: "auto" }}
         >
           <div className="mission-text">
-            <h1>Our Mission </h1>
+            <h1>
+              <span id="black-text"> Our</span>{" "}
+              <span id="red-text">Mission</span>
+            </h1>
             <p style={{ textAlign: "justify" }}>
-              Saving Lives, Building Hope: Maheshwari Blood Bank is a heartbeat
-              of compassion, where every drop of donated blood is a lifeline.
-              Join us in this journey of giving, uniting our community in the
-              warmth of shared humanity. Together, we are the heartbeat of hope.
+              Building Bridges, Saving Lives: DHAT Blood Bank is a beacon of
+              compassion, where every act of blood donation creates a lifeline.
+              Join us in the collective journey of giving, fostering community
+              unity, and embracing shared humanity. Together, we are the
+              heartbeat of hope, supporting and uplifting each other in times of
+              need.
             </p>
+            <div className="mpics">
+              <div id="mpicscol">
+                <img src={community} alt="Community" />
+              </div>
+              <div id="mpicscol">
+                <img src={help} alt="help" />
+              </div>
+              <div id="mpicscol">
+                <img src={support} alt="Support" />
+              </div>
+            </div>
           </div>
         </div>
 
@@ -200,9 +219,7 @@ const HomePage = () => {
               <img src={logo} alt="Logo" />
             </div>
             <div className="footer-cta">
-              <span style={{ marginRight: "10px" }}>
-                Ready to get started?
-              </span>
+              <span style={{ marginRight: "10px" }}>Ready to get started?</span>
               <button className="donate-button">Donate</button>
             </div>
           </div>

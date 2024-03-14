@@ -213,6 +213,15 @@ body.night-mode .navbar-container {
   flex-basis: 50%;
 }
 
+.donate-text h3 {
+  color: #ff0000;
+  text-align: left;
+}
+
+.donate-text h1 {
+  text-align: left;
+}
+
 .donate-image {
   flex-basis: 50%;
 }
@@ -220,6 +229,10 @@ body.night-mode .navbar-container {
 .donate-image img {
   width: 85%;
   height: auto;
+}
+
+.donate-image img:hover {
+  transform: scale(1.1);
 }
 
 .donate_1 {
@@ -275,7 +288,39 @@ body.night-mode .navbar-container {
 
 .mission-text {
   flex-basis: 85%;
+  text-align: left;
 }
+
+.mission-text #black-text {
+  color: black;
+}
+
+.mission-text #red-text {
+  color: red;
+}
+
+.mpics {
+  display: flex;
+  justify-content: center;
+}
+
+
+.mpics #mpicscol {
+  margin: 0 10px;
+  width: calc(100% / 3);
+}
+
+.mpics img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.mpics img:hover {
+  transform: scale(1.1);
+}
+
+
 
 .donation-type-section {
   display: flex;
@@ -290,7 +335,6 @@ body.night-mode .navbar-container {
   width: 100%;
   height: auto;
   max-width: 400px;
-  /* Adjust max-width as needed */
   margin-bottom: 20px;
 }
 
@@ -454,7 +498,7 @@ body.night-mode .navbar-container {
     align-items: flex-start;
   }
 
-  .footer-bottom-links span{
+  .footer-bottom-links span {
     margin-right: 0;
     margin-bottom: 10px;
   }
