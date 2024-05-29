@@ -26,7 +26,7 @@ app.use("/api/v1/auth", require("./routes/authRoutes"));
 // app.use('/api/v1/inventory', require('./routes/inventoryRoutes'));
 
 //PORT
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 3001;
 
 // Listen
 // and callback function to handle the response

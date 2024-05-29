@@ -3,6 +3,7 @@ const JWT = require("jsonwebtoken");
 module.exports = async (req, res, next) => {
   try {
     const token = req.headers["authorization"].split(" ")[1];
+    console.log(token);
     JWT.verify(token, process.env.JWT_SECRET, (err, decode) => {
       if (err) {
         return res.status(401).send({
@@ -10,10 +11,11 @@ module.exports = async (req, res, next) => {
           message: "Auth Failed",
         });
       } else {
-        console.log(decode)
+        console.log(decode);
         req.body.userId = decode.userId;
         next();
       }
+      console.log(decode);
     });
   } catch (error) {
     console.log(error);
@@ -24,3 +26,4 @@ module.exports = async (req, res, next) => {
     });
   }
 };
+

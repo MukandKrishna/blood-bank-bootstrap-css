@@ -25,7 +25,7 @@ const registerController = async (req, res) => {
     req.body.otp = otp;
 
     //rest data
-    const user = userModel(req.body);
+    const user = new userModel(req.body);
     await user.save();
 
     // #* Send OTP via email
