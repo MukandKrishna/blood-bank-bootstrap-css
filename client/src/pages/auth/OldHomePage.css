@@ -1,4 +1,4 @@
-/* HomePage.css */
+/* OldHomePage.css */
 
 .homepage {
   margin: 20px;
@@ -304,7 +304,6 @@ body.night-mode .navbar-container {
   justify-content: center;
 }
 
-
 .mpics #mpicscol {
   margin: 0 10px;
   width: calc(100% / 3);
@@ -319,7 +318,6 @@ body.night-mode .navbar-container {
 .mpics img:hover {
   transform: scale(1.1);
 }
-
 
 
 .donation-type-section {
@@ -345,6 +343,7 @@ body.night-mode .navbar-container {
   padding: 10px 20px;
   cursor: pointer;
 }
+
 
 .blood-type-table {
   flex-basis: 70%;

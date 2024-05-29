@@ -118,7 +118,8 @@ export const userUpdate = createAsyncThunk(
       });
       if (data?.success) {
         alert("Form Saved Successfully");
-        window.location.replace("/namehidingform");
+        // window.location.replace("/namehidingform");
+        window.location.replace("/");
       }
     } catch (error) {
       console.log(error);

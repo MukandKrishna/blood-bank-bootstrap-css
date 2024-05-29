@@ -1,0 +1,523 @@
+.homepage {
+    margin: 20px;
+    font-size: 10px;
+    color: #ffffff;
+}
+
+
+/***** Navbar  ******/
+
+/* Navbar styles */
+.navbar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ec6e6e;
+    border-radius: 25px;
+    width: 80%;
+    margin: 0 auto;
+    z-index: 1000;
+}
+
+/* Night mode styles */
+body.night-mode {
+    background-color: #ffffff;
+    color: #ffffff;
+}
+
+body.night-mode .navbar-container {
+    background-color: #ec6e6e;
+    color: #ffffff;
+}
+
+/* Logo Styles */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-text {
+    font-weight: bold;
+    color: #333;
+}
+
+.logo img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+/* Circular Navbar Styles */
+.circular-navbar {
+    display: flex;
+    align-items: center;
+}
+
+.nav-toggle {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #ffffff;
+    margin-right: 10px;
+}
+
+.nav-close {
+    background: none;
+    cursor: pointer;
+    color: white;
+
+}
+
+/* Show toggle button in mobile view */
+@media (max-width: 768px) {
+
+    .nav-toggle {
+        display: block;
+        font-size: 20px;
+        font-size: 1.5rem;
+        /* Adjust the font size as needed */
+        padding: 0.5rem;
+        /* Adjust padding as needed */
+        left: 150px;
+
+    }
+
+    .nav-links {
+        flex-direction: column;
+        padding: 20px;
+        background-color: white;
+        position: fixed;
+        width: 100%;
+        height: 55%;
+        top: 0;
+        left: 0;
+        overflow-y: auto;
+        display: none;
+        z-index: 1001;
+        transition: transform 0.3s ease-in-out;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        border-radius: 20px 20px 0 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+        transform: translateY(0);
+        padding: 5px 10px;
+        width: 60%;
+    }
+
+    .nav-close-container {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .nav-close {
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: #ffffff;
+        margin-right: 10px;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+        list-style: none;
+    }
+
+    .nav-links li a {
+        text-decoration: none;
+        color: #ffffff;
+        font-size: 1rem;
+    }
+}
+
+/* Desktop view */
+@media (min-width: 769px) {
+    .nav-close {
+        display: none;
+    }
+
+    .nav-toggle {
+        display: none;
+        font-size: 1.5rem;
+        /* Adjust the font size as needed */
+        padding: 0.5rem;
+        /* Adjust padding as needed */
+    }
+
+    .nav-links {
+        display: flex;
+        align-items: center;
+    }
+
+    .nav-links li {
+        margin: 0 15px;
+        list-style: none;
+    }
+
+    .nav-links li a {
+        text-decoration: none;
+        color: #ffffff;
+    }
+
+    .nav-links li:hover {
+        background-color: #f8f8f8;
+    }
+}
+
+/****   First Section with image  *****/
+
+.donate-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px;
+}
+
+.donate-text {
+    flex-basis: 50%;
+}
+
+.donate-text p {
+    color: #222;
+    text-align: left;
+}
+
+.donate-text h1 {
+    color: #222;
+    text-align: left;
+}
+
+.donate-text h3 {
+    color: #ff0000;
+    text-align: left;
+}
+
+.donate-image {
+    flex-basis: 50%;
+}
+
+.donate-image img {
+    width: 85%;
+    height: auto;
+}
+
+.donate-image img:hover {
+    transform: scale(1.1);
+}
+
+.donate_b {
+    background-color: #ff0000;
+    color: white;
+    padding: 0px 0px;
+    text-decoration: none;
+    width: 135px;
+    height: 45px;
+    border-radius: 15px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .donate-section {
+        flex-direction: column;
+        padding: 20px;
+        padding-top: 100px;
+
+    }
+
+    .donate-text,
+    .donate-image {
+        flex-basis: 100%;
+    }
+
+    .donate-image {
+        margin-top: 20px;
+    }
+}
+
+/* Adjust the font size for desktop view */
+@media (min-width: 769px) {
+    .donate_1 {
+        font-size: 16px;
+    }
+}
+
+/****   MISSION  *****/
+
+.mission {
+    display: flex;
+    padding-top: 20px;
+    align-items: center;
+    justify-content: center;
+    color: #222;
+}
+
+.mission-text {
+    flex-basis: 85%;
+    text-align: left;
+}
+
+.mission-text #black-text {
+    color: black;
+}
+
+.mission-text #red-text {
+    color: red;
+}
+
+
+/* blood-type */
+
+.blood-type-heading h1 {
+    text-align: center;
+    color: #222;
+}
+
+.blood-type {
+    margin-top: 10px;
+}
+
+.blood-type table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgb(255, 254, 254);
+}
+
+.blood-type table th,
+.blood-type table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.blood-type table th {
+    background-color: #ec6e6e;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.blood-type table td {
+    text-align: center;
+    color: #333;
+}
+
+.blood-type table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.blood-type table tbody tr:hover {
+    background-color: #f1c1c1;
+}
+
+.blood-type table thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+
+    .blood-type table th,
+    .blood-type table td {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+
+    .blood-type table {
+        width: 100%;
+    }
+}
+
+
+
+/***** Footer styles ******/
+
+.footer {
+    background-color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    flex-wrap: wrap;
+    /* Allow items to wrap */
+    width: 100%;
+    /* Ensure full width */
+    box-sizing: border-box;
+    /* Include padding in the width */
+}
+
+.foot #donate-button {
+    background-color: #ff0000;
+    color: white;
+    border: 1px solid #ff0000;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+.footer .logo {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+}
+
+.logo-icon {
+    margin-right: 10px;
+    color: #f0f0f0;
+}
+
+.footer #logo-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.footer .foot {
+    display: flex;
+    gap: 20px;
+    color: #ffffff;
+}
+
+.foot #donate-button {
+    background-color: #ff0000;
+    color: white;
+    text-decoration: none;
+    width: 100px;
+    height: 45px;
+    border-radius: 25px;
+    display: inline-block;
+    text-align: center;
+    margin-top: 0px;
+}
+
+.footer .foot #nav-link {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icons #icon {
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #222;
+    text-decoration: none;
+}
+
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        /* Stack items vertically */
+        align-items: center;
+        /* Center items */
+    }
+
+    .logo {
+        margin-bottom: 10px;
+        /* Add some space between elements */
+    }
+
+    .foot {
+        flex-direction: column;
+        /* Stack nav items vertically */
+        align-items: center;
+        /* Center nav items */
+        gap: 10px;
+        /* Reduce gap between nav items */
+        margin-top: 10px;
+    }
+
+    .social-icons {
+        margin-top: 10px;
+        flex-direction: row;
+        /* Keep social icons in a row */
+        justify-content: center;
+        /* Center social icons */
+        gap: 10px;
+        /* Add some space between icons */
+    }
+}
+
+
+/* Night mode toggle button adjustments for mobile view */
+@media (max-width: 340px) {
+    .nav-toggle {
+        font-size: 24px;
+        /* Adjust the size if needed */
+        color: #ffffff;
+        /* Default text color when night mode is off */
+    }
+
+    body.night-mode .nav-toggle {
+        color: #ffffff;
+        /* Text color when night mode is on */
+    }
+}
+
+/* White mode */
+body {
+    background-color: #ffffff;
+    /* Background color for white mode */
+    color: #ffffff;
+    /* Text color for white mode */
+}
+
+/* Black mode */
+body.night-mode {
+    background-color: #222;
+    /* Background color for black mode */
+    color: #ffffff;
+    /* Text color for black mode */
+
+}
+
+/* Navbar styles */
+.navbar-container {
+    background-color: #ec6e6e;
+    /* Background color for navbar */
+}
+
+/* Navbar text color */
+.navbar-container,
+.navbar-container .nav-links li a,
+.navbar-container .nav-close {
+    color: inherit;
+    /* Inherit text color from body */
+}
+
+/* Logo text color */
+.logo-text {
+    color: inherit;
+    /* Inherit text color from body */
+}
+
+/* Circular Navbar Styles */
+.nav-toggle {
+    color: inherit;
+    /* Inherit text color from body */
+}
