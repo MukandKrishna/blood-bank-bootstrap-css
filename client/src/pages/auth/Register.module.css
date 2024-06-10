@@ -1,3 +1,4 @@
+/*
 .container {
     display: flex;
     justify-content: center;
@@ -69,6 +70,137 @@
     z-index: 1;
     border-radius: 16px;
 }
-
+*/
 
 /* animated css above */
+
+/*
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  block-size: auto;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 1400px;
+  background-color: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.card-content,
+.image-content {
+ 
+  padding: 30px;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 10px;
+}
+
+.image-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.form-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 20px 0 0 20px;
+}
+
+.image-container {
+  flex: 1.8;
+  /* Slightly larger flex value for the image container */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 0 20px 20px 0;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-container,
+  .image-container {
+    width: 100%;
+    border-radius: 20px;
+  }
+
+  .form-container {
+    border-radius: 20px 20px 0 0;
+    margin-bottom: 0;
+    padding: 30px 20px;
+    /* Increase padding for a more centered look */
+  }
+
+  .image-container {
+    border-radius: 0 0 20px 20px;
+    flex: 1;
+  }
+
+  .image {
+    height: auto;
+  }
+
+  .d-flex flex-row justify-content-between p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    padding: 20px 15px;
+    /* Adjust padding for smaller screens */
+  }
+
+  .image-container {
+    height: 200px;
+    /* Set a specific height for the image on very small screens */
+  }
+
+  .image {
+    width: 100%;
+    height: 100%;
+  }
+
+}

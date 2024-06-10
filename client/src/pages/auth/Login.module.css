@@ -1,78 +1,98 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 
-.loginRoot * {
-    margin: 0;
-    padding: 3px;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+  min-height: 100vh;
 }
 
-.loginRoot {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    overflow: hidden;
+.form-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 10px; /* Further reduced padding */
+  background-color: #fff;
+  border-radius: 20px 0 0 20px;
 }
 
-
-.box {
-    position: relative;
-    width: 350px;
-    height: 450px;
-    background: rgba(0, 0, 0.75);
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-inline: 32px;
-    overflow: hidden;
+.image-container {
+  flex: 1.8;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 0 20px 20px 0;
 }
-
-.box::before {
-    content: '';
-    position: absolute;
-    width: 650px;
-    height: 650px;
-    background: conic-gradient(transparent, transparent, transparent, #d400d4);
-    animation: animate 4s linear infinite;
-    animation-delay: -2s;
-}
-
-.box::after {
-    content: '';
-    position: absolute;
-    width: 650px;
-    height: 650px;
-    background: conic-gradient(transparent, transparent, transparent, #00cfff);
-    animation: animate 4s linear infinite;
-}
-
-
-@keyframes animate {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
 
 .image {
-    position: absolute;
-    inset: 5px;
-    background-color: #0c1022;
-    z-index: 1;
-    border-radius: 16px;
-    display: flex;
-    /* Added this line */
-    justify-content: center;
-    /* Added this line */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
     align-items: center;
-    /* Added this line */
+  }
+
+  .form-container,
+  .image-container {
+    width: 100%;
+    border-radius: 20px;
+  }
+
+  .form-container {
+    border-radius: 20px 20px 0 0;
+    margin-bottom: 0;
+    padding: 20px 10px; /* Reduced padding */
+  }
+
+  .image-container {
+    border-radius: 0 0 20px 20px;
+    flex: 1;
+    margin: 0; /* Removed margin */
+  }
+
+  .image {
+    height: auto;
+  }
+
+  .d-flex flex-row justify-content-between p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    padding: 15px 10px; /* Adjusted padding */
+    margin-top: 5px; /* Further reduced margin above */
+  }
+
+  .image-container {
+    height: 160px; /* Slightly reduced height */
+    margin: 0; /* Removed margin */
+  }
+
+  .image {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 
-/* animated css above */
+/*
+    background: linear-gradient(to bottom,
+        rgba(153, 23, 71, 0.7),
+        rgba(106, 11, 55, 0.7),
+        rgba(97, 8, 52, 0.7),
+        rgba(94, 9, 51, 0.7),
+        rgba(80, 7, 50, 0.7),
+        rgba(70, 5, 45, 0.7)
+        )
+*/

@@ -18,11 +18,10 @@ const Form = ({ formType, submitBtn, formTitle }) => {
   const [nukh, setNukh] = useState("");
   const [akaah, setAkaah] = useState("");
   const [contact, setContact] = useState("");
-  const [currentcity, setCity] = useState("");
   const [nativetown, setTown] = useState("");
 
   // Inline style for white text color
-  const whiteTextStyle = { color: "white" };
+  const whiteTextStyle = { color: "black" };
   const bloodGroups = ["A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"];
   return (
     <div>
@@ -51,7 +50,6 @@ const Form = ({ formType, submitBtn, formTitle }) => {
               { label: "Nukh", value: nukh.trim() },
               { label: "Contact", value: contact.trim() },
               { label: "Akaah", value: akaah.trim() },
-              { label: "Current City", value: currentcity.trim() },
               { label: "Native Town", value: nativetown.trim() },
               // { label: "Secret Key", value: secretkey.trim() },
             ];
@@ -89,7 +87,6 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                 nukh,
                 contact,
                 akaah,
-                currentcity,
                 nativetown,
                 secretkey
                 // hospitalName,
@@ -268,8 +265,8 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                     onChange={(e) => setPassword(e.target.value)}
                   />
                   <InputType
-                    labelText={""}
-                    placeHolder={"Enter your Date of Birth"}
+                    labelText={"Enter your Date of Birth:"}
+                    placeHolder={"MM/DD/YYYY"}
                     labelFor={"fordob"}
                     inputType={"date"}
                     name={"dob"}
@@ -300,15 +297,6 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                     name={"nativetown"}
                     value={nativetown}
                     onChange={(e) => setTown(e.target.value)}
-                  />
-                  <InputType
-                    labelText={""}
-                    placeHolder={"Enter your Current City"}
-                    labelFor={"forCity"}
-                    inputType={"text"}
-                    name={"currentcity"}
-                    value={currentcity}
-                    onChange={(e) => setCity(e.target.value)}
                   />
                   <InputType
                     labelText={""}
@@ -352,21 +340,43 @@ const Form = ({ formType, submitBtn, formTitle }) => {
           }
         })()}
 
-        <div className="d-flex flex-row justify-content-between">
+        <div
+          className="d-flex flex-row justify-content-between align-items-center"
+          style={{ gap: "5px" }}
+        >
           {formType === "login" ? (
-            <p style={whiteTextStyle}>
-              Not registered yet? Register
-              <Link to="/register"> Here !</Link>
+            <p style={{ ...whiteTextStyle, fontSize: "12px", margin: "0" }}>
+              Not registered yet?
+              <Link
+                to="/register"
+                style={{
+                  color: "rgba(106, 11, 55, 0.7)",
+                  textDecoration: "None",
+                  fontSize: "12px",
+                  marginLeft: "5px",
+                }}
+              >
+                Register Here!
+              </Link>
             </p>
           ) : (
-            <p style={whiteTextStyle}>
-              ALready a user? Please
-              <Link to="/login"> Login !</Link>
+            <p style={{ ...whiteTextStyle, fontSize: "12px", margin: "0" }}>
+              Already a user? Please
+              <Link
+                to="/login"
+                style={{
+                  color: "rgba(106, 11, 55, 0.7)",
+                  textDecoration: "none",
+                  fontSize: "12px",
+                  marginLeft: "5px",
+                }}
+              >
+                Login!
+              </Link>
             </p>
           )}
+          <button type="submit">{submitBtn}</button>
         </div>
-        {/* <div className="row justify-content-center"> */}
-        <button type="submit">{submitBtn}</button>
       </form>
     </div>
   );

@@ -20,13 +20,13 @@
     position: relative;
     max-width: 500px;
     background: rgba(0, 0, 0.75); */
-    /* width: 350px; */
-    /* max-height: 375px;
+/* width: 350px; */
+/* max-height: 375px;
     overflow: auto;
     padding: 16px;
     border-radius: 15px; */
-    /* background-color: #fff; */
-    /* z-index: 1;
+/* background-color: #fff; */
+/* z-index: 1;
     display: flex;
     align-items: center;
     padding: 20px;
@@ -41,12 +41,12 @@
     height: 990px;
     display: flex;
     align-items: center; */
-    /* top: 50%;
+/* top: 50%;
     left: 50%; */
-    /* transform: translate(-50%, -50%); */
-    /* background: conic-gradient(transparent, transparent, transparent, #00cfff);
+/* transform: translate(-50%, -50%); */
+/* background: conic-gradient(transparent, transparent, transparent, #00cfff);
     animation: animate 4s linear infinite; */
-    /* border-radius: 15px;
+/* border-radius: 15px;
     z-index: -1;
     animation-delay: -2s;
 } */
@@ -58,10 +58,10 @@
     height: 990px;
     display: flex;
     align-items: center; */
-    /* top: 50%;
+/* top: 50%;
     left: 50%; */
-    /* transform: translate(-50%, -50%); */
-    /* background: conic-gradient(transparent, transparent, transparent, #d400d4);
+/* transform: translate(-50%, -50%); */
+/* background: conic-gradient(transparent, transparent, transparent, #d400d4);
     animation: animate 4s linear infinite;
     border-radius: 15px;
     z-index: -1;

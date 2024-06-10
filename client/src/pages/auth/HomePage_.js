@@ -8,7 +8,6 @@
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faFacebookF, faInstagram, faTwitter, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 
-
 // const HomePage = () => {
 //   const [isNavVisible, setIsNavVisible] = useState(false);
 //   const [isNightMode, setIsNightMode] = useState(false);
