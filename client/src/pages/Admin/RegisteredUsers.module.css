@@ -1,0 +1,85 @@
+/* admin.module.css */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.header {
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+}
+
+.tableWrapper {
+  width: 80%;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table th,
+.table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.table th {
+  background-color: #f8f9fa;
+  color: #333;
+  font-weight: 600;
+}
+
+.table td {
+  color: #555;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table tr:hover {
+  background-color: #e9ecef;
+}
+
+.buttonApprove,
+.buttonReject {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.buttonApprove {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.buttonReject {
+  background-color: #dc3545;
+  color: #fff;
+  margin-left: 10px;
+}
+
+.buttonApprove:hover {
+  background-color: #218838;
+}
+
+.buttonReject:hover {
+  background-color: #c82333;
+}

@@ -1,0 +1,100 @@
+.icon {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.iconImage {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.content {
+  margin-left: 200px;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+}
+
+.searchForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.formControl {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.searchButton {
+  padding: 10px 20px;
+  background: #cc0202;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.table {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+.table th {
+  background: #8b0000;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .content {
+    margin-left: 0;
+    padding: 8px;
+  }
+
+  .formGroup {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .searchButton {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .table {
+    width: 10%; /* Adjusted to a smaller size */
+    max-width: 10%;
+    margin: 0 auto; /* Center the table */
+  }
+
+  .table th, .table td {
+    padding: 0px;/* Adjusted padding for smaller size */
+    width: 10%;
+    font-size: smaller;
+   
+  }
+}

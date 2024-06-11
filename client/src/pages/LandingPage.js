@@ -266,9 +266,9 @@
 
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./HomePage.css";
-import Donate1 from "../Donate_1.png";
-import logo from "../logo.png";
+import "./LandingPage.css";
+import Donate1 from "./Donate_1.png";
+import logo from "./logo.png";
 import { FaBars, FaMoon, FaSun } from "react-icons/fa";
 import { MdClose } from "react-icons/md";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -279,7 +279,7 @@ import {
   faLinkedinIn,
 } from "@fortawesome/free-brands-svg-icons";
 
-const HomePage = () => {
+const LandingPage = () => {
   const [isNavVisible, setIsNavVisible] = useState(false);
   const [isNightMode, setIsNightMode] = useState(false);
 
@@ -313,7 +313,7 @@ const HomePage = () => {
               </button>
             </div>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/LandingPage">Landing Page</Link>
             </li>
             <li>
               <Link to="/about">About</Link>
@@ -477,4 +477,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default LandingPage;

@@ -1,0 +1,147 @@
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import Layout from "../../components/Shared/Layout/Layout";
+import styles from './namehide.module.css';
+import homeIcon from './home_icon.png';
+import profileIcon from './profile_icon.png';
+import requestIcon from './request_icon.png';
+import donorIcon from './donor_icon.png';
+import donorstyles from "./Donor.module.css";
+
+const App = () => {
+  const bloodGroups = ['A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-'];
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [selectedBloodGroup, setSelectedBloodGroup] = useState('');
+  const [location, setLocation] = useState('');
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
+  const handleBloodGroupChange = (e) => {
+    setSelectedBloodGroup(e.target.value);
+  };
+
+  const handleLocationChange = (e) => {
+    setLocation(e.target.value);
+  };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    // Implement search functionality here
+  };
+
+  return (
+    <Layout>
+      <div className={styles.menuToggle} onClick={toggleSidebar}>
+        &#9776;
+      </div>
+      <div className={`${styles.sidebar} ${sidebarOpen ? styles.open : ""}`}>
+        <Link to="/home" onClick={toggleSidebar}>
+          <div className={styles.icon}>
+            <img src={homeIcon} alt="Home" className={styles.iconImage} />
+            <span>Home</span>
+          </div>
+        </Link>
+        <Link to="/profile" onClick={toggleSidebar}>
+          <div className={styles.icon}>
+            <img src={profileIcon} alt="Profile" className={styles.iconImage} />
+            <span>Profile</span>
+          </div>
+        </Link>
+        <a href="/request" onClick={toggleSidebar}>
+          <div className={styles.icon}>
+            <img src={requestIcon} alt="Request" className={styles.iconImage} />
+            <span>Request</span>
+          </div>
+        </a>
+        <a href="/donor" onClick={toggleSidebar}>
+          <div className={styles.icon}>
+            <img src={donorIcon} alt="Donor" className={styles.iconImage} />
+            <span>Donor</span>
+          </div>
+        </a>
+      </div>
+
+      <div className={donorstyles.content}>
+        <h2>Find Donor</h2>
+        <form className={donorstyles.searchForm} onSubmit={handleSearch}>
+          <div className={donorstyles.formGroup}>
+            <label htmlFor="bloodGroup">Choose Blood Group</label>
+            <select
+              id="bloodGroup"
+              value={selectedBloodGroup}
+              onChange={handleBloodGroupChange}
+              className={donorstyles.formControl}
+            >
+              <option value="">Select Blood Group</option>
+              {bloodGroups.map((group) => (
+                <option key={group} value={group}>
+                  {group}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className={donorstyles.formGroup}>
+            <label htmlFor="location">Location</label>
+            <input
+              type="text"
+              id="location"
+              value={location}
+              onChange={handleLocationChange}
+              className={donorstyles.formControl}
+              placeholder="Enter location"
+            />
+          </div>
+          <button type="submit" className={donorstyles.searchButton}>
+            Search
+          </button>
+        </form>
+
+        <table className={donorstyles.table}>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Address</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Person Blood</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Bhawesh Kumar</td>
+              <td>Garden Karachi</td>
+              <td>0333-3869468</td>
+              <td>bk137350@gmail.com</td>
+              <td>O+</td>
+            </tr>
+            <tr>
+              <td>Jai</td>
+              <td>Sadar Karachi</td>
+              <td>000-0000000</td>
+              <td>Jai@gmail.com</td>
+              <td>B+</td>
+            </tr>
+            <tr>
+              <td>Raj</td>
+              <td>DHA Karachi</td>
+              <td>000-0000000</td>
+              <td>raj@gmail.com</td>
+              <td>A+</td>
+            </tr>
+            <tr>
+              <td>Sager</td>
+              <td>Clifton Karachi</td>
+              <td>000-0000000</td>
+              <td>sager@gmail.com</td>
+              <td>B-</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </Layout>
+  );
+};
+
+export default App;

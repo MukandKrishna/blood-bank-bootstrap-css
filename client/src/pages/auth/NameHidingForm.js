@@ -1,7 +1,11 @@
+// modules installation
+
 // npm install --save @fortawesome/fontawesome-svg-core
 // npm install --save @fortawesome/free-solid-svg-icons
 // npm install --save @fortawesome/react-fontawesome
 // now logout part
+// import { useDispatch, useSelector } from "react-redux";
+
 import React, { useEffect, useState } from "react";
 import { handleUpdate } from "../../services/authService";
 import styles from "./namehide.module.css";
@@ -9,24 +13,19 @@ import { Link } from "react-router-dom";
 import { getUser } from "../../redux/features/auth/authActions";
 import Layout from "../../components/Shared/Layout/Layout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faHome,
-  faUser,
-  faSearch,
-  // faUserCircle,
-  // faSignOutAlt,
-} from "@fortawesome/free-solid-svg-icons";
-import request from "./request_icon.png";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import request from "../auth/request_icon.png";
+import home from "../auth/home_icon.png";
+import profile from "../auth/profile_icon.png";
 
-// import { useDispatch, useSelector } from "react-redux";
 const App = () => {
   const bloodGroups = ["A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"];
   const [userData, setUserData] = useState({});
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(() => {
     (async function func() {
       const user = await getUser();
-      console.log(user.user);
       setUserData(user.user);
     })();
   }, []);
@@ -35,6 +34,7 @@ const App = () => {
     const { name, value } = e.target;
     setUserData((prevData) => ({ ...prevData, [name]: value }));
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     handleUpdate(
@@ -52,44 +52,53 @@ const App = () => {
     );
   };
 
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
   return (
     <Layout>
-      {/* <div className={styles.pageContainer}> */}
-
-      <div className={styles.sidebar}>
-        <Link to="/home">
+      {/* Sidebar toggle button */}
+      <div className={styles.menuToggle} onClick={toggleSidebar}>
+        &#9776;
+      </div>
+      <div
+        className={`${styles.sidebar} ${
+          sidebarOpen ? styles.open : styles.closed
+        }`}
+      >
+        <Link to="/home" onClick={toggleSidebar}>
           <div className={styles.icon}>
-            <FontAwesomeIcon icon={faUser} />
+            <img src={home} alt="Home" className={styles.iconImage} />
             <span>Home</span>
           </div>
         </Link>
-        <Link to="/namehidingform">
+        <Link to="/profile" onClick={toggleSidebar}>
           <div className={styles.icon}>
-            <FontAwesomeIcon icon={faHome} />
+            <img src={profile} alt="Profile" className={styles.iconImage} />
             <span>Profile</span>
           </div>
         </Link>
-        <Link to="/request">
+        <Link to="/request" onClick={toggleSidebar}>
           <div className={styles.icon}>
-            <img src={request} alt="Request" />
+            <img src={request} alt="Request" className={styles.iconImage} />
             <span>Request</span>
           </div>
         </Link>
-        <Link to="/finddonor">
+        <Link to="/donor" onClick={toggleSidebar}>
           <div className={styles.icon}>
             <FontAwesomeIcon icon={faSearch} />
-            <span>Find Donor</span>
+            <span>Donor</span>
           </div>
         </Link>
       </div>
+
       <div className={styles.formContainer}>
         <div className={styles.card}>
-          <h2 className="profilepage">Profile Page</h2>
+          <h2 className="profileName">Profile Page</h2>
           <hr className="mb-2" />
-
           <form onSubmit={handleSubmit} className={styles.formMobile}>
             <div className="d-flex flex-wrap justify-content-evenly">
-              {/* First Column */}
               <div className="column">
                 <div className="mb-3">
                   <label htmlFor="name" className="form-label">
@@ -97,13 +106,12 @@ const App = () => {
                   </label>
                   <input
                     type="text"
-                    className="form-control"
+                    className={styles.formControl}
                     id="name"
                     name="name"
                     placeholder="Enter your name"
                     onChange={handleChange}
-                    value={userData.name}
-                    // required
+                    value={userData.name || ""}
                   />
                 </div>
                 <div className="mb-3">
@@ -112,22 +120,21 @@ const App = () => {
                   </label>
                   <input
                     type="text"
-                    className="form-control"
+                    className={styles.formControl}
                     id="fname"
                     name="fname"
                     placeholder="Enter your father's name"
                     onChange={handleChange}
-                    value={userData.fname}
-                    // required
+                    value={userData.fname || ""}
                   />
                 </div>
                 <div className="mb-3">
                   <label htmlFor="password" className="form-label">
-                    Password(Optional):
+                    Password:
                   </label>
                   <input
                     type="password"
-                    className="form-control"
+                    className={styles.formControl}
                     id="password"
                     name="password"
                     placeholder="Want to update password?"
@@ -137,16 +144,14 @@ const App = () => {
                 </div>
                 <div className="mb-3">
                   <label htmlFor="bloodgroup" className="form-label">
-                    {/* <span className="text-danger">*</span> */}
                     Blood Group:
                   </label>
                   <select
-                    className="form-control"
+                    className={styles.formControl}
                     id="bloodgroup"
                     name="bloodgroup"
                     onChange={handleChange}
-                    value={userData.bloodgroup}
-                    // required
+                    value={userData.bloodgroup || ""}
                   >
                     <option value="">Select Blood Group</option>
                     {bloodGroups.map((group) => (
@@ -162,32 +167,29 @@ const App = () => {
                   </label>
                   <input
                     type="text"
-                    className="form-control"
+                    className={styles.formControl}
                     id="nukh"
                     name="nukh"
                     placeholder="Enter your nukh"
                     onChange={handleChange}
-                    value={userData.nukh}
-                    // required
+                    value={userData.nukh || ""}
                   />
                 </div>
               </div>
 
-              {/* Second Column */}
               <div className="column">
                 <div className="mb-3">
-                  <label htmlFor="akkah" className="form-label">
+                  <label htmlFor="akaah" className="form-label">
                     Akaah:
                   </label>
                   <input
                     type="text"
-                    className="form-control"
+                    className={styles.formControl}
                     id="akaah"
                     name="akaah"
                     placeholder="Enter your akaah"
                     onChange={handleChange}
-                    value={userData.akaah}
-                    // required
+                    value={userData.akaah || ""}
                   />
                 </div>
                 <div className="mb-3">
@@ -196,12 +198,10 @@ const App = () => {
                   </label>
                   <input
                     type="date"
-                    className="form-control"
+                    className={styles.formControl}
                     id="donatedate"
                     name="donatedate"
-                    placeholder="Enter the donated date"
                     onChange={handleChange}
-                    // value={new Date(userData.donatedate)}
                     value={
                       userData.donatedate
                         ? new Date(userData.donatedate)
@@ -209,8 +209,6 @@ const App = () => {
                             .split("T")[0]
                         : ""
                     }
-
-                    // required
                   />
                 </div>
                 <div className="mb-3">
@@ -219,13 +217,12 @@ const App = () => {
                   </label>
                   <input
                     type="text"
-                    className="form-control"
+                    className={styles.formControl}
                     id="contact"
                     name="contact"
                     placeholder="Enter your contact"
                     onChange={handleChange}
-                    value={userData.contact}
-                    // required
+                    value={userData.contact || ""}
                   />
                 </div>
                 <div className="mb-3">
@@ -234,52 +231,39 @@ const App = () => {
                   </label>
                   <input
                     type="email"
-                    className="form-control"
+                    className={styles.formControl}
                     id="email"
                     name="email"
                     placeholder="Enter your email"
                     onChange={handleChange}
-                    value={userData.email}
-                    // required
+                    value={userData.email || ""}
                   />
                 </div>
-
                 <div className="mb-3">
-                  <div className="d-flex align-items-center mb-2">
-                    <span className="mr-3">Name hide request:</span>
-                    <input
-                      type="radio"
-                      id="hideYes"
-                      name="hideName"
-                      value="yes"
-                      // onChange={handleChange}
-                      // checked={userData.hideName === "yes"}
-                    />
-                    <label className="mr-2 ml-2" htmlFor="hideYes">
-                      Yes
-                    </label>
-                    <input
-                      type="radio"
-                      id="hideNo"
-                      name="hideName"
-                      value="no"
-                    />
-                    <label className="ml-2" htmlFor="hideNo">
-                      No
-                    </label>
-                  </div>
-                  <button className={styles.button} type="submit">
-                    Save
-                  </button>
+                  <label htmlFor="hideName" className="form-label">
+                    Do you want to hide your name?
+                  </label>
+                  <select
+                    className={styles.formControl}
+                    id="hideName"
+                    name="hideName"
+                    onChange={handleChange}
+                    value={userData.hideName || ""}
+                  >
+                    <option value="">Select Option</option>
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                  </select>
                 </div>
+                <button type="submit" className={styles.button}>
+                  Update
+                </button>
               </div>
             </div>
           </form>
         </div>
       </div>
-      {/* </div> */}
     </Layout>
-    // </div>
   );
 };
 

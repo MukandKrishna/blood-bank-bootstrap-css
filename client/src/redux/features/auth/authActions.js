@@ -119,7 +119,7 @@ export const userUpdate = createAsyncThunk(
       if (data?.success) {
         alert("Form Saved Successfully");
         // window.location.replace("/namehidingform");
-        window.location.replace("/");
+        window.location.replace("/namehidingform");
       }
     } catch (error) {
       console.log(error);

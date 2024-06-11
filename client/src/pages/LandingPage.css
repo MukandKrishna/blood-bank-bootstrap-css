@@ -342,8 +342,6 @@ body.night-mode .navbar-container {
     }
 }
 
-
-
 /***** Footer styles ******/
 
 .footer {
@@ -479,13 +477,6 @@ body.night-mode .navbar-container {
     }
 }
 
-/* White mode */
-body {
-    background-color: #ffffff;
-    /* Background color for white mode */
-    color: #ffffff;
-    /* Text color for white mode */
-}
 
 /* Black mode */
 body.night-mode {

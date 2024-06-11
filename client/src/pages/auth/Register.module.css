@@ -114,6 +114,8 @@
   justify-content: center;
   align-items: center;
 }
+
+animated form above
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
@@ -170,7 +172,6 @@
     border-radius: 20px 20px 0 0;
     margin-bottom: 0;
     padding: 30px 20px;
-    /* Increase padding for a more centered look */
   }
 
   .image-container {
@@ -190,12 +191,10 @@
 @media (max-width: 480px) {
   .form-container {
     padding: 20px 15px;
-    /* Adjust padding for smaller screens */
   }
 
   .image-container {
     height: 200px;
-    /* Set a specific height for the image on very small screens */
   }
 
   .image {
