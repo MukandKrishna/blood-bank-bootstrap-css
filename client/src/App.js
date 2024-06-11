@@ -8,7 +8,6 @@ import VerifyOTP from "./pages/auth/verifyOTP";
 
 import NameHidingForm from "./pages/auth/NameHidingForm";
 import Request from "./pages/auth/Request";
-import Profile from "./pages/auth/Profile";
 
 import RegisteredUsers from "./pages/Admin/RegisteredUsers";
 import Inventory from "./pages/Admin/Inventory";
@@ -42,7 +41,6 @@ function App() {
             /> */}
         <Route path="/NameHidingForm" element={<NameHidingForm />} />
         <Route path="/Request" element={<Request />} />
-        <Route path="/Profile" element={<Profile />} />
       </Routes>
     </>
   );

@@ -28,6 +28,15 @@ const userSchema = new mongoose.Schema(
         return false;
       },
     },
+
+    website: {
+      type: String,
+    },
+    address: {
+      type: String,
+      required: [true, "address is required"],
+    },
+    /*
     hospitalName: {
       type: String,
       required: function () {
@@ -37,6 +46,7 @@ const userSchema = new mongoose.Schema(
         return false;
       },
     },
+    */
     name: {
       type: String,
       required: [true, "name is required"],

@@ -13,11 +13,13 @@ const Form = ({ formType, submitBtn, formTitle }) => {
   const [bloodgroup, setBloodGroup] = useState("");
   const [secretkey, setSecretKey] = useState("");
 
-  // const [organisationName, setOrganisationName] = useState("");
+  const [organisationName, setOrganisationName] = useState("");
+  const [website, setWebsite] = useState("");
   // const [hospitalName, setHospitalName] = useState("");
+  const [contact, setContact] = useState("");
+
   const [nukh, setNukh] = useState("");
   const [akaah, setAkaah] = useState("");
-  const [contact, setContact] = useState("");
   const [nativetown, setTown] = useState("");
 
   // Inline style for white text color
@@ -32,27 +34,42 @@ const Form = ({ formType, submitBtn, formTitle }) => {
           let emptyFields = [];
 
           if (formType === "login") {
-            // For login form, check only email and password
             emptyFields = [
               { label: "Email", value: email.trim() },
               { label: "Password", value: password.trim() },
             ];
           } else if (formType === "register") {
-            // For register form, check all fields
-            emptyFields = [
-              { label: "Name", value: name.trim() },
-              { label: "Father's Name", value: fname.trim() },
-              { label: "Date of Birth", value: dob.trim() },
-              { label: "Blood Group", value: bloodgroup.trim() },
-              { label: "Email", value: email.trim() },
-              { label: "Password", value: password.trim() },
-              { label: "Role", value: role.trim() },
-              { label: "Nukh", value: nukh.trim() },
-              { label: "Contact", value: contact.trim() },
-              { label: "Akaah", value: akaah.trim() },
-              { label: "Native Town", value: nativetown.trim() },
-              // { label: "Secret Key", value: secretkey.trim() },
-            ];
+            if (role === "organisation") {
+              emptyFields = [
+                { label: "Organization Name", value: organisationName.trim() },
+                { label: "Website", value: website.trim() },
+                { label: "Contact", value: contact.trim() },
+                { label: "Email", value: email.trim() },
+                { label: "Password", value: password.trim() },
+              ];
+            } else if (role === "admin") {
+              emptyFields = [
+                { label: "Secret Key", value: secretkey.trim() },
+                { label: "Name", value: name.trim() },
+                { label: "Email", value: email.trim() },
+                { label: "Password", value: password.trim() },
+                { label: "Contact", value: contact.trim() },
+              ];
+            } else {
+              emptyFields = [
+                { label: "Name", value: name.trim() },
+                { label: "Father's Name", value: fname.trim() },
+                { label: "Date of Birth", value: dob.trim() },
+                { label: "Blood Group", value: bloodgroup.trim() },
+                { label: "Email", value: email.trim() },
+                { label: "Password", value: password.trim() },
+                { label: "Role", value: role.trim() },
+                { label: "Nukh", value: nukh.trim() },
+                { label: "Contact", value: contact.trim() },
+                { label: "Akaah", value: akaah.trim() },
+                { label: "Native Town", value: nativetown.trim() },
+              ];
+            }
           }
 
           // Filter empty fields
@@ -88,9 +105,9 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                 contact,
                 akaah,
                 nativetown,
+                organisationName,
                 secretkey
                 // hospitalName,
-                // organisationName
               );
             }
           }
@@ -143,7 +160,8 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                 </label>
               </div>
             }
-            {/* <div className="form-check ms-2">
+            {
+              /* <div className="form-check ms-2">
             <input
               type="radio"
               className="form-check-input"
@@ -155,20 +173,21 @@ const Form = ({ formType, submitBtn, formTitle }) => {
             <label htmlFor="hospitalRadio" className="form-check-label">
               Hospital
             </label>
-          </div>
-          <div className="form-check ms-2">
-            <input
-              type="radio"
-              className="form-check-input"
-              name="role"
-              id="organisationRadio"
-              value={"organisation"}
-              onChange={(e) => setRole(e.target.value)}
-            />
-            <label htmlFor="organisationRadio" className="form-check-label">
-              Organisation
-            </label>
-          </div> */}
+          </div>*/
+              <div className="form-check ms-2">
+                <input
+                  type="radio"
+                  className="form-check-input"
+                  name="role"
+                  id="organisationRadio"
+                  value={"organisation"}
+                  onChange={(e) => setRole(e.target.value)}
+                />
+                <label htmlFor="organisationRadio" className="form-check-label">
+                  Organisation
+                </label>
+              </div>
+            }
           </div>
         )}
         {/* switch statement */}
@@ -204,136 +223,206 @@ const Form = ({ formType, submitBtn, formTitle }) => {
             case formType === "register": {
               return (
                 <>
-                  {/* {(role === "admin") && ( */}
                   {role === "admin" && (
-                    <InputType
-                      labelText={""}
-                      placeHolder={"Enter Secret Key"}
-                      labelFor={"forkey"}
-                      inputType={"text"}
-                      name={"name"}
-                      value={secretkey}
-                      onChange={(e) => setSecretKey(e.target.value)}
-                    />
+                    <>
+                      <InputType
+                        labelText={""}
+                        placeHolder={"Enter Secret Key"}
+                        labelFor={"forkey"}
+                        inputType={"text"}
+                        name={"secretkey"}
+                        value={secretkey}
+                        onChange={(e) => setSecretKey(e.target.value)}
+                      />
+                      <InputType
+                        labelText={""}
+                        placeHolder={"Enter your Name"}
+                        labelFor={"forName"}
+                        inputType={"text"}
+                        name={"name"}
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                      />
+                      <InputType
+                        labelText={""}
+                        placeHolder={"Enter your Email"}
+                        labelFor={"forEmail"}
+                        inputType={"email"}
+                        name={"email"}
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
+                      <InputType
+                        labelText={""}
+                        placeHolder={"Enter your Password"}
+                        labelFor={"forPassword"}
+                        inputType={"password"}
+                        name={"password"}
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                      />
+                      <InputType
+                        labelText={""}
+                        placeHolder={"Enter your Contact"}
+                        labelFor={"forContact"}
+                        inputType={"text"}
+                        name={"contact"}
+                        value={contact}
+                        onChange={(e) => setContact(e.target.value)}
+                      />
+                    </>
                   )}
 
-                  {/* {role === "organisation" && (
-                    <InputType
-                      labelText={"Organisation Name"}
-                      labelFor={"fororganisationName"}
-                      inputType={"text"}
-                      name={"organisationName"}
-                      value={organisationName}
-                      onChange={(e) => setOrganisationName(e.target.value)}
-                    />
+                  {role === "organisation" && (
+                    <>
+                      <InputType
+                        labelText={""}
+                        placeHolder={"Enter Organization Name"}
+                        labelFor={"fororganisationName"}
+                        inputType={"text"}
+                        name={"organisationName"}
+                        value={organisationName}
+                        onChange={(e) => setOrganisationName(e.target.value)}
+                      />
+                      <InputType
+                        labelText={""}
+                        placeHolder={"Enter Organization Website"}
+                        labelFor={"forWebsite"}
+                        inputType={"text"}
+                        name={"website"}
+                        value={website}
+                        onChange={(e) => setWebsite(e.target.value)}
+                      />
+                      <InputType
+                        labelText={""}
+                        placeHolder={"Enter your Email"}
+                        labelFor={"forEmail"}
+                        inputType={"email"}
+                        name={"email"}
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
+                      <InputType
+                        labelText={""}
+                        placeHolder={"Enter your Contact"}
+                        labelFor={"forContact"}
+                        inputType={"text"}
+                        name={"contact"}
+                        value={contact}
+                        onChange={(e) => setContact(e.target.value)}
+                      />
+                      <InputType
+                        labelText={""}
+                        placeHolder={"Enter your Password"}
+                        labelFor={"forPassword"}
+                        inputType={"password"}
+                        name={"password"}
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                      />
+                    </>
                   )}
-                  {role === "hospital" && (
-                    <InputType
-                      labelText={"Hospital Name"}
-                      labelFor={"forHospitalName"}
-                      inputType={"text"}
-                      name={"hospitalName"}
-                      value={hospitalName}
-                      onChange={(e) => setHospitalName(e.target.value)}
-                    /> }
-                  )*/}
-                  <InputType
-                    labelText={""}
-                    placeHolder={"Enter your Name"}
-                    labelFor={"forName"}
-                    inputType={"text"}
-                    name={"name"}
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                  />
-                  <InputType
-                    labelText={""}
-                    placeHolder={"Enter your Father's Name"}
-                    labelFor={"forfname"}
-                    inputType={"text"}
-                    name={"fname"}
-                    value={fname}
-                    onChange={(e) => setfName(e.target.value)}
-                  />
-                  <InputType
-                    labelText={""}
-                    placeHolder={"Enter your Password"}
-                    labelFor={"forPassword"}
-                    inputType={"password"}
-                    name={"password"}
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                  <InputType
-                    labelText={"Enter your Date of Birth:"}
-                    placeHolder={"MM/DD/YYYY"}
-                    labelFor={"fordob"}
-                    inputType={"date"}
-                    name={"dob"}
-                    value={dob}
-                    onChange={(e) => setDob(e.target.value)}
-                  />
-                  <div className="inputtype">
-                    <select
-                      id="forBloodGroup"
-                      name="bloodgroup"
-                      value={bloodgroup}
-                      onChange={(e) => setBloodGroup(e.target.value)}
-                      className="form-control"
-                    >
-                      <option value="">Select Blood Group</option>
-                      {bloodGroups.map((group) => (
-                        <option key={group} value={group}>
-                          {group}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  <InputType
-                    labelText={""}
-                    placeHolder={"Enter your Native Town"}
-                    labelFor={"fortown"}
-                    inputType={"text"}
-                    name={"nativetown"}
-                    value={nativetown}
-                    onChange={(e) => setTown(e.target.value)}
-                  />
-                  <InputType
-                    labelText={""}
-                    placeHolder={"Enter your Nukh"}
-                    labelFor={"forNukh"}
-                    inputType={"text"}
-                    name={"nukh"}
-                    value={nukh}
-                    onChange={(e) => setNukh(e.target.value)}
-                  />
-                  <InputType
-                    labelText={""}
-                    placeHolder={"Enter your Akaah"}
-                    labelFor={"forAkaah"}
-                    inputType={"text"}
-                    name={"akaah"}
-                    value={akaah}
-                    onChange={(e) => setAkaah(e.target.value)}
-                  />
-                  <InputType
-                    labelText={""}
-                    placeHolder={"Enter your Contact"}
-                    labelFor={"forContact"}
-                    inputType={"text"}
-                    name={"contact"}
-                    value={contact}
-                    onChange={(e) => setContact(e.target.value)}
-                  />
-                  <InputType
-                    labelText={""}
-                    placeHolder={"Enter your Email"}
-                    labelFor={"forEmail"}
-                    inputType={"email"}
-                    name={"email"}
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
+                  {role === "user" && (
+                    <>
+                      <InputType
+                        labelText={""}
+                        placeHolder={"Enter your Name"}
+                        labelFor={"forName"}
+                        inputType={"text"}
+                        name={"name"}
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                      />
+                      <InputType
+                        labelText={""}
+                        placeHolder={"Enter your Father's Name"}
+                        labelFor={"forfname"}
+                        inputType={"text"}
+                        name={"fname"}
+                        value={fname}
+                        onChange={(e) => setfName(e.target.value)}
+                      />
+                      <InputType
+                        labelText={""}
+                        placeHolder={"Enter your Password"}
+                        labelFor={"forPassword"}
+                        inputType={"password"}
+                        name={"password"}
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                      />
+                      <InputType
+                        labelText={"Enter your Date of Birth:"}
+                        placeHolder={"MM/DD/YYYY"}
+                        labelFor={"fordob"}
+                        inputType={"date"}
+                        name={"dob"}
+                        value={dob}
+                        onChange={(e) => setDob(e.target.value)}
+                      />
+                      <div className="inputtype">
+                        <select
+                          id="forBloodGroup"
+                          name="bloodgroup"
+                          value={bloodgroup}
+                          onChange={(e) => setBloodGroup(e.target.value)}
+                          className="form-control"
+                        >
+                          <option value="">Select Blood Group</option>
+                          {bloodGroups.map((group) => (
+                            <option key={group} value={group}>
+                              {group}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                      <InputType
+                        labelText={""}
+                        placeHolder={"Enter your Native Town"}
+                        labelFor={"fortown"}
+                        inputType={"text"}
+                        name={"nativetown"}
+                        value={nativetown}
+                        onChange={(e) => setTown(e.target.value)}
+                      />
+                      <InputType
+                        labelText={""}
+                        placeHolder={"Enter your Nukh"}
+                        labelFor={"forNukh"}
+                        inputType={"text"}
+                        name={"nukh"}
+                        value={nukh}
+                        onChange={(e) => setNukh(e.target.value)}
+                      />
+                      <InputType
+                        labelText={""}
+                        placeHolder={"Enter your Akaah"}
+                        labelFor={"forAkaah"}
+                        inputType={"text"}
+                        name={"akaah"}
+                        value={akaah}
+                        onChange={(e) => setAkaah(e.target.value)}
+                      />
+                      <InputType
+                        labelText={""}
+                        placeHolder={"Enter your Contact"}
+                        labelFor={"forContact"}
+                        inputType={"text"}
+                        name={"contact"}
+                        value={contact}
+                        onChange={(e) => setContact(e.target.value)}
+                      />
+                      <InputType
+                        labelText={""}
+                        placeHolder={"Enter your Email"}
+                        labelFor={"forEmail"}
+                        inputType={"email"}
+                        name={"email"}
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
+                    </>
+                  )}
                 </>
               );
             }
