@@ -173,6 +173,8 @@ const updateUserController = async (req, res) => {
         contact: req.body.contact,
         akaah: req.body.akaah,
         password: req.body.password,
+        address: req.body.address,
+
       },
       { new: true } // option to return the modified document
     );
@@ -211,6 +213,7 @@ const nameHideController = async (req, res) => {
       nukh,
       akaah,
       hideName,
+      address,
     } = req.body;
 
     const user = await userModel.findById(id);
@@ -237,6 +240,7 @@ const nameHideController = async (req, res) => {
     user.nukh = nukh || user.nukh;
     user.akaah = akaah || user.akaah;
     user.hideName = hideName || user.hideName;
+    user.address = address || user.address;
 
     await user.save();
 
@@ -260,7 +264,6 @@ module.exports = {
   registerController,
   loginController,
   currentUserController,
-  // updatecurrentUserController,
   updateUserController,
   getUserController,
   nameHideController,

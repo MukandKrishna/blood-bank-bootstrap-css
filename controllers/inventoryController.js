@@ -7,24 +7,24 @@ const createInventoryController = async (req, res) => {
   try {
     const { email, inventoryType } = req.body;
     // validation
-    const user = await userModel.findOne({ email });
+    const user = await userModel.findOne({ email, inventoryType });
     if (!user) {
       throw new Error("User not found");
     }
-    // if (inventoryType === "in" && user.role !== "donar") {
-    //   throw new Error("Not a donar account");
-    // }
-    // if (inventoryType === "out" && user.role !== "hospital") {
-    //   throw new Error("Not a hospital");
-    // }
-    // // save inventory
-    // const inventory = new inventoryModel(req.body);
-    // await inventory.save();
-    // res.status(201).send({
-    //   success: true,
-    //   message: "New Blood Record Added",
-    //   inventory,
-    // });
+    if (inventoryType === "in" && user.role !== "user") {
+      throw new Error("Not a user account");
+    }
+    if (inventoryType === "out" && user.role !== "organisation") {
+      throw new Error("Not a organisation");
+    }
+    // save inventory
+    const inventory = new inventoryModel(req.body);
+    await inventory.save();
+    res.status(201).send({
+      success: true,
+      message: "New Blood Record Added",
+      inventory,
+    });
   } catch (error) {
     console.log(error);
     res.status(500).send({

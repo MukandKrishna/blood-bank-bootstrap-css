@@ -28,13 +28,14 @@ export const handleRegister = (
   email,
   password,
   role,
-  nukh,
   contact,
+  nukh,
   akaah,
   currentcity,
   nativetown,
-  secretkey
-  // organisationName,
+  secretkey,
+  organisationName,
+  website,
   // hospitalName,
 ) => {
   e.preventDefault();
@@ -48,13 +49,14 @@ export const handleRegister = (
         email,
         password,
         role,
-        nukh,
         contact,
+        nukh,
         akaah,
         currentcity,
         nativetown,
         secretkey,
-        // organisationName,
+        organisationName,
+        website,
         // hospitalName,
       })
     );
@@ -75,6 +77,7 @@ export const handleUpdate = (
   nukh,
   contact,
   akaah,
+  address,
   hideName
 ) => {
   e.preventDefault();
@@ -92,6 +95,7 @@ export const handleUpdate = (
         nukh,
         contact,
         akaah,
+        address,
         hideName
       })
     );

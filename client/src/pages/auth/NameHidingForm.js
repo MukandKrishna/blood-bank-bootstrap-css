@@ -22,13 +22,27 @@ const App = () => {
   const bloodGroups = ["A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"];
   const [userData, setUserData] = useState({});
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [isEligible, setIsEligible] = useState(true);
 
   useEffect(() => {
     (async function func() {
       const user = await getUser();
       setUserData(user.user);
+      checkEligibility(user.user.donatedate);
     })();
   }, []);
+
+  const checkEligibility = (donatedate) => {
+    if (donatedate) {
+      const lastDonationDate = new Date(donatedate);
+      const currentDate = new Date();
+      const differenceInDays =
+        (currentDate - lastDonationDate) / (1000 * 3600 * 24);
+      if (differenceInDays < 90) {
+        setIsEligible(false);
+      }
+    }
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -48,6 +62,7 @@ const App = () => {
       e.target.nukh.value,
       e.target.contact.value,
       e.target.akaah.value,
+      e.target.address.value,
       e.target.hideName.value
     );
   };
@@ -129,20 +144,6 @@ const App = () => {
                   />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="password" className="form-label">
-                    Password:
-                  </label>
-                  <input
-                    type="password"
-                    className={styles.formControl}
-                    id="password"
-                    name="password"
-                    placeholder="Want to update password?"
-                    onChange={handleChange}
-                    value={""}
-                  />
-                </div>
-                <div className="mb-3">
                   <label htmlFor="bloodgroup" className="form-label">
                     Blood Group:
                   </label>
@@ -175,9 +176,6 @@ const App = () => {
                     value={userData.nukh || ""}
                   />
                 </div>
-              </div>
-
-              <div className="column">
                 <div className="mb-3">
                   <label htmlFor="akaah" className="form-label">
                     Akaah:
@@ -193,24 +191,64 @@ const App = () => {
                   />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="donatedate" className="form-label">
-                    Blood Donated Date:
+                  <label htmlFor="address" className="form-label">
+                    Address:
                   </label>
                   <input
-                    type="date"
+                    type="text"
                     className={styles.formControl}
-                    id="donatedate"
-                    name="donatedate"
+                    id="address"
+                    name="address"
+                    placeholder="area, city(e.g. Johar, Karachi)"
                     onChange={handleChange}
-                    value={
-                      userData.donatedate
-                        ? new Date(userData.donatedate)
-                            .toISOString()
-                            .split("T")[0]
-                        : ""
-                    }
+                    value={userData.address || ""}
                   />
                 </div>
+              </div>
+
+              <div className="column">
+                <div className="mb-3">
+                  <label htmlFor="password" className="form-label">
+                    Password:
+                  </label>
+                  <input
+                    type="password"
+                    className={styles.formControl}
+                    id="password"
+                    name="password"
+                    placeholder="Want to update password?"
+                    onChange={handleChange}
+                    value={""}
+                  />
+                </div>
+                {!isEligible ? (
+                  <div className="mb-3">
+                    <p>
+                      You are not eligible to donate blood. You have donated
+                      blood in the past 90 days.
+                    </p>
+                  </div>
+                ) : (
+                  <div className="mb-3">
+                    <label htmlFor="donatedate" className="form-label">
+                      Last Blood Donated Date:
+                    </label>
+                    <input
+                      type="date"
+                      className={styles.formControl}
+                      id="donatedate"
+                      name="donatedate"
+                      onChange={handleChange}
+                      value={
+                        userData.donatedate
+                          ? new Date(userData.donatedate)
+                              .toISOString()
+                              .split("T")[0]
+                          : ""
+                      }
+                    />
+                  </div>
+                )}
                 <div className="mb-3">
                   <label htmlFor="contact" className="form-label">
                     Contact:

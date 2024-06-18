@@ -44,7 +44,8 @@ export const userRegister = createAsyncThunk(
       currentcity,
       nativetown,
       secretkey,
-      // organisationName,
+      organisationName,
+      website,
       // hospitalName,
     },
     { rejectWithValue }
@@ -64,7 +65,8 @@ export const userRegister = createAsyncThunk(
         currentcity,
         nativetown,
         secretkey,
-        // organisationName,
+        organisationName,
+        website,
         // hospitalName,
       });
       if (data?.success) {
@@ -100,6 +102,7 @@ export const userUpdate = createAsyncThunk(
       contact,
       akaah,
       hideName,
+      address,
     },
     { rejectWithValue }
   ) => {
@@ -115,6 +118,7 @@ export const userUpdate = createAsyncThunk(
         contact,
         akaah,
         hideName,
+        address,
       });
       if (data?.success) {
         alert("Form Saved Successfully");
