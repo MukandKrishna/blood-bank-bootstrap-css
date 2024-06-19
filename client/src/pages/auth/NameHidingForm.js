@@ -7,13 +7,16 @@
 // import { useDispatch, useSelector } from "react-redux";
 
 import React, { useEffect, useState } from "react";
-import { handleUpdate } from "../../services/authService";
 import styles from "./namehide.module.css";
 import { Link } from "react-router-dom";
 import { getUser } from "../../redux/features/auth/authActions";
+import { handleUpdate } from "../../services/authService";
 import Layout from "../../components/Shared/Layout/Layout";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faInfoCircle } from "@fortawesome/free-solid-svg-icons"; // Add faInfoCircle
+import { Tooltip } from "react-tooltip";
+// import ReactTooltip from "react-tooltip"; // Import ReactTooltip
 import request from "../auth/request_icon.png";
 import home from "../auth/home_icon.png";
 import profile from "../auth/profile_icon.png";
@@ -71,6 +74,12 @@ const App = () => {
     setSidebarOpen(!sidebarOpen);
   };
 
+  // const formatDate = (dateString) => {
+  //   if (!dateString) return "";
+  //   const date = new Date(dateString);
+  //   return date.toLocaleDateString();
+  // };
+
   return (
     <Layout>
       {/* Sidebar toggle button */}
@@ -82,13 +91,13 @@ const App = () => {
           sidebarOpen ? styles.open : styles.closed
         }`}
       >
-        <Link to="/home" onClick={toggleSidebar}>
+        <Link to="/LandingPage" onClick={toggleSidebar}>
           <div className={styles.icon}>
             <img src={home} alt="Home" className={styles.iconImage} />
             <span>Home</span>
           </div>
         </Link>
-        <Link to="/profile" onClick={toggleSidebar}>
+        <Link to="/NameHidingForm" onClick={toggleSidebar}>
           <div className={styles.icon}>
             <img src={profile} alt="Profile" className={styles.iconImage} />
             <span>Profile</span>
@@ -127,6 +136,7 @@ const App = () => {
                     placeholder="Enter your name"
                     onChange={handleChange}
                     value={userData.name || ""}
+                    readOnly
                   />
                 </div>
                 <div className="mb-3">
@@ -141,6 +151,7 @@ const App = () => {
                     placeholder="Enter your father's name"
                     onChange={handleChange}
                     value={userData.fname || ""}
+                    readOnly
                   />
                 </div>
                 <div className="mb-3">
@@ -174,6 +185,7 @@ const App = () => {
                     placeholder="Enter your nukh"
                     onChange={handleChange}
                     value={userData.nukh || ""}
+                    readOnly
                   />
                 </div>
                 <div className="mb-3">
@@ -188,18 +200,26 @@ const App = () => {
                     placeholder="Enter your akaah"
                     onChange={handleChange}
                     value={userData.akaah || ""}
+                    readOnly
                   />
                 </div>
                 <div className="mb-3">
                   <label htmlFor="address" className="form-label">
                     Address:
+                    <FontAwesomeIcon
+                      icon={faInfoCircle}
+                      data-tooltip-id="address-tooltip"
+                    />
+                    <Tooltip id="address-tooltip">
+                      Enter address in the format: Johar, Karachi.
+                    </Tooltip>
                   </label>
                   <input
                     type="text"
                     className={styles.formControl}
                     id="address"
                     name="address"
-                    placeholder="area, city(e.g. Johar, Karachi)"
+                    placeholder="e.g., Johar, Karachi."
                     onChange={handleChange}
                     value={userData.address || ""}
                   />
@@ -219,6 +239,7 @@ const App = () => {
                     placeholder="Want to update password?"
                     onChange={handleChange}
                     value={""}
+                    // value={userData.password || ""}
                   />
                 </div>
                 {!isEligible ? (
@@ -261,6 +282,7 @@ const App = () => {
                     placeholder="Enter your contact"
                     onChange={handleChange}
                     value={userData.contact || ""}
+                    readOnly
                   />
                 </div>
                 <div className="mb-3">
@@ -275,6 +297,7 @@ const App = () => {
                     placeholder="Enter your email"
                     onChange={handleChange}
                     value={userData.email || ""}
+                    readOnly
                   />
                 </div>
                 <div className="mb-3">

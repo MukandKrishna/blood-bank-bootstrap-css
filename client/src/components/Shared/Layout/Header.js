@@ -29,7 +29,6 @@ const Header = () => {
     <div class="navbar">
       <div class="navbar-logo">
         <img src={logo} alt="Logo" />
-        {/* <BiDonateBlood color="red" /> DMYF BLOOD BANK{" "} */}
         DMYF BLOOD BANK{" "}
       </div>
       <div class="navbar-links">

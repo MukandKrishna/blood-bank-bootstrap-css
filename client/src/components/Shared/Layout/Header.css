@@ -17,7 +17,7 @@
     color: #fff;
     font-size: 20px;
     font-weight: bold;
-    margin-left: 22px;
+    margin-left: 30px;
     text-decoration: none;
 }
 
@@ -53,8 +53,6 @@
 
 .navbar-logo img {
     width: 45px;
-    /* Adjust the logo size as needed */
-    margin-right: 10px;
 }
 
 /* Hover effect for buttons */
